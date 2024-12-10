@@ -2,7 +2,7 @@
 title: FD泄露排查
 description: 记一次线上服务fd泄露排查
 slug: fd-leak-investigation
-date: 2024-12-11 00:00:00+0000
+date: 2024-12-10 00:00:00+0000
 image: fd.png
 categories:
     - Example Category
@@ -21,11 +21,11 @@ weight: 1       # You can add weight to some posts to override the default sorti
 
 ### 排查步骤
 
-1. 1.**发现问题** ：通过监控系统发现服务的文件描述符数量异常增长。
-2. 2.**查找服务PID** ：使用`ps aux | grep [服务名]`命令找出目标服务的进程ID。
-3. 3.**查看当前服务占用FD数量** ：执行`ls /proc/[PID]/fd | wc -l`检查服务当前打开的文件描述符数量。
-4. 4.**查看FD使用情况** ：详细列出当前服务的文件描述符使用情况，`ls -ls /proc/[PID]/fd`。
-5. 5.**检查网络连接** ：使用`ss -anp |grep [PID]`命令查看服务相关的网络连接，帮助定位可能的泄露来源。
+1. **发现问题** ：通过监控系统发现服务的文件描述符数量异常增长。
+2. **查找服务PID** ：使用`ps aux | grep [服务名]`命令找出目标服务的进程ID。
+3. **查看当前服务占用FD数量** ：执行`ls /proc/[PID]/fd | wc -l`检查服务当前打开的文件描述符数量。
+4. **查看FD使用情况** ：详细列出当前服务的文件描述符使用情况，`ls -ls /proc/[PID]/fd`。
+5. **检查网络连接** ：使用`ss -anp |grep [PID]`命令查看服务相关的网络连接，帮助定位可能的泄露来源。
 
 ### 典型案例
 
