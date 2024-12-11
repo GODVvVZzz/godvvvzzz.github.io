@@ -87,7 +87,7 @@ admin = ""
 adminLabel = ""
 
 [comments.utterances]
-repo = "https://github.com/GODVvVZzz/blog-comments.git"
+repo = "GODVvVZzz/blog-comments.git"
 issueTerm = "pathname"                        # 评论与文章的关联方式，可选 title, pathname, url
 label = "Comments"                            # GitHub Issue 的标签名称
 theme = "github-light"                        # 评论框的主题风格
