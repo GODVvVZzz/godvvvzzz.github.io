@@ -8,5 +8,6 @@ categories:
     - Example Category
 tags:
     - Example Tag
+comments: true
 weight: 1
 ---
