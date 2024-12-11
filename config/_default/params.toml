@@ -77,7 +77,7 @@ enabled = true
 ## Comments
 [comments]
 enabled = true
-provider = "disqus"
+provider = "utterances"
 
 [comments.disqusjs]
 shortname = ""
@@ -87,9 +87,10 @@ admin = ""
 adminLabel = ""
 
 [comments.utterances]
-repo = ""
-issueTerm = "pathname"
-label = ""
+repo = "https://github.com/GODVvVZzz/blog-comments.git"
+issueTerm = "pathname"                        # 评论与文章的关联方式，可选 title, pathname, url
+label = "Comments"                            # GitHub Issue 的标签名称
+theme = "github-light"                        # 评论框的主题风格
 
 [comments.remark42]
 host = ""
