@@ -5,9 +5,9 @@ slug: fd-leak-investigation
 date: 2024-12-10 00:00:00+0000
 image: fd.png
 categories:
-    - Example Category
+  
 tags:
-    - Example Tag
+
 comments: true
 weight: 1       # You can add weight to some posts to override the default sorting (date descending)
 ---
