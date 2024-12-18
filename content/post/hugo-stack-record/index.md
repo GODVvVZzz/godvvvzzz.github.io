@@ -5,9 +5,9 @@ slug: hugo-stack-study
 date: 2024-12-11T09:44:53+08:00
 image: cover.png
 categories:
-
+    - 建站
 tags:
-
+    - Stack
 comments: true
 weight: 1
 ---
@@ -92,10 +92,10 @@ hugo v0.139.3+extended linux/amd64 BuildDate=2024-12-09T10:00:00Z
 ### **创建新文章**
 
 ```bash
-hugo new posts/my-first-post.md
+hugo new react-study-plan/index.md
 ```
 
-在 `content/posts/my-first-post.md` 中编辑内容，例如：
+在 `content/post/react-study-plan/index.mdd` 中编辑内容，例如：
 
 ```yaml
 ---
@@ -131,7 +131,21 @@ theme = "github-light"           # 评论框的主题风格
 
 ### 标签&tag配置
 
-TODO
+直接在文章 Front Matter中添加即可
+
+```yaml
+---
+title: "测试文章"
+date: 2024-12-18
+categories:
+  - 测试分类
+tags:
+  - 标签1
+  - 标签2
+---
+```
+
+
 
 ## 其他
 

@@ -5,9 +5,9 @@ slug: fd-leak-investigation
 date: 2024-12-10 00:00:00+0000
 image: fd.png
 categories:
-  
+    - 问题排查
 tags:
-
+    - FD
 comments: true
 weight: 1       # You can add weight to some posts to override the default sorting (date descending)
 ---
