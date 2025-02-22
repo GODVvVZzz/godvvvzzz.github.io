@@ -22,7 +22,7 @@ weight: 1       # You can add weight to some posts to override the default sorti
 
 ### 阶段 1：HTML/CSS 生存技能（1-2周）
 **目标**：能修改现有项目的样式和结构  
-**项目**：重构 TodoList 的 UI  
+**项目**：重构 [TodoList](https://github.com/GODVvVZzz/react-todo-demo) 的 UI  
 **学习重点**：
 - 通过 Chrome 开发者工具调试样式
 - 修改现有 CSS 类名和样式
