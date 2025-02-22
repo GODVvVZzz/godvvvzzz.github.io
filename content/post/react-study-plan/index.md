@@ -1,17 +1,14 @@
 ---
-title: "React Study Plan"
+title: react学习计划
 description: 
-date: 2025-02-23T00:07:00+08:00
-image: 
-math: 
-license: 
-hidden: false
-comments: true
-draft: true
+slug: react-study-plan
+date: 2025-02-23 00:00:00+0000
 categories:
     - 学习
 tags:
     - react
+comments: true
+weight: 1       # You can add weight to some posts to override the default sorting (date descending)
 ---
 
 # React 渐进式学习路线

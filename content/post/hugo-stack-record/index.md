@@ -3,7 +3,7 @@ title: "记录本博客搭建过程"
 description: 
 slug: hugo-stack-study
 date: 2024-12-11T09:44:53+08:00
-image: cover.png
+# image: cover.png
 categories:
     - 建站
 tags:
@@ -92,7 +92,7 @@ hugo v0.139.3+extended linux/amd64 BuildDate=2024-12-09T10:00:00Z
 ### **创建新文章**
 
 ```bash
-hugo new react-study-plan/index.md
+hugo new post/react-study-plan/index.md
 ```
 
 在 `content/post/react-study-plan/index.mdd` 中编辑内容，例如：
