@@ -19,7 +19,7 @@ tags:
 ## 准备工作
 
 ### 服务器配置
-- **操作系统**：推荐 Ubuntu 22.04 LTS
+- **操作系统**：推荐 Ubuntu 24.04 LTS
 - **安全组开放端口**：80 (HTTP) 和 22 (SSH)
 - **获取服务器公网 IP**：如 `123.123.123.123`
 
@@ -54,6 +54,8 @@ nginx -v  # 应显示版本号
 ```bash
 # 本地电脑执行（将本地项目上传到服务器）
 scp -r ./react-project root@服务器IP:/home/react-project
+
+# 或者通过git clone下载仓库
 ```
 
 ### 构建生产版本
@@ -69,14 +71,14 @@ npm run build  # 生成 build/ 或 dist/ 目录
 创建 Nginx 配置文件并启用：
 ```bash
 # 创建 Nginx 配置文件
-sudo nano /etc/nginx/sites-available/react-app
+sudo vim /etc/nginx/sites-available/react-app
 ```
 
 在文件中输入以下内容：
 ```nginx
 server {
     listen 80;
-    server_name _;  # 无需域名
+    server_name 120.51.70.205;  # 无需域名，替换成自己的服务器公网ip
     root /home/react-project/build;  # 根据实际构建目录调整
     index index.html;
 
@@ -93,13 +95,13 @@ sudo nginx -t        # 测试配置
 sudo systemctl restart nginx
 ```
 
-### 6. 开放防火墙（腾讯云控制台）
+### 开放防火墙（腾讯云控制台）
 登录腾讯云控制台，进入安全组设置，添加入站规则：
 - 协议：TCP
 - 端口：80
 - 来源：0.0.0.0/0（或你的本地 IP）
 
-### 7. 本地访问
+### 本地访问
 在浏览器中访问：
 ```bash
 http://服务器IP
