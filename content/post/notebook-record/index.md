@@ -58,3 +58,51 @@ history | tail -n 10
 
 ```
 
+### nginx无权限
+
+```bash
+# 定位权限问题
+root@VM-4-3-ubuntu:/home/ubuntu/work/react-todo-front# namei -l /home/ubuntu/work/react-todo-front/dist/index.html 
+f: /home/ubuntu/work/react-todo-front/dist/index.html
+drwxr-xr-x root   root     /
+drwxr-xr-x root   root     home
+drwxr-x--x ubuntu ubuntu   ubuntu
+drwxrwxr-x ubuntu ubuntu   work
+drwxr-xr-x root   root     react-todo-front
+drwxr-xr-x ubuntu www-data dist
+-rw-r----- root   root     index.html
+# 如上所示，dist目录下的文件 只有root和root组中用户能够读取，nginx无权限读
+
+# 赋予nginx权限
+root@VM-4-3-ubuntu:/home/ubuntu/work/react-todo-front# sudo chown -R ubuntu:www-data /home/ubuntu/work/react-todo-front/dist
+#检查
+root@VM-4-3-ubuntu:/home/ubuntu/work/react-todo-front# namei -l /home/ubuntu/work/react-todo-front/dist/index.html 
+f: /home/ubuntu/work/react-todo-front/dist/index.html
+drwxr-xr-x root   root     /
+drwxr-xr-x root   root     home
+drwxr-x--x ubuntu ubuntu   ubuntu
+drwxrwxr-x ubuntu ubuntu   work
+drwxr-xr-x root   root     react-todo-front
+drwxr-xr-x ubuntu www-data dist
+-rw-r----- ubuntu www-data index.html
+```
+
+## vim
+
+### 文本替换
+
+```bash
+# 替换文本 替换整个文件中的所有匹配项
+:%s/old/new/g
+
+```
+
+## nginx
+
+
+
+
+
+
+
+- 
