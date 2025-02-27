@@ -103,6 +103,11 @@ drwxr-xr-x ubuntu www-data dist
 
 
 
+## go部署
 
+```bash
+ps aux | grep "go-todo-back" | grep -v grep
 
-- 
+nohup ./go-todo-back &> /home/work/to/logs/nohup.out &
+```
+
