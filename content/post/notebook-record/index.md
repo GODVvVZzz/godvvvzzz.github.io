@@ -108,7 +108,7 @@ drwxr-xr-x ubuntu www-data dist
 ```bash
 ps aux | grep "go-todo-back" | grep -v grep
 
-nohup ./go-todo-back &> /home/work/to/logs/nohup.out &
+nohup ./go-todo-back &> /home/ubuntu/work/log/nohup.out &
 
 go env -w GOPROXY=https://goproxy.cn,direct
 ```
