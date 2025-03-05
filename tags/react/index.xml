@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>React on VvVzzz Blog</title><link>https://godvvvzzz.github.io/tags/react/</link><description>Recent content in React on VvVzzz Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 22 Feb 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://godvvvzzz.github.io/tags/react/index.xml" rel="self" type="application/rss+xml"/><item><title>react学习计划</title><link>https://godvvvzzz.github.io/p/react-study-plan/</link><pubDate>Sat, 22 Feb 2025 00:00:00 +0000</pubDate><guid>https://godvvvzzz.github.io/p/react-study-plan/</guid><description>&lt;h1 id="react-渐进式学习路线">React 渐进式学习路线
+&lt;/h1>&lt;h2 id="-学习原则">📌 学习原则
+&lt;/h2>&lt;ol>
+&lt;li>&lt;strong>每个阶段 1-2 个核心项目&lt;/strong>（保持兴趣和成就感）&lt;/li>
+&lt;li>&lt;strong>遇到问题再补充理论知识&lt;/strong>（避免过早陷入细节）&lt;/li>
+&lt;li>&lt;strong>先模仿再创造&lt;/strong>（通过修改现有项目学习）&lt;/li>
+&lt;/ol>
+&lt;h2 id="-阶段路线图">🚀 阶段路线图
+&lt;/h2>&lt;h3 id="阶段-1htmlcss-生存技能1-2周">阶段 1：HTML/CSS 生存技能（1-2周）
+&lt;/h3>&lt;p>&lt;strong>目标&lt;/strong>：能修改现有项目的样式和结构&lt;br>
+&lt;strong>项目&lt;/strong>：重构 &lt;a class="link" href="https://github.com/GODVvVZzz/react-todo-demo" target="_blank" rel="noopener"
+>TodoList&lt;/a> 的 UI&lt;br>
+&lt;strong>学习重点&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>通过 Chrome 开发者工具调试样式&lt;/li>
+&lt;li>修改现有 CSS 类名和样式&lt;/li>
+&lt;li>使用 Flex/Grid 调整布局&lt;/li>
+&lt;li>添加简单的动画效果&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>资源&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://flexboxfroggy.com/" target="_blank" rel="noopener"
+>Flexbox 小游戏&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://flukeout.github.io/" target="_blank" rel="noopener"
+>CSS Diner&lt;/a>（CSS 选择器练习）&lt;/li>
+&lt;li>&lt;a class="link" href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS" target="_blank" rel="noopener"
+>MDN 基础教程&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="阶段-2javascript-核心操作2-3周">阶段 2：JavaScript 核心操作（2-3周）
+&lt;/h3>&lt;p>&lt;strong>目标&lt;/strong>：能读懂并修改项目中的 JS 逻辑&lt;br>
+&lt;strong>项目&lt;/strong>：给 TodoList 添加新功能&lt;br>
+&lt;strong>学习重点&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>添加「编辑任务」功能&lt;/li>
+&lt;li>实现「本地存储」持久化&lt;/li>
+&lt;li>添加「任务分类」过滤功能&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>资源&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://javascript30.com/" target="_blank" rel="noopener"
+>JavaScript 30&lt;/a>（每天 1 个小项目）&lt;/li>
+&lt;li>&lt;a class="link" href="https://zh.javascript.info/" target="_blank" rel="noopener"
+>现代 JavaScript 教程&lt;/a>（按需查阅）&lt;/li>
+&lt;li>&lt;a class="link" href="https://www.codewars.com/" target="_blank" rel="noopener"
+>Codewars&lt;/a>（编程挑战）&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="阶段-3react-核心模式3-4周">阶段 3：React 核心模式（3-4周）
+&lt;/h3>&lt;p>&lt;strong>目标&lt;/strong>：理解组件化开发思维&lt;br>
+&lt;strong>项目&lt;/strong>：开发天气查询应用&lt;br>
+&lt;strong>学习重点&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>组件拆分技巧（容器组件/展示组件）&lt;/li>
+&lt;li>掌握 useEffect 处理 API 请求&lt;/li>
+&lt;li>使用 Context 共享全局状态&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>资源&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://react.dev/learn" target="_blank" rel="noopener"
+>React 官方文档&lt;/a>（交互式教程）&lt;/li>
+&lt;li>&lt;a class="link" href="https://reactpatterns.com/" target="_blank" rel="noopener"
+>React 模式图解&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://epicreact.dev/" target="_blank" rel="noopener"
+>EpicReact.dev&lt;/a>（实战技巧）&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="阶段-4现代工具链2周">阶段 4：现代工具链（2周）
+&lt;/h3>&lt;p>&lt;strong>目标&lt;/strong>：能配置和调试工程化项目&lt;br>
+&lt;strong>项目&lt;/strong>：从零搭建项目脚手架&lt;br>
+&lt;strong>学习重点&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>使用 Vite 初始化项目&lt;/li>
+&lt;li>配置 ESLint + Prettier&lt;/li>
+&lt;li>添加路由（React Router）&lt;/li>
+&lt;li>集成状态管理（Zustand/Jotai）&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>资源&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://vitejs.dev/" target="_blank" rel="noopener"
+>Vite 官方文档&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://reactrouter.com/en/main/start/tutorial" target="_blank" rel="noopener"
+>React Router 教程&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="阶段-5实战进阶4-6周">阶段 5：实战进阶（4-6周）
+&lt;/h3>&lt;p>&lt;strong>目标&lt;/strong>：体验真实项目开发流程&lt;br>
+&lt;strong>项目&lt;/strong>：开发「个人博客系统」&lt;br>
+&lt;strong>功能需求&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>文章列表/详情页&lt;/li>
+&lt;li>标签分类系统&lt;/li>
+&lt;li>评论功能&lt;/li>
+&lt;li>管理员后台&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>技术栈&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>Next.js（SSR）&lt;/li>
+&lt;li>Markdown 解析&lt;/li>
+&lt;li>身份验证（NextAuth）&lt;/li>
+&lt;li>数据库（Supabase）&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>资源&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://nextjs.org/learn" target="_blank" rel="noopener"
+>Next.js 官方教程&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://supabase.com/docs" target="_blank" rel="noopener"
+>Supabase 文档&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="阶段-6大型项目实战持续">阶段 6：大型项目实战（持续）
+&lt;/h3>&lt;p>&lt;strong>目标&lt;/strong>：培养代码阅读和协作能力&lt;br>
+&lt;strong>学习方法&lt;/strong>：&lt;/p>
+&lt;ol>
+&lt;li>参与开源项目（从修改文档开始）&lt;/li>
+&lt;li>阅读 Ant Design 等优秀组件库源码&lt;/li>
+&lt;li>学习 Monorepo 项目管理（TurboRepo）&lt;/li>
+&lt;/ol>
+&lt;p>&lt;strong>推荐项目&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://github.com/facebook/react" target="_blank" rel="noopener"
+>React GitHub 源码&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://github.com/vercel" target="_blank" rel="noopener"
+>Vercel 开源项目&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://ui.shadcn.com/" target="_blank" rel="noopener"
+>Shadcn UI&lt;/a>（现代组件库）&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="-学习技巧">💡 学习技巧
+&lt;/h2>&lt;ol>
+&lt;li>&lt;strong>Debug 优先&lt;/strong>：遇到报错时先尝试自己解决（学会看错误信息）&lt;/li>
+&lt;li>&lt;strong>暴力修改法&lt;/strong>：在副本项目里随意修改代码观察效果&lt;/li>
+&lt;li>&lt;strong>3:1 原则&lt;/strong>：每写 3 小时代码，用 1 小时整理笔记&lt;/li>
+&lt;li>&lt;strong>逆向工程&lt;/strong>：找到喜欢的网站/应用，尝试用 React 复现&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;h2 id="-工具推荐">🛠️ 工具推荐
+&lt;/h2>&lt;ul>
+&lt;li>&lt;strong>代码沙盒&lt;/strong>：&lt;a class="link" href="https://codesandbox.io/" target="_blank" rel="noopener"
+>CodeSandbox&lt;/a>（快速实验想法）&lt;/li>
+&lt;li>&lt;strong>AI 辅助&lt;/strong>：&lt;a class="link" href="https://cursor.sh/" target="_blank" rel="noopener"
+>Cursor&lt;/a>（代码智能补全）&lt;/li>
+&lt;li>&lt;strong>知识管理&lt;/strong>：&lt;a class="link" href="https://obsidian.md/" target="_blank" rel="noopener"
+>Obsidian&lt;/a>（构建个人知识库）&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="-每日学习节奏参考">📅 每日学习节奏（参考）
+&lt;/h2>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>时间段&lt;/th>
+&lt;th>内容&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>09:00-10:30&lt;/td>
+&lt;td>项目编码（核心功能开发）&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>10:30-11:00&lt;/td>
+&lt;td>休息 + 整理问题清单&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>11:00-12:00&lt;/td>
+&lt;td>针对性学习（解决上午问题）&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>14:00-15:30&lt;/td>
+&lt;td>代码重构/功能优化&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>15:30-16:00&lt;/td>
+&lt;td>社区交流（Stack Overflow）&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>16:00-17:00&lt;/td>
+&lt;td>阅读源码/技术文章&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>通过「需求驱动学习」的方式，在解决实际问题的过程中自然掌握必要知识。记住：&lt;strong>大型项目只是多个小功能的组合&lt;/strong>，保持迭代改进的心态更重要。&lt;/p></description></item></channel></rss>
