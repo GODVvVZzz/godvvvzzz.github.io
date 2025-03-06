@@ -108,8 +108,49 @@ drwxr-xr-x ubuntu www-data dist
 ```bash
 ps aux | grep "go-todo-back" | grep -v grep
 
-nohup ./go-todo-back &> /home/ubuntu/work/log/nohup.out &
+nohup ./go-todo-back &> /home/ubuntu/work/log/go-todo-back/nohup.out &
 
 go env -w GOPROXY=https://goproxy.cn,direct
+```
+
+## MySQL
+
+JSON_CONTAINS_PATH(developer_video_v2, 'one', '$.file.cdnurl') = 0
+
+**参数说明** ：
+
+- **`developer_video_v2`** ：要检查的 JSON 字段
+- **`'one'`** ：检查模式，表示只要存在 **任意一个指定的路径** 就返回 `1`
+  （若改为 `'all'` 则是要求 **所有路径必须存在** ，此处因只有一个路径，效果等同）
+- **`'$.file.cdnurl'`** ：要探测的 JSON 路径（格式遵循 MySQL JSON 路径语法）
+
+```sql
+SELECT *
+FROM `knight_game`
+WHERE developer_video_v2 != ''
+  AND IFNULL(
+    JSON_UNQUOTE(developer_video_v2->'$.file.cdnurl'),
+    ''
+  ) = '';
+  
+  
+SELECT
+  *
+FROM
+  `knight_game`
+WHERE
+  developer_video_v2 != ''  -- 确保字段本身不是空字符串
+  AND (
+    -- 检查JSON路径是否不存在
+    JSON_CONTAINS_PATH(developer_video_v2, 'one', '$.file.cdnurl') = 0
+    
+    OR 
+    -- 路径存在但值为空字符串（JSON中存储 ""）
+    JSON_UNQUOTE(developer_video_v2->'$.file.cdnurl') = ''
+    
+    OR
+    -- 路径存在但值为JSON null（MySQL返回SQL NULL）
+    developer_video_v2->'$.file.cdnurl' IS NULL
+  )
 ```
 
