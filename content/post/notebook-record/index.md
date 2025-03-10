@@ -39,6 +39,21 @@ git config --global user.name "weiweiwei"
 git config --global user.email "2662446324@qq.com"
 ```
 
+### 其他常用命令
+
+```bash
+#查看远端分支情况
+git fetch --all
+git branch -r
+
+#切换远程分支并创建本地分支
+git checkout -b feature-branch origin/feature-branch
+
+#设置远程和本地分支关联
+git branch --set-upstream-to=<远程仓库名>/<远程分支名> <本地分支名>
+
+```
+
 
 
 ## Linux常用命令
