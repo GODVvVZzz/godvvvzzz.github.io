@@ -169,3 +169,11 @@ WHERE
   )
 ```
 
+## wsl
+
+直接输入wsl 进入默认ubuntu系统
+
+```bash
+
+```
+
