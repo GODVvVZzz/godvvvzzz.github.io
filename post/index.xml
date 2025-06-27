@@ -1,0 +1,2116 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on VvVzzz Blog</title><link>https://godvvvzzz.github.io/post/</link><description>Recent content in Posts on VvVzzz Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 27 Jun 2025 15:01:17 +0800</lastBuildDate><atom:link href="https://godvvvzzz.github.io/post/index.xml" rel="self" type="application/rss+xml"/><item><title>react学习计划</title><link>https://godvvvzzz.github.io/p/react-study-plan/</link><pubDate>Sat, 22 Feb 2025 00:00:00 +0000</pubDate><guid>https://godvvvzzz.github.io/p/react-study-plan/</guid><description>&lt;h1 id="react-渐进式学习路线">React 渐进式学习路线
+&lt;/h1>&lt;h2 id="-学习原则">📌 学习原则
+&lt;/h2>&lt;ol>
+&lt;li>&lt;strong>每个阶段 1-2 个核心项目&lt;/strong>（保持兴趣和成就感）&lt;/li>
+&lt;li>&lt;strong>遇到问题再补充理论知识&lt;/strong>（避免过早陷入细节）&lt;/li>
+&lt;li>&lt;strong>先模仿再创造&lt;/strong>（通过修改现有项目学习）&lt;/li>
+&lt;/ol>
+&lt;h2 id="-阶段路线图">🚀 阶段路线图
+&lt;/h2>&lt;h3 id="阶段-1htmlcss-生存技能1-2周">阶段 1：HTML/CSS 生存技能（1-2周）
+&lt;/h3>&lt;p>&lt;strong>目标&lt;/strong>：能修改现有项目的样式和结构&lt;br>
+&lt;strong>项目&lt;/strong>：重构 &lt;a class="link" href="https://github.com/GODVvVZzz/react-todo-demo" target="_blank" rel="noopener"
+>TodoList&lt;/a> 的 UI&lt;br>
+&lt;strong>学习重点&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>通过 Chrome 开发者工具调试样式&lt;/li>
+&lt;li>修改现有 CSS 类名和样式&lt;/li>
+&lt;li>使用 Flex/Grid 调整布局&lt;/li>
+&lt;li>添加简单的动画效果&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>资源&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://flexboxfroggy.com/" target="_blank" rel="noopener"
+>Flexbox 小游戏&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://flukeout.github.io/" target="_blank" rel="noopener"
+>CSS Diner&lt;/a>（CSS 选择器练习）&lt;/li>
+&lt;li>&lt;a class="link" href="https://developer.mozilla.org/zh-CN/docs/Learn/CSS" target="_blank" rel="noopener"
+>MDN 基础教程&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="阶段-2javascript-核心操作2-3周">阶段 2：JavaScript 核心操作（2-3周）
+&lt;/h3>&lt;p>&lt;strong>目标&lt;/strong>：能读懂并修改项目中的 JS 逻辑&lt;br>
+&lt;strong>项目&lt;/strong>：给 TodoList 添加新功能&lt;br>
+&lt;strong>学习重点&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>添加「编辑任务」功能&lt;/li>
+&lt;li>实现「本地存储」持久化&lt;/li>
+&lt;li>添加「任务分类」过滤功能&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>资源&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://javascript30.com/" target="_blank" rel="noopener"
+>JavaScript 30&lt;/a>（每天 1 个小项目）&lt;/li>
+&lt;li>&lt;a class="link" href="https://zh.javascript.info/" target="_blank" rel="noopener"
+>现代 JavaScript 教程&lt;/a>（按需查阅）&lt;/li>
+&lt;li>&lt;a class="link" href="https://www.codewars.com/" target="_blank" rel="noopener"
+>Codewars&lt;/a>（编程挑战）&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="阶段-3react-核心模式3-4周">阶段 3：React 核心模式（3-4周）
+&lt;/h3>&lt;p>&lt;strong>目标&lt;/strong>：理解组件化开发思维&lt;br>
+&lt;strong>项目&lt;/strong>：开发天气查询应用&lt;br>
+&lt;strong>学习重点&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>组件拆分技巧（容器组件/展示组件）&lt;/li>
+&lt;li>掌握 useEffect 处理 API 请求&lt;/li>
+&lt;li>使用 Context 共享全局状态&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>资源&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://react.dev/learn" target="_blank" rel="noopener"
+>React 官方文档&lt;/a>（交互式教程）&lt;/li>
+&lt;li>&lt;a class="link" href="https://reactpatterns.com/" target="_blank" rel="noopener"
+>React 模式图解&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://epicreact.dev/" target="_blank" rel="noopener"
+>EpicReact.dev&lt;/a>（实战技巧）&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="阶段-4现代工具链2周">阶段 4：现代工具链（2周）
+&lt;/h3>&lt;p>&lt;strong>目标&lt;/strong>：能配置和调试工程化项目&lt;br>
+&lt;strong>项目&lt;/strong>：从零搭建项目脚手架&lt;br>
+&lt;strong>学习重点&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>使用 Vite 初始化项目&lt;/li>
+&lt;li>配置 ESLint + Prettier&lt;/li>
+&lt;li>添加路由（React Router）&lt;/li>
+&lt;li>集成状态管理（Zustand/Jotai）&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>资源&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://vitejs.dev/" target="_blank" rel="noopener"
+>Vite 官方文档&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://reactrouter.com/en/main/start/tutorial" target="_blank" rel="noopener"
+>React Router 教程&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="阶段-5实战进阶4-6周">阶段 5：实战进阶（4-6周）
+&lt;/h3>&lt;p>&lt;strong>目标&lt;/strong>：体验真实项目开发流程&lt;br>
+&lt;strong>项目&lt;/strong>：开发「个人博客系统」&lt;br>
+&lt;strong>功能需求&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>文章列表/详情页&lt;/li>
+&lt;li>标签分类系统&lt;/li>
+&lt;li>评论功能&lt;/li>
+&lt;li>管理员后台&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>技术栈&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>Next.js（SSR）&lt;/li>
+&lt;li>Markdown 解析&lt;/li>
+&lt;li>身份验证（NextAuth）&lt;/li>
+&lt;li>数据库（Supabase）&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>资源&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://nextjs.org/learn" target="_blank" rel="noopener"
+>Next.js 官方教程&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://supabase.com/docs" target="_blank" rel="noopener"
+>Supabase 文档&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="阶段-6大型项目实战持续">阶段 6：大型项目实战（持续）
+&lt;/h3>&lt;p>&lt;strong>目标&lt;/strong>：培养代码阅读和协作能力&lt;br>
+&lt;strong>学习方法&lt;/strong>：&lt;/p>
+&lt;ol>
+&lt;li>参与开源项目（从修改文档开始）&lt;/li>
+&lt;li>阅读 Ant Design 等优秀组件库源码&lt;/li>
+&lt;li>学习 Monorepo 项目管理（TurboRepo）&lt;/li>
+&lt;/ol>
+&lt;p>&lt;strong>推荐项目&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>&lt;a class="link" href="https://github.com/facebook/react" target="_blank" rel="noopener"
+>React GitHub 源码&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://github.com/vercel" target="_blank" rel="noopener"
+>Vercel 开源项目&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://ui.shadcn.com/" target="_blank" rel="noopener"
+>Shadcn UI&lt;/a>（现代组件库）&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="-学习技巧">💡 学习技巧
+&lt;/h2>&lt;ol>
+&lt;li>&lt;strong>Debug 优先&lt;/strong>：遇到报错时先尝试自己解决（学会看错误信息）&lt;/li>
+&lt;li>&lt;strong>暴力修改法&lt;/strong>：在副本项目里随意修改代码观察效果&lt;/li>
+&lt;li>&lt;strong>3:1 原则&lt;/strong>：每写 3 小时代码，用 1 小时整理笔记&lt;/li>
+&lt;li>&lt;strong>逆向工程&lt;/strong>：找到喜欢的网站/应用，尝试用 React 复现&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;h2 id="-工具推荐">🛠️ 工具推荐
+&lt;/h2>&lt;ul>
+&lt;li>&lt;strong>代码沙盒&lt;/strong>：&lt;a class="link" href="https://codesandbox.io/" target="_blank" rel="noopener"
+>CodeSandbox&lt;/a>（快速实验想法）&lt;/li>
+&lt;li>&lt;strong>AI 辅助&lt;/strong>：&lt;a class="link" href="https://cursor.sh/" target="_blank" rel="noopener"
+>Cursor&lt;/a>（代码智能补全）&lt;/li>
+&lt;li>&lt;strong>知识管理&lt;/strong>：&lt;a class="link" href="https://obsidian.md/" target="_blank" rel="noopener"
+>Obsidian&lt;/a>（构建个人知识库）&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="-每日学习节奏参考">📅 每日学习节奏（参考）
+&lt;/h2>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>时间段&lt;/th>
+&lt;th>内容&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>09:00-10:30&lt;/td>
+&lt;td>项目编码（核心功能开发）&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>10:30-11:00&lt;/td>
+&lt;td>休息 + 整理问题清单&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>11:00-12:00&lt;/td>
+&lt;td>针对性学习（解决上午问题）&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>14:00-15:30&lt;/td>
+&lt;td>代码重构/功能优化&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>15:30-16:00&lt;/td>
+&lt;td>社区交流（Stack Overflow）&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>16:00-17:00&lt;/td>
+&lt;td>阅读源码/技术文章&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>通过「需求驱动学习」的方式，在解决实际问题的过程中自然掌握必要知识。记住：&lt;strong>大型项目只是多个小功能的组合&lt;/strong>，保持迭代改进的心态更重要。&lt;/p></description></item><item><title>记录本博客搭建过程</title><link>https://godvvvzzz.github.io/p/hugo-stack-study/</link><pubDate>Wed, 11 Dec 2024 09:44:53 +0800</pubDate><guid>https://godvvvzzz.github.io/p/hugo-stack-study/</guid><description>&lt;h2 id="hugo-stack-starter">Hugo Stack Starter
+&lt;/h2>&lt;p>&lt;a class="link" href="https://github.com/CaiJimmy/hugo-theme-stack-starter" target="_blank" rel="noopener"
+>https://github.com/CaiJimmy/hugo-theme-stack-starter&lt;/a>&lt;/p>
+&lt;p>这是一个为 &lt;strong>Hugo Stack&lt;/strong> 主题设计的快速上手模板，使用了 &lt;strong>Hugo 模块&lt;/strong> 来加载主题。它提供了基础的主题结构和配置，同时配置了 &lt;strong>GitHub Actions&lt;/strong>，可以自动将网站部署到 GitHub Pages。还包含一个每天自动更新主题的定时任务（cron job）。&lt;/p>
+&lt;h3 id="创建-github-仓库">创建 GitHub 仓库
+&lt;/h3>&lt;ol>
+&lt;li>点击 GitHub 上的 &lt;strong>Use this template&lt;/strong> 按钮。&lt;/li>
+&lt;li>将新仓库命名为 &lt;code>&amp;lt;用户名&amp;gt;.github.io&lt;/code>。其中，用户名建议为全小写。&lt;/li>
+&lt;/ol>
+&lt;h3 id="创建-github-codespace">创建 GitHub Codespace
+&lt;/h3>&lt;ol>
+&lt;li>仓库创建完成后，创建一个与之关联的 &lt;strong>GitHub Codespace&lt;/strong>。&lt;/li>
+&lt;li>Codespace 已经配置好了 Hugo 的最新扩展版本。&lt;/li>
+&lt;li>在终端中运行命令 &lt;code>hugo server&lt;/code>，即可在浏览器中预览你的网站。&lt;/li>
+&lt;/ol>
+&lt;h3 id="配置站点信息">配置站点信息
+&lt;/h3>&lt;ol>
+&lt;li>检查仓库中的 &lt;code>config&lt;/code> 文件夹，里面是站点的配置文件。&lt;/li>
+&lt;li>修改 &lt;code>config/_default/config.toml&lt;/code> 文件中的 &lt;code>baseurl&lt;/code> 属性，填入你的网站 URL。&lt;/li>
+&lt;/ol>
+&lt;h3 id="部署到-github-pages">部署到 GitHub Pages
+&lt;/h3>&lt;ol>
+&lt;li>打开仓库的 &lt;strong>Settings -&amp;gt; Pages&lt;/strong> 页面。&lt;/li>
+&lt;li>将构建分支从 &lt;code>master&lt;/code> 改为 &lt;code>gh-pages&lt;/code>。&lt;/li>
+&lt;li>每次编辑完网站后，只需将更改提交并推送到仓库，GitHub Actions 会自动将网站部署到对应的 GitHub Pages。&lt;/li>
+&lt;/ol>
+&lt;h2 id="如何写博客">如何写博客
+&lt;/h2>&lt;h3 id="本地下载hugo">本地下载hugo
+&lt;/h3>&lt;p>以ububtu为例&lt;/p>
+&lt;p>&lt;strong>1. 下载 Hugo 最新版&lt;/strong>&lt;/p>
+&lt;p>访问 Hugo 的 GitHub Releases 页面找到最新版下载链接：
+&lt;a class="link" href="https://github.com/gohugoio/hugo/releases" target="_blank" rel="noopener"
+>Hugo Releases&lt;/a>&lt;/p>
+&lt;p>或者直接通过命令行下载 &lt;code>hugo_extended&lt;/code> 的 Linux 64 位版本：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">wget https://github.com/gohugoio/hugo/releases/download/v0.139.3/hugo_extended_0.139.3_Linux-64bit.tar.gz
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;strong>2. 解压下载的文件&lt;/strong>&lt;/p>
+&lt;p>解压 &lt;code>.tar.gz&lt;/code> 文件：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">tar -xvzf hugo_extended_0.139.3_Linux-64bit.tar.gz
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>解压后会生成一个 &lt;code>hugo&lt;/code> 二进制文件。&lt;/p>
+&lt;p>&lt;strong>3. 安装 Hugo&lt;/strong>&lt;/p>
+&lt;p>将解压后的 &lt;code>hugo&lt;/code> 二进制文件移动到系统路径（如 &lt;code>/usr/local/bin&lt;/code>），以便全局使用：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">sudo mv hugo /usr/local/bin/
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;strong>4. 验证安装&lt;/strong>&lt;/p>
+&lt;p>运行以下命令验证安装并检查版本：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">hugo version
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>输出示例：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-plaintext" data-lang="plaintext">&lt;span class="line">&lt;span class="cl">hugo v0.139.3+extended linux/amd64 BuildDate=2024-12-09T10:00:00Z
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="创建新文章">&lt;strong>创建新文章&lt;/strong>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">hugo new post/react-study-plan/index.md
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>在 &lt;code>content/post/react-study-plan/index.mdd&lt;/code> 中编辑内容，例如：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nn">---&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">title&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;My First Post&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">date&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="ld">2024-12-09&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">draft&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">false&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">tags&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;hugo&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;theme&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">categories&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;blog&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nn">---&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="l">This is my first post with Hugo Stack theme!&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="启用评论">&lt;strong>启用评论&lt;/strong>
+&lt;/h3>&lt;p>Stack 主题默认支持 Utterances评论系统，只需要在 &lt;code>/config/params.toml&lt;/code>配置以下参数：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-toml" data-lang="toml">&lt;span class="line">&lt;span class="cl">&lt;span class="c">## Comments&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">[&lt;/span>&lt;span class="nx">comments&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">enabled&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="kc">true&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">provider&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;utterances&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">[&lt;/span>&lt;span class="nx">comments&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">utterances&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">repo&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;GODVvVZzz/blog-comments&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">issueTerm&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;pathname&amp;#34;&lt;/span> &lt;span class="c"># 评论与文章的关联方式，可选 title, pathname, url&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">label&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;Comments&amp;#34;&lt;/span> &lt;span class="c"># GitHub Issue 的标签名称&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">theme&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;github-light&amp;#34;&lt;/span> &lt;span class="c"># 评论框的主题风格&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="本地预览">本地预览
+&lt;/h3>&lt;p>在项目根目录下执行hugo server，访问http://localhost:1313/&lt;/p>
+&lt;h3 id="标签tag配置">标签&amp;amp;tag配置
+&lt;/h3>&lt;p>直接在文章 Front Matter中添加即可&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nn">---&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">title&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;测试文章&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">date&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="ld">2024-12-18&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">categories&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">测试分类&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">tags&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">标签1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">标签2&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nn">---&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="其他">其他
+&lt;/h2>&lt;h3 id="配置项目git忽略文件">配置项目git忽略文件
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"># Hugo 缓存目录
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">.cache/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">hugo_stats.json
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">resources/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># 构建输出目录
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">public/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># Node.js 和前端工具生成的文件（如适用）
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">node_modules/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">dist/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># 临时文件和日志
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">*.log
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">*.lock
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">.DS_Store
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Thumbs.db
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">*.tmp
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">*.bak
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># TypeScript 或编辑器相关配置文件
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">tsconfig.json
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">jsconfig.json
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># 操作系统或编辑器生成的文件
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">.idea/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">.vscode/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">*.swp
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">*~
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># Hugo 模块缓存
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">go.sum
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">go.mod
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>FD泄露排查</title><link>https://godvvvzzz.github.io/p/fd-leak-investigation/</link><pubDate>Tue, 10 Dec 2024 00:00:00 +0000</pubDate><guid>https://godvvvzzz.github.io/p/fd-leak-investigation/</guid><description>&lt;h3 id="文件描述符fd概述">文件描述符（FD）概述
+&lt;/h3>&lt;p>文件描述符（FD）是操作系统内核用来标识已打开文件的非负整数索引。在程序中，文件描述符用于文件的读写操作，如通过&lt;code>read&lt;/code>、&lt;code>write&lt;/code>系统调用。在POSIX标准中，文件描述符0、1、2分别代表标准输入、标准输出和标准错误。&lt;/p>
+&lt;h3 id="fd泄露现象">FD泄露现象
+&lt;/h3>&lt;p>当一个进程打开的文件描述符数量超过系统限制（默认为1024），系统将无法为新文件分配描述符，并可能抛出“Too many open files”错误。这通常意味着有未正确关闭的文件或连接，导致描述符占用过高。&lt;/p>
+&lt;h3 id="排查步骤">排查步骤
+&lt;/h3>&lt;ol>
+&lt;li>&lt;strong>发现问题&lt;/strong> ：通过监控系统发现服务的文件描述符数量异常增长。&lt;/li>
+&lt;li>&lt;strong>查找服务PID&lt;/strong> ：使用&lt;code>ps aux | grep [服务名]&lt;/code>命令找出目标服务的进程ID。&lt;/li>
+&lt;li>&lt;strong>查看当前服务占用FD数量&lt;/strong> ：执行&lt;code>ls /proc/[PID]/fd | wc -l&lt;/code>检查服务当前打开的文件描述符数量。&lt;/li>
+&lt;li>&lt;strong>查看FD使用情况&lt;/strong> ：详细列出当前服务的文件描述符使用情况，&lt;code>ls -ls /proc/[PID]/fd&lt;/code>。&lt;/li>
+&lt;li>&lt;strong>检查网络连接&lt;/strong> ：使用&lt;code>ss -anp |grep [PID]&lt;/code>命令查看服务相关的网络连接，帮助定位可能的泄露来源。&lt;/li>
+&lt;/ol>
+&lt;h3 id="典型案例">典型案例
+&lt;/h3>&lt;p>以某服务的FD泄露为例：&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>现象&lt;/strong> ：文件描述符持续增长，达到1w+。&lt;/li>
+&lt;li>&lt;strong>原因&lt;/strong> ：服务在高QPS（200~300）下调用第三方验证接口，由于HTTP连接默认超时时间较长（60s），且未主动关闭连接，导致大量描述符持续占用。&lt;/li>
+&lt;li>&lt;strong>复现&lt;/strong> ：通过脚本模拟高频率请求，持续观察FD数量变化，验证泄露情况。&lt;/li>
+&lt;li>&lt;strong>排查&lt;/strong> ：利用上述步骤定位到问题来源为HTTP请求未正确关闭。&lt;/li>
+&lt;li>&lt;strong>代码修改&lt;/strong> ：增加了连接超时和读写超时设置，确保连接在指定时间内被关闭，从而释放描述符。&lt;/li>
+&lt;li>&lt;strong>结果&lt;/strong> ：服务使用的FD数量显著下降，泄露问题得到解决。&lt;/li>
+&lt;/ul></description></item><item><title>Go Study Plan</title><link>https://godvvvzzz.github.io/p/go-study-plan/</link><pubDate>Fri, 27 Jun 2025 15:01:17 +0800</pubDate><guid>https://godvvvzzz.github.io/p/go-study-plan/</guid><description>&lt;h2 id="1-深入巩固技术基础">1️⃣ 深入巩固技术基础
+&lt;/h2>&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>Go语言 (核心中的核心)：&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>语法精通：&lt;/strong> 确保对goroutine, channel, sync包（Mutex, WaitGroup, Cond, Map等）, defer, panic/recover, interface, struct, 反射等核心概念烂熟于心。不仅要会用，要理解其&lt;strong>实现原理和适用场景&lt;/strong>。&lt;/li>
+&lt;li>&lt;strong>并发模型：&lt;/strong> 深入理解GMP调度模型、channel的底层实现（环形队列）、goroutine泄漏场景与排查、sync包各原语的适用场景和性能差异。这是Go面试的绝对重点。&lt;/li>
+&lt;li>&lt;strong>内存管理：&lt;/strong> 了解逃逸分析、GC的三色标记法基本原理、GC触发条件、如何减少GC压力（如复用对象、避免小对象频繁分配）。&lt;/li>
+&lt;li>&lt;strong>标准库：&lt;/strong> 熟练掌握&lt;code>net/http&lt;/code>, &lt;code>context&lt;/code>, &lt;code>encoding/json&lt;/code> (及其他序列化), &lt;code>database/sql&lt;/code>, &lt;code>os&lt;/code>, &lt;code>time&lt;/code>, &lt;code>sync&lt;/code>等常用包。&lt;/li>
+&lt;li>&lt;strong>性能优化：&lt;/strong> 掌握pprof工具的使用（CPU, Memory, Goroutine, Block, Mutex profiling），benchmark测试，理解常见性能瓶颈（锁竞争、GC频繁、低效算法、网络IO）。&lt;/li>
+&lt;li>&lt;strong>依赖管理：&lt;/strong> 熟悉Go Module的使用和最佳实践。&lt;/li>
+&lt;li>&lt;strong>推荐资源：&lt;/strong> 《Go语言设计与实现》、《Go语言高级编程》、官方文档、Dave Cheney博客、GopherCon Talks。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>计算机基础：&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>数据结构与算法：&lt;/strong>
+&lt;ul>
+&lt;li>&lt;strong>重点突破：&lt;/strong> 链表、栈、队列、哈希表、堆（优先队列）、二叉树（遍历、BST）、图（BFS, DFS）、排序（快排、归并、堆排序）、二分查找、双指针、滑动窗口、递归、回溯、动态规划（基础）。&lt;/li>
+&lt;li>&lt;strong>平台刷题：&lt;/strong> LeetCode是必须的。目标：Easy 100%能做，Medium 高频题和经典题&lt;strong>非常熟练&lt;/strong>（做到bug-free，能分析时空复杂度，能讲清楚思路），Hard题可以尝试理解思路。&lt;strong>字节尤其看重手撕代码的能力和速度。&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>刻意练习：&lt;/strong> 每天坚持，按类型刷，总结模板和易错点。模拟面试环境（白板/在线IDE）。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>操作系统：&lt;/strong>
+&lt;ul>
+&lt;li>&lt;strong>进程、线程、协程：&lt;/strong> 区别、通信方式（管道、信号、消息队列、共享内存、Socket）、上下文切换开销。&lt;/li>
+&lt;li>&lt;strong>内存管理：&lt;/strong> 虚拟内存、分页、分段、页面置换算法。&lt;/li>
+&lt;li>&lt;strong>文件系统：&lt;/strong> 基本概念（inode, dentry）、IO方式（阻塞/非阻塞/IO多路复用/异步）。&lt;/li>
+&lt;li>&lt;strong>死锁：&lt;/strong> 条件、预防、避免、检测。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>网络：&lt;/strong>
+&lt;ul>
+&lt;li>&lt;strong>TCP/IP协议栈：&lt;/strong> 重点掌握TCP（三次握手、四次挥手、状态机、可靠传输机制 - 序列号/确认号/超时重传/滑动窗口/拥塞控制）、UDP、HTTP/HTTPS（报文结构、方法、状态码、Header、Cookie/Session、HTTPS握手流程）。&lt;/li>
+&lt;li>&lt;strong>网络模型：&lt;/strong> OSI七层模型、TCP/IP五层模型。&lt;/li>
+&lt;li>&lt;strong>网络编程：&lt;/strong> Socket编程基础（Go的net包就是对socket的封装）。&lt;/li>
+&lt;li>&lt;strong>常用协议：&lt;/strong> DNS、WebSocket等。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>数据库：&lt;/strong>
+&lt;ul>
+&lt;li>&lt;strong>MySQL (重点)：&lt;/strong>
+&lt;ul>
+&lt;li>索引：B+树原理、聚集/非聚集索引、覆盖索引、最左前缀原则、索引失效场景、索引优化。&lt;/li>
+&lt;li>事务：ACID、隔离级别（现象 - 脏读、不可重复读、幻读；实现原理 - MVCC, Locking）、锁（行锁、表锁、间隙锁、Next-Key Lock）。&lt;/li>
+&lt;li>存储引擎：InnoDB vs MyISAM。&lt;/li>
+&lt;li>优化：Explain分析、慢查询优化、分库分表（概念、场景）。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>Redis (重点)：&lt;/strong>
+&lt;ul>
+&lt;li>数据类型及适用场景：String, Hash, List, Set, Sorted Set, Bitmap, HyperLogLog, Geo, Stream。&lt;/li>
+&lt;li>持久化：RDB, AOF。&lt;/li>
+&lt;li>高可用：主从复制、哨兵、Cluster模式（分片、槽位）。&lt;/li>
+&lt;li>淘汰策略。&lt;/li>
+&lt;li>缓存问题：穿透、击穿、雪崩及其解决方案（布隆过滤器、互斥锁、随机过期时间、多级缓存）。&lt;/li>
+&lt;li>分布式锁：用Redis实现（SETNX + Lua脚本保证原子性）。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>了解其他：&lt;/strong> 消息队列（Kafka/RabbitMQ/RocketMQ）的基本概念（解耦、削峰、异步）、使用场景、核心术语（Producer, Consumer, Topic, Partition/Queue, Broker）。选一个了解即可。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="2-深度梳理和包装项目经验">2️⃣ 深度梳理和包装项目经验
+&lt;/h2>&lt;p>突出业务价值和技术亮点&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>聚焦游戏分发业务：&lt;/strong>
+&lt;ul>
+&lt;li>&lt;strong>深入挖掘：&lt;/strong> 不要停留在表面功能描述。思考：
+&lt;ul>
+&lt;li>负责的模块/服务解决了什么核心业务问题？（例如：如何保证海量游戏包体快速、稳定地分发到全球CDN节点？如何管理游戏元数据（名称、版本、大小、下载链接）？如何设计高并发的下载调度？如何防止盗链/恶意下载？如何做灰度发布？）&lt;/li>
+&lt;li>系统面临的&lt;strong>挑战&lt;/strong>是什么？（高并发？低延迟？数据一致性？高可用？）&lt;/li>
+&lt;li>用了哪些&lt;strong>关键技术/架构&lt;/strong>来解决？（微服务？用了什么框架？数据库选型？缓存策略？消息队列？）&lt;/li>
+&lt;li>做了哪些&lt;strong>关键设计和技术选型&lt;/strong>？为什么这么选？（对比其他方案优劣）&lt;/li>
+&lt;li>进行了哪些&lt;strong>性能优化&lt;/strong>？效果如何？（量化指标！例如：QPS从X提升到Y，延迟从A降低到B，节省服务器Z台）&lt;/li>
+&lt;li>遇到过哪些&lt;strong>线上问题/故障&lt;/strong>？如何&lt;strong>排查&lt;/strong>（用了哪些工具 - pprof, tracing, logs）？如何&lt;strong>解决&lt;/strong>？如何&lt;strong>预防&lt;/strong>？&lt;/li>
+&lt;li>代码层面：如何保证代码质量？单元测试？Code Review？设计模式的应用？&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>STAR法则包装：&lt;/strong> 为每个项目或重要模块准备清晰的故事线：
+&lt;ul>
+&lt;li>&lt;strong>Situation:&lt;/strong> 背景是什么？要解决什么问题？&lt;/li>
+&lt;li>&lt;strong>Task:&lt;/strong> 的具体职责和任务是什么？&lt;/li>
+&lt;li>&lt;strong>Action:&lt;/strong> 采取了哪些&lt;strong>技术行动&lt;/strong>？（这是重点！要讲清楚技术细节和决策过程）&lt;/li>
+&lt;li>&lt;strong>Result:&lt;/strong> 取得了什么&lt;strong>可量化&lt;/strong>的结果？（性能提升、成本降低、稳定性提高、用户满意度增加等）&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>突出Go的特性：&lt;/strong> 在描述项目时，融入Go的最佳实践：
+&lt;ul>
+&lt;li>如何利用goroutine和channel实现并发控制/异步处理？&lt;/li>
+&lt;li>如何利用context进行超时和取消控制？&lt;/li>
+&lt;li>如何设计清晰的interface？&lt;/li>
+&lt;li>如何做错误处理？&lt;/li>
+&lt;li>如何利用sync包解决并发安全问题？&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>准备项目难点和亮点：&lt;/strong> 每个项目准备1-2个技术难点突破或技术亮点的故事，讲深讲透。&lt;/li>
+&lt;/ul>
+&lt;h2 id="3-系统设计能力提升">3️⃣ 系统设计能力提升
+&lt;/h2>&lt;p>针对工作年限，要求基础能力&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>掌握基础方法论：&lt;/strong>
+&lt;ul>
+&lt;li>明确需求（功能需求、非功能需求 - QPS、延迟、可用性、一致性要求）。&lt;/li>
+&lt;li>估算（请求量、存储量、带宽 - 费米估算）。&lt;/li>
+&lt;li>核心组件设计（API设计、数据模型 - 数据库选型及Schema设计、存储设计）。&lt;/li>
+&lt;li>深入一个方向（根据场景选一个深入，如高可用设计、缓存策略、数据库扩展）。&lt;/li>
+&lt;li>识别瓶颈并讨论解决方案。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>学习经典案例：&lt;/strong>
+&lt;ul>
+&lt;li>&lt;strong>必看：&lt;/strong> 《Grokking the System Design Interview》或类似课程/书籍。&lt;/li>
+&lt;li>&lt;strong>常见题目：&lt;/strong> 设计短链系统、设计Twitter/微博Feed流、设计秒杀系统、设计聊天系统、设计搜索引擎、设计文件存储服务、设计推荐系统等。理解其通用模式和权衡（CAP）。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>结合自身业务思考：&lt;/strong> 尝试用系统设计的方法论来重新审视你参与过的游戏分发系统：
+&lt;ul>
+&lt;li>整个游戏分发平台的架构图是什么样的？&lt;/li>
+&lt;li>元数据管理服务如何设计？（DB+Cache）&lt;/li>
+&lt;li>下载调度服务如何应对高并发？（队列、限流、负载均衡）&lt;/li>
+&lt;li>如何保证包体分发的速度和正确性？（CDN、校验机制）&lt;/li>
+&lt;li>如何做监控和报警？&lt;/li>
+&lt;li>如果用户量翻10倍，系统哪里会成为瓶颈？如何扩容？&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>**目标：**能清晰地阐述一个中小型服务的设计思路（比如你负责的那个微服务），理解基本组件的用途（为什么用Redis？为什么用MQ？），并能在指导下讨论扩展性、可用性问题。&lt;strong>展现设计思维和潜力。&lt;/strong>&lt;/li>
+&lt;/ul></description></item><item><title>前后端域名使用探讨</title><link>https://godvvvzzz.github.io/p/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%9F%9F%E5%90%8D%E4%BD%BF%E7%94%A8%E6%8E%A2%E8%AE%A8/</link><pubDate>Thu, 27 Feb 2025 00:49:52 +0800</pubDate><guid>https://godvvvzzz.github.io/p/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%9F%9F%E5%90%8D%E4%BD%BF%E7%94%A8%E6%8E%A2%E8%AE%A8/</guid><description>&lt;hr>
+&lt;h2 id="核心原则">&lt;strong>核心原则&lt;/strong>
+&lt;/h2>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:center">访问场景&lt;/th>
+&lt;th style="text-align:center">推荐域名类型&lt;/th>
+&lt;th style="text-align:center">说明&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:center">&lt;strong>前端 → 后端接口&lt;/strong>&lt;/td>
+&lt;td style="text-align:center">内网域名/IP&lt;/td>
+&lt;td style="text-align:center">前端与后端部署在同一内网，通过反向代理通信，减少公网暴露风险。&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&lt;strong>客户端 → 后端接口&lt;/strong>&lt;/td>
+&lt;td style="text-align:center">外网域名&lt;/td>
+&lt;td style="text-align:center">客户端（如移动端、第三方）需通过公网访问，需暴露外网域名并加固安全。&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;h2 id="典型场景及配置方案">&lt;strong>典型场景及配置方案&lt;/strong>
+&lt;/h2>&lt;h3 id="场景1纯web应用仅前端调用后端">&lt;strong>场景1：纯Web应用（仅前端调用后端）&lt;/strong>
+&lt;/h3>&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>架构特点&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>前端部署在公网（如Nginx/CDN），后端在内网。&lt;/li>
+&lt;li>所有接口仅由前端调用，&lt;strong>客户端不直接访问后端&lt;/strong>。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>配置方案&lt;/strong>：&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>前端调用后端&lt;/strong>：Nginx使用内网域名/IP代理后端服务（如 &lt;code>proxy_pass http://internal-api.example.com&lt;/code>）。&lt;/li>
+&lt;li>&lt;strong>客户端访问&lt;/strong>：仅访问前端域名（如 &lt;code>https://www.example.com&lt;/code>），不暴露后端接口。&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-nginx" data-lang="nginx">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 前端Nginx配置
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="k">location&lt;/span> &lt;span class="s">/api/&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">proxy_pass&lt;/span> &lt;span class="s">http://internal-api.example.com:8080&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1"># 内网域名
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="kn">proxy_set_header&lt;/span> &lt;span class="s">Host&lt;/span> &lt;span class="nv">$host&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h3 id="场景2混合应用前端客户端均需调用后端">&lt;strong>场景2：混合应用（前端+客户端均需调用后端）&lt;/strong>
+&lt;/h3>&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>架构特点&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>后端需同时服务前端（Web）和客户端（App/第三方）。&lt;/li>
+&lt;li>需区分内部接口和开放接口。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>配置方案&lt;/strong>：&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>前端调用后端&lt;/strong>：通过内网域名/IP（走反向代理）。&lt;/li>
+&lt;li>&lt;strong>客户端调用后端&lt;/strong>：通过外网域名（如 &lt;code>https://api.example.com&lt;/code>），配合API网关、鉴权和限流。&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-nginx" data-lang="nginx">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 对外API网关配置
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="k">server&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">listen&lt;/span> &lt;span class="mi">443&lt;/span> &lt;span class="s">ssl&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">server_name&lt;/span> &lt;span class="s">api.example.com&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1"># 外网域名
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">location&lt;/span> &lt;span class="s">/public-api/&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">proxy_pass&lt;/span> &lt;span class="s">http://backend-cluster&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1"># 后端集群内网地址
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="c1"># 安全加固：API密钥验证、速率限制等
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h3 id="场景3全开放api服务如第三方集成">&lt;strong>场景3：全开放API服务（如第三方集成）&lt;/strong>
+&lt;/h3>&lt;ul>
+&lt;li>架构特点：
+&lt;ul>
+&lt;li>后端需完全暴露给公网，供多客户端直接调用。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>配置方案：
+&lt;ol>
+&lt;li>统一使用外网域名（如 &lt;code>https://api.example.com&lt;/code>）。&lt;/li>
+&lt;li>通过&lt;strong>API网关&lt;/strong>管理流量，并启用HTTPS、OAuth2、IP白名单等安全措施。&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="安全最佳实践">&lt;strong>安全最佳实践&lt;/strong>
+&lt;/h2>&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>内网通信加固&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>使用内网域名/IP，避免后端直接暴露在公网。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>通过防火墙限制后端端口仅允许前端服务器IP访问。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 后端服务器防火墙规则（示例）&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo ufw allow from 前端服务器IP to any port &lt;span class="m">8080&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo ufw deny &lt;span class="m">8080&lt;/span> &lt;span class="c1"># 禁止其他IP访问&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>外网接口防护&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>HTTPS加密&lt;/strong>：强制所有外网域名使用SSL/TLS。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>鉴权机制&lt;/strong>：JWT、OAuth2、API Key等。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>速率限制：防止DDoS和滥用。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-nginx" data-lang="nginx">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Nginx限流配置
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="k">limit_req_zone&lt;/span> &lt;span class="nv">$binary_remote_addr&lt;/span> &lt;span class="s">zone=api_rate:10m&lt;/span> &lt;span class="s">rate=10r/s&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">location&lt;/span> &lt;span class="s">/api/&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">limit_req&lt;/span> &lt;span class="s">zone=api_rate&lt;/span> &lt;span class="s">burst=20&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">proxy_pass&lt;/span> &lt;span class="s">http://backend&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>监控与日志&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>记录所有外网接口的访问日志。&lt;/li>
+&lt;li>使用工具（如Prometheus+Grafana）监控API健康状态。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;h2 id="常见误区与解答">&lt;strong>常见误区与解答&lt;/strong>
+&lt;/h2>&lt;ul>
+&lt;li>&lt;strong>误区1&lt;/strong>：所有接口都需通过外网暴露。
+​&lt;strong>解答&lt;/strong>：仅客户端直接调用的接口需外网域名，前端调用的接口应通过内网通信。&lt;/li>
+&lt;li>&lt;strong>误区2&lt;/strong>：内网域名不需要HTTPS。
+​&lt;strong>解答&lt;/strong>：内网通信也应启用HTTPS（如自签证书），防止内部流量被窃听。&lt;/li>
+&lt;li>&lt;strong>误区3&lt;/strong>：外网接口仅靠防火墙保护足够。
+​&lt;strong>解答&lt;/strong>：需多层防御（HTTPS+鉴权+WAF），防火墙仅是第一道屏障。&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="总结">&lt;strong>总结&lt;/strong>
+&lt;/h2>&lt;ul>
+&lt;li>&lt;strong>前端调用后端&lt;/strong> → 优先使用内网域名/IP，通过反向代理隐藏后端。&lt;/li>
+&lt;li>&lt;strong>客户端调用后端&lt;/strong> → 使用外网域名，严格加固安全策略。&lt;/li>
+&lt;li>始终遵循最小暴露原则，减少攻击面，结合业务需求设计网络架构。&lt;/li>
+&lt;/ul>
+&lt;h2 id="场景1-详解">场景1 详解
+&lt;/h2>&lt;p>在前后端分离的架构中，通过 &lt;strong>Nginx 反向代理&lt;/strong>实现浏览器间接访问内网后端服务的链路如下：&lt;/p>
+&lt;p>&lt;strong>完整交互流程（以访问 &lt;code>https://example.com&lt;/code> 为例）&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">sequenceDiagram
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> participant 浏览器
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> participant 前端服务器(Nginx)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> participant 后端服务器
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 浏览器-&amp;gt;&amp;gt;前端服务器(Nginx): 1. 请求前端页面（GET /）
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 前端服务器(Nginx)-&amp;gt;&amp;gt;浏览器: 2. 返回HTML/CSS/JS文件
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 浏览器-&amp;gt;&amp;gt;前端服务器(Nginx): 3. 发起API请求（GET /api/todos）
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 前端服务器(Nginx)-&amp;gt;&amp;gt;后端服务器: 4. 转发请求到内网地址（如http://10.0.0.2:8080）
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 后端服务器-&amp;gt;&amp;gt;前端服务器(Nginx): 5. 返回API响应数据
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 前端服务器(Nginx)-&amp;gt;&amp;gt;浏览器: 6. 返回数据给浏览器
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;hr>
+&lt;h3 id="关键步骤详解">&lt;strong>关键步骤详解&lt;/strong>
+&lt;/h3>&lt;h4 id="浏览器请求前端页面">&lt;strong>浏览器请求前端页面&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>&lt;strong>用户输入&lt;/strong>：访问 &lt;code>https://example.com&lt;/code>。&lt;/li>
+&lt;li>&lt;strong>DNS解析&lt;/strong>：浏览器通过DNS查询得到 &lt;code>example.com&lt;/code> 的公网IP（如 &lt;code>122.51.70.205&lt;/code>）。&lt;/li>
+&lt;li>&lt;strong>请求前端资源&lt;/strong>：浏览器向该IP的80/443端口发送请求，获取 &lt;code>index.html&lt;/code> 和静态资源（JS/CSS）。&lt;/li>
+&lt;/ul>
+&lt;h4 id="前端服务器nginx响应静态文件">&lt;strong>前端服务器（Nginx）响应静态文件&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>
+&lt;p>Nginx配置：托管前端打包后的文件。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-nginx" data-lang="nginx">&lt;span class="line">&lt;span class="cl">&lt;span class="k">server&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">listen&lt;/span> &lt;span class="mi">80&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">server_name&lt;/span> &lt;span class="s">example.com&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">root&lt;/span> &lt;span class="s">/var/www/dist&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1"># 前端文件目录
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="kn">index&lt;/span> &lt;span class="s">index.html&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">location&lt;/span> &lt;span class="s">/&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">try_files&lt;/span> &lt;span class="nv">$uri&lt;/span> &lt;span class="nv">$uri/&lt;/span> &lt;span class="s">/index.html&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1"># 处理前端路由
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h4 id="浏览器执行js代码发起api请求">&lt;strong>浏览器执行JS代码发起API请求&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>&lt;strong>前端代码逻辑&lt;/strong>：JS中调用 &lt;code>fetch(&amp;quot;/api/todos&amp;quot;)&lt;/code>。&lt;/li>
+&lt;li>&lt;strong>实际请求地址&lt;/strong>：浏览器会将其解析为 &lt;code>https://example.com/api/todos&lt;/code>（同源请求）。&lt;/li>
+&lt;/ul>
+&lt;h4 id="nginx代理转发到后端服务器">&lt;strong>Nginx代理转发到后端服务器&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>
+&lt;p>Nginx反向代理规则：匹配/api/路径，转发到内网后端。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-nginx" data-lang="nginx">&lt;span class="line">&lt;span class="cl">&lt;span class="k">location&lt;/span> &lt;span class="s">/api/&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">proxy_pass&lt;/span> &lt;span class="s">http://10.0.0.2:8080&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1"># 后端内网IP和端口
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="kn">proxy_set_header&lt;/span> &lt;span class="s">Host&lt;/span> &lt;span class="nv">$host&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">proxy_set_header&lt;/span> &lt;span class="s">X-Real-IP&lt;/span> &lt;span class="nv">$remote_addr&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>内网通信&lt;/strong>：Nginx将请求发送到后端服务器的内网地址 &lt;code>10.0.0.2:8080&lt;/code>。&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="后端服务器处理请求">&lt;strong>后端服务器处理请求&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>&lt;strong>监听端口&lt;/strong>：后端服务运行在内网服务器的 &lt;code>8080&lt;/code> 端口。&lt;/li>
+&lt;li>&lt;strong>安全限制&lt;/strong>：防火墙仅允许来自前端服务器IP的请求（如 &lt;code>10.0.0.1&lt;/code>）。&lt;/li>
+&lt;/ul>
+&lt;h4 id="数据返回浏览器">&lt;strong>数据返回浏览器&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>&lt;strong>响应路径&lt;/strong>：后端 → Nginx → 浏览器。&lt;/li>
+&lt;li>&lt;strong>浏览器视角&lt;/strong>：全程只与 &lt;code>example.com&lt;/code> 通信，&lt;strong>感知不到后端服务器的存在&lt;/strong>。&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="为什么后端无需暴露公网">&lt;strong>为什么后端无需暴露公网？&lt;/strong>
+&lt;/h3>&lt;ol>
+&lt;li>
+&lt;p>Nginx的中转作用&lt;/p>
+&lt;ul>
+&lt;li>所有请求通过Nginx进入，后端服务只需在内网监听端口，无需公网IP或端口映射。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>防火墙保护&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>后端服务器的防火墙可配置为仅接受来自前端服务器内网IP的请求：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 后端服务器防火墙规则（示例）&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo ufw allow from 10.0.0.1 to any port &lt;span class="m">8080&lt;/span> &lt;span class="c1"># 仅允许前端服务器访问&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo ufw deny &lt;span class="m">8080&lt;/span> &lt;span class="c1"># 禁止其他IP访问&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>安全性提升&lt;/p>
+&lt;ul>
+&lt;li>后端不暴露公网，减少被扫描攻击的风险。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;h3 id="常见问题解答">&lt;strong>常见问题解答&lt;/strong>
+&lt;/h3>&lt;h4 id="q1为什么浏览器不直接请求后端地址">&lt;strong>Q1：为什么浏览器不直接请求后端地址？&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>&lt;strong>同源策略&lt;/strong>：前端代码部署在 &lt;code>example.com&lt;/code>，若直接请求 &lt;code>http://10.0.0.2:8080/api&lt;/code> 会触发跨域错误（CORS）。&lt;/li>
+&lt;li>&lt;strong>解决方案&lt;/strong>：通过Nginx代理统一域名，规避跨域问题。&lt;/li>
+&lt;/ul>
+&lt;h4 id="q2如何保证内网通信安全">&lt;strong>Q2：如何保证内网通信安全？&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>&lt;strong>使用VPN或专线&lt;/strong>：前后端服务器通过私有网络通信。&lt;/li>
+&lt;li>&lt;strong>内网HTTPS&lt;/strong>：即使在内网，也建议为后端服务启用HTTPS。&lt;/li>
+&lt;/ul>
+&lt;h4 id="q3如何扩展多台后端服务器">&lt;strong>Q3：如何扩展多台后端服务器？&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>
+&lt;p>负载均衡：在Nginx中配置upstream模块：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-nginx" data-lang="nginx">&lt;span class="line">&lt;span class="cl">&lt;span class="k">upstream&lt;/span> &lt;span class="s">backend&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">server&lt;/span> &lt;span class="n">10.0.0.2&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="mi">8080&lt;/span> &lt;span class="s">weight=1&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">server&lt;/span> &lt;span class="n">10.0.0.3&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="mi">8080&lt;/span> &lt;span class="s">weight=2&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">location&lt;/span> &lt;span class="s">/api/&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">proxy_pass&lt;/span> &lt;span class="s">http://backend&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="总结-1">&lt;strong>总结&lt;/strong>
+&lt;/h3>&lt;ul>
+&lt;li>&lt;strong>核心逻辑&lt;/strong>：Nginx作为中间层，将公网请求转发到内网后端，隐藏后端细节。&lt;/li>
+&lt;li>&lt;strong>安全要点&lt;/strong>：后端仅在内网监听，通过防火墙限制访问来源。&lt;/li>
+&lt;li>&lt;strong>优势&lt;/strong>：前端域名统一管理请求，提升安全性和扩展性。&lt;/li>
+&lt;/ul>
+&lt;h2 id="dns-nginx如何协作的">dns nginx如何协作的
+&lt;/h2>&lt;h3 id="1-dns-解析阶段域名到-nginx-服务器的-ip">&lt;strong>1. DNS 解析阶段：域名到 Nginx 服务器的 IP&lt;/strong>
+&lt;/h3>&lt;ul>
+&lt;li>&lt;strong>用户访问域名&lt;/strong>：例如 &lt;code>https://www.example.com&lt;/code>。&lt;/li>
+&lt;li>DNS 查询：
+&lt;ol>
+&lt;li>浏览器向本地 DNS 缓存或运营商 DNS 服务器查询 &lt;code>www.example.com&lt;/code> 的 IP。&lt;/li>
+&lt;li>DNS 服务器返回该域名对应的 &lt;strong>Nginx 服务器的公网 IP&lt;/strong>（如 &lt;code>122.51.70.205&lt;/code>）。&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>&lt;strong>结果&lt;/strong>：浏览器的所有请求（无论路径是 &lt;code>/&lt;/code>、&lt;code>/api/xxx&lt;/code> 或其他）都会发送到 &lt;code>122.51.70.205&lt;/code> 的 80/443 端口。&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="2-nginx-接收请求后的处理逻辑">&lt;strong>2. Nginx 接收请求后的处理逻辑&lt;/strong>
+&lt;/h3>&lt;p>Nginx &lt;strong>不依赖域名后缀&lt;/strong>（如 &lt;code>/api&lt;/code>），而是通过以下两个关键机制确定如何转发请求：&lt;/p>
+&lt;hr>
+&lt;p>&lt;strong>5(1) 根据 &lt;code>Host&lt;/code> 头匹配 &lt;code>server&lt;/code> 块&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>HTTP 请求头&lt;/strong>：浏览器在请求中自动携带 &lt;code>Host: www.example.com&lt;/code>。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Nginx 配置：通过server_name匹配域名，决定由哪个server块处理请求。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-nginx" data-lang="nginx">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 示例：处理 www.example.com 的请求
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="k">server&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">listen&lt;/span> &lt;span class="mi">80&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">server_name&lt;/span> &lt;span class="s">www.example.com&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1"># 关键！匹配 Host 头
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">location&lt;/span> &lt;span class="s">/&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">root&lt;/span> &lt;span class="s">/var/www/html&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1"># 返回前端页面
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">location&lt;/span> &lt;span class="s">/api/&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">proxy_pass&lt;/span> &lt;span class="s">http://backend&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1"># 转发到后端
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 另一个域名（如 api.example.com）的配置
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="k">server&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">listen&lt;/span> &lt;span class="mi">80&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">server_name&lt;/span> &lt;span class="s">api.example.com&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1"># 匹配不同 Host 头
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">location&lt;/span> &lt;span class="s">/&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">proxy_pass&lt;/span> &lt;span class="s">http://another-backend&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1"># 转发到其他后端
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>核心逻辑&lt;/strong>：
+Nginx 通过 &lt;code>server_name&lt;/code> 区分不同域名的请求，&lt;strong>即使它们指向同一个 IP&lt;/strong>。&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;p>&lt;strong>(2) 根据 &lt;code>location&lt;/code> 块匹配路径&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>路径匹配：在同一个server块内，通过location规则（如/api/）进一步决定是否转发到后端。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-nginx" data-lang="nginx">&lt;span class="line">&lt;span class="cl">&lt;span class="k">location&lt;/span> &lt;span class="s">/api/&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">proxy_pass&lt;/span> &lt;span class="s">http://10.0.0.2:8080&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1"># 转发到内网后端
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>最终流程&lt;/strong>：
+&lt;code>域名解析 → Nginx 接收请求 → 匹配 server_name → 匹配 location → 转发或返回静态文件&lt;/code>。&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="3-为什么域名后缀如-api不是关键">&lt;strong>3. 为什么域名后缀（如 &lt;code>/api&lt;/code>）不是关键？&lt;/strong>
+&lt;/h3>&lt;ul>
+&lt;li>&lt;strong>误区澄清&lt;/strong>：
+Nginx ​&lt;strong>不依赖 URL 中的域名后缀&lt;/strong>​（如 &lt;code>https://www.example.com/api/xxx&lt;/code> 中的 &lt;code>api&lt;/code> 路径）来决定转发，而是通过以下两步：
+&lt;ol>
+&lt;li>&lt;strong>域名级别&lt;/strong>：根据 &lt;code>Host&lt;/code> 头选择 &lt;code>server&lt;/code> 块（如 &lt;code>www.example.com&lt;/code> vs &lt;code>api.example.com&lt;/code>）。&lt;/li>
+&lt;li>&lt;strong>路径级别&lt;/strong>：在选中的 &lt;code>server&lt;/code> 块内，根据 &lt;code>location&lt;/code> 匹配路径（如 &lt;code>/api/&lt;/code>）。&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>&lt;strong>示例场景&lt;/strong>：
+&lt;ul>
+&lt;li>如果用户访问&lt;code>https://www.example.com/api/todos&lt;/code>：
+&lt;ul>
+&lt;li>Nginx 先匹配 &lt;code>server_name www.example.com&lt;/code> 的 &lt;code>server&lt;/code> 块。&lt;/li>
+&lt;li>再通过 &lt;code>location /api/&lt;/code> 将请求转发到后端。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>如果用户访问https://api.example.com/todos：
+&lt;ul>
+&lt;li>Nginx 匹配 &lt;code>server_name api.example.com&lt;/code> 的 &lt;code>server&lt;/code> 块。&lt;/li>
+&lt;li>根据该 &lt;code>server&lt;/code> 块的 &lt;code>location /&lt;/code> 直接转发到另一个后端。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="关键总结">&lt;strong>关键总结&lt;/strong>
+&lt;/h3>&lt;ol>
+&lt;li>&lt;strong>DNS 解析只是入口&lt;/strong>：
+&lt;ul>
+&lt;li>仅负责将域名解析到 Nginx 服务器的 IP，不涉及后续路径处理。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>Nginx 的核心匹配逻辑&lt;/strong>：
+&lt;ul>
+&lt;li>&lt;strong>第 1 层&lt;/strong>：通过 &lt;code>server_name&lt;/code> 匹配域名（&lt;code>Host&lt;/code> 头）。&lt;/li>
+&lt;li>&lt;strong>第 2 层&lt;/strong>：通过 &lt;code>location&lt;/code> 匹配路径。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>隐藏后端的关键&lt;/strong>：
+&lt;ul>
+&lt;li>浏览器始终只与 Nginx 通信，后端服务的 IP、端口、内网架构对浏览器完全透明。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;h3 id="配置示例多域名--路径转发">&lt;strong>配置示例：多域名 + 路径转发&lt;/strong>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-nginx" data-lang="nginx">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 域名 www.example.com：处理前端页面和API
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="k">server&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">listen&lt;/span> &lt;span class="mi">80&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">server_name&lt;/span> &lt;span class="s">www.example.com&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># 前端静态资源
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="kn">location&lt;/span> &lt;span class="s">/&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">root&lt;/span> &lt;span class="s">/var/www/html&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">index&lt;/span> &lt;span class="s">index.html&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># 转发API请求到后端
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="kn">location&lt;/span> &lt;span class="s">/api/&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">proxy_pass&lt;/span> &lt;span class="s">http://10.0.0.2:8080&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 域名 api.example.com：直接转发到另一个后端
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="k">server&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">listen&lt;/span> &lt;span class="mi">80&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">server_name&lt;/span> &lt;span class="s">api.example.com&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">location&lt;/span> &lt;span class="s">/&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">proxy_pass&lt;/span> &lt;span class="s">http://10.0.0.3:8080&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;hr>
+&lt;h3 id="测试方法">&lt;strong>测试方法&lt;/strong>
+&lt;/h3>&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>验证 DNS 解析&lt;/strong>：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">dig www.example.com &lt;span class="c1"># 查看是否返回 Nginx 服务器 IP&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>验证 Nginx 域名匹配&lt;/strong>：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 模拟携带不同 Host 头的请求&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">curl -H &lt;span class="s2">&amp;#34;Host: www.example.com&amp;#34;&lt;/span> http://122.51.70.205/api/todos
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">curl -H &lt;span class="s2">&amp;#34;Host: api.example.com&amp;#34;&lt;/span> http://122.51.70.205/todos
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>浏览器调试&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>在浏览器开发者工具的 &lt;strong>Network&lt;/strong> 选项卡中，观察请求的 &lt;code>Host&lt;/code> 头和响应来源。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;h3 id="常见问题">&lt;strong>常见问题&lt;/strong>
+&lt;/h3>&lt;p>&lt;strong>Q1：如果多个域名指向同一个 IP，Nginx 如何区分？&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>答案&lt;/strong>：通过 &lt;code>server_name&lt;/code> 匹配请求头中的 &lt;code>Host&lt;/code> 字段，无需不同 IP。&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Q2：Nginx 能根据 URL 路径（如 &lt;code>/api&lt;/code>）直接转发吗？&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>答案&lt;/strong>：可以，但需在同一 &lt;code>server&lt;/code> 块内配置 &lt;code>location&lt;/code> 规则，而不是依赖域名后缀。&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Q3：如何实现类似 &lt;code>https://example.com/api&lt;/code> 和 &lt;code>https://api.example.com&lt;/code> 的共存？&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>方案：
+&lt;ul>
+&lt;li>&lt;code>https://example.com/api&lt;/code> → 使用 &lt;code>server_name example.com&lt;/code> + &lt;code>location /api&lt;/code>。&lt;/li>
+&lt;li>&lt;code>https://api.example.com&lt;/code> → 使用 &lt;code>server_name api.example.com&lt;/code> + &lt;code>location /&lt;/code>。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;p>通过以上机制，Nginx 完美实现了 &lt;strong>域名解析 → 请求分发 → 后端隐藏&lt;/strong> 的全链路控制。&lt;/p></description></item><item><title>Linux Permission</title><link>https://godvvvzzz.github.io/p/linux-permission/</link><pubDate>Mon, 24 Feb 2025 19:14:51 +0800</pubDate><guid>https://godvvvzzz.github.io/p/linux-permission/</guid><description>&lt;h2 id="linux-文件权限基础">Linux 文件权限基础
+&lt;/h2>&lt;ol>
+&lt;li>&lt;strong>权限三元组&lt;/strong>&lt;/li>
+&lt;/ol>
+&lt;p>Linux 中每个文件/目录的权限由 3 组字符表示（共 9 位）：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl"> rwx rwx rwx
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> │││ │││ │││
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> └┬┘ └┬┘ └┬┘
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Owner Group Others
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>
+&lt;p>&lt;code>r = 读 (4)&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>w = 写 (2)&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>x = 执行/进入目录 (1)&lt;/code>&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;ol start="2">
+&lt;li>&lt;strong>数字表示法&lt;/strong>&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;code>755 = rwxr-xr-x&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>644 = rw-r--r--&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>777 = rwxrwxrwx（危险！）&lt;/code>&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="nginx-权限需求分析">Nginx 权限需求分析
+&lt;/h2>&lt;ol>
+&lt;li>&lt;strong>Nginx 运行身份&lt;/strong>
+默认以 &lt;code>www-data&lt;/code> 用户和组运行（可通过 &lt;code>ps aux | grep nginx&lt;/code> 确认）。
+需要至少以下权限：&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>
+&lt;p>目录：&lt;code>r-x&lt;/code>（读 + 执行）&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>文件：&lt;code>r--&lt;/code>（读）&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;ol start="2">
+&lt;li>&lt;strong>关键路径&lt;/strong>
+假设你的项目路径为：&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-swift" data-lang="swift">&lt;span class="line">&lt;span class="cl">&lt;span class="o">/&lt;/span>&lt;span class="n">home&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">ubuntu&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">work&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">react&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">todo&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">demo&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">dist&lt;/span>&lt;span class="o">/&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="分步权限配置指南">分步权限配置指南
+&lt;/h2>&lt;h3 id="步骤-1检查当前权限">步骤 1：检查当前权限
+&lt;/h3>&lt;ul>
+&lt;li>查看完整路径权限链（关键！）&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">namei -l /home/ubuntu/work/react-todo-demo/dist/index.html
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>示例输出：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">f: /home/ubuntu/work/react-todo-demo/dist/index.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">drwxr-xr-x root root /
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">drwxr-xr-x root root home
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">drwxr-x--- ubuntu ubuntu ubuntu # 问题所在！
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">drwxrwxr-x ubuntu ubuntu work
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">drwxrwxr-x ubuntu ubuntu react-todo-demo
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">drwxrwxrwx www-data www-data dist
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-rwxrwxrwx www-data www-data index.html
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="步骤-2设置父目录权限">步骤 2：设置父目录权限
+&lt;/h3>&lt;ul>
+&lt;li>开放父目录的 &lt;code>x&lt;/code> 权限（允许进入目录）&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo chmod o+x /home/ubuntu
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo chmod o+x /home/ubuntu/work
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo chmod o+x /home/ubuntu/work/react-todo-demo
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>验证&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">namei -l /home/ubuntu/work/react-todo-demo/dist/index.html &lt;span class="p">|&lt;/span> grep ubuntu
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>应看到类似：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-css" data-lang="css">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">drwx--x--x&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="步骤-3设置项目目录权限">步骤 3：设置项目目录权限
+&lt;/h3>&lt;ul>
+&lt;li>进入项目目录&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd&lt;/span> /home/ubuntu/work/react-todo-demo
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>设置目录权限（&lt;code>755 = owner 可写，其他人只读+执行&lt;/code>）&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo find dist/ -type d -exec chmod &lt;span class="m">755&lt;/span> &lt;span class="o">{}&lt;/span> &lt;span class="se">\;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>设置文件权限（&lt;code>644 = owner 可写，其他人只读&lt;/code>）&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo find dist/ -type f -exec chmod &lt;span class="m">644&lt;/span> &lt;span class="o">{}&lt;/span> &lt;span class="se">\;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>验证&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ls -l dist/
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>应显示：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-css" data-lang="css">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">drwxr-xr-x&lt;/span> &lt;span class="nt">目录&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">-rw-r--r--&lt;/span> &lt;span class="nt">文件&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="步骤-4设置所有权推荐方案">步骤 4：设置所有权（推荐方案）
+&lt;/h3>&lt;ul>
+&lt;li>将目录组改为 &lt;code>www-data&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo chown -R ubuntu:www-data /home/ubuntu/work/react-todo-demo/dist
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>设置组写权限（可选，如果你需要自动构建）&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo chmod -R g+w dist/
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>
+&lt;p>最终权限结构：&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;code>drwxrwxr-x 目录（owner:ubuntu, group:www-data）&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>-rw-rw-r-- 文件（owner:ubuntu, group:www-data）&lt;/code>&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="安全增强配置">安全增强配置
+&lt;/h2>&lt;h3 id="方案-a严格模式推荐">方案 A：严格模式（推荐）
+&lt;/h3>&lt;ul>
+&lt;li>父目录权限（仅允许 ubuntu 用户和组访问）&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo chmod &lt;span class="m">750&lt;/span> /home/ubuntu
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo chmod &lt;span class="m">750&lt;/span> /home/ubuntu/work
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo chmod &lt;span class="m">750&lt;/span> /home/ubuntu/work/react-todo-demo
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>将 &lt;code>www-data&lt;/code> 用户加入 &lt;code>ubuntu&lt;/code> 组&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo usermod -aG ubuntu www-data
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>项目目录权限&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo chmod -R &lt;span class="m">750&lt;/span> /home/ubuntu/work/react-todo-demo/dist
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo chown -R ubuntu:ubuntu /home/ubuntu/work/react-todo-demo/dist
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="方案-b宽松模式快速修复">方案 B：宽松模式（快速修复）
+&lt;/h3>&lt;ul>
+&lt;li>宽松权限配置&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo chmod -R &lt;span class="m">755&lt;/span> /home/ubuntu/work/react-todo-demo
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo chown -R ubuntu:www-data /home/ubuntu/work/react-todo-demo
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="selinuxapparmor-处理">SELinux/AppArmor 处理
+&lt;/h2>&lt;p>如果系统启用了强制访问控制：&lt;/p>
+&lt;ul>
+&lt;li>临时禁用（测试用）&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo setenforce &lt;span class="m">0&lt;/span> &lt;span class="c1"># SELinux&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo systemctl stop apparmor &lt;span class="c1"># AppArmor&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>永久解决方案&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo semanage fcontext -a -t httpd_sys_content_t &lt;span class="s2">&amp;#34;/home/ubuntu/work/react-todo-demo/dist(/.*)?&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo restorecon -Rv /home/ubuntu/work/react-todo-demo/dist
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="验证配置">验证配置
+&lt;/h2>&lt;h3 id="模拟-nginx-访问">模拟 Nginx 访问
+&lt;/h3>&lt;ul>
+&lt;li>切换到 &lt;code>www-data&lt;/code> 用户&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo -u www-data bash
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>尝试访问文件&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">cat /home/ubuntu/work/react-todo-demo/dist/index.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">exit&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="检查-nginx-错误日志">检查 Nginx 错误日志
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo tail -f /var/log/nginx/error.log
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="最佳实践总结">最佳实践总结
+&lt;/h3>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>对象&lt;/th>
+&lt;th>推荐权限&lt;/th>
+&lt;th>所有权&lt;/th>
+&lt;th>说明&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>项目父目录&lt;/td>
+&lt;td>755&lt;/td>
+&lt;td>ubuntu:ubuntu&lt;/td>
+&lt;td>确保 www-data 有 x 权限&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>构建目录（dist）&lt;/td>
+&lt;td>755&lt;/td>
+&lt;td>ubuntu:www-data&lt;/td>
+&lt;td>组权限方便 Nginx 读取&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>静态文件（.html）&lt;/td>
+&lt;td>644&lt;/td>
+&lt;td>ubuntu:www-data&lt;/td>
+&lt;td>防止意外修改&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>可执行文件（.sh）&lt;/td>
+&lt;td>744&lt;/td>
+&lt;td>ubuntu:www-data&lt;/td>
+&lt;td>需要执行权限时使用&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description></item><item><title>Notebook Record</title><link>https://godvvvzzz.github.io/p/notebook-record/</link><pubDate>Mon, 24 Feb 2025 15:01:17 +0800</pubDate><guid>https://godvvvzzz.github.io/p/notebook-record/</guid><description>&lt;h2 id="git操作">Git操作
+&lt;/h2>&lt;h3 id="ssh秘钥">ssh秘钥
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 检查是否已有 SSH 密钥&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ls -al ~/.ssh
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 生成新的 SSH 密钥&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ssh-keygen -t ed25519 -C &lt;span class="s2">&amp;#34;your_email@example.com&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 将 SSH 密钥添加到 SSH 代理&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">eval&lt;/span> &lt;span class="s2">&amp;#34;&lt;/span>&lt;span class="k">$(&lt;/span>ssh-agent -s&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> &lt;span class="c1"># 启动ssh代理&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ssh-add ~/.ssh/id_ed25519 &lt;span class="c1"># 将私钥添加到 SSH 代理&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 将公钥添加到 GitHub&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">cat ~/.ssh/id_ed25519.pub
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 测试 SSH 连接&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">ssh -T git@github.com
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="config配置">config配置
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git config --list
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 去掉--global则为当前项目设置&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git config --global user.name &lt;span class="s2">&amp;#34;weiweiwei&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git config --global user.email &lt;span class="s2">&amp;#34;2662446324@qq.com&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="其他常用命令">其他常用命令
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#查看远端分支情况&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git fetch --all
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git branch -r
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#切换远程分支并创建本地分支&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git checkout -b feature-branch origin/feature-branch
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#设置远程和本地分支关联&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git branch --set-upstream-to&lt;span class="o">=&lt;/span>&amp;lt;远程仓库名&amp;gt;/&amp;lt;远程分支名&amp;gt; &amp;lt;本地分支名&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="linux常用命令">Linux常用命令
+&lt;/h2>&lt;h3 id="查看历史已执行命令">查看历史已执行命令
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 查看历史命令&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">history&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">history&lt;/span> &lt;span class="p">|&lt;/span> tail -n &lt;span class="m">10&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">!123 &lt;span class="c1"># 使用 !编号 重新运行某条命令&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#可以通过 Ctrl + R 反向搜索历史命令：&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#按下 Ctrl + R。&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#输入关键字（如 git），终端会显示匹配的命令。&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#按 Enter 运行该命令，或按 Ctrl + R 继续搜索上一条匹配的命令。&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="nginx无权限">nginx无权限
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 定位权限问题&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">root@VM-4-3-ubuntu:/home/ubuntu/work/react-todo-front# namei -l /home/ubuntu/work/react-todo-front/dist/index.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">f: /home/ubuntu/work/react-todo-front/dist/index.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">drwxr-xr-x root root /
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">drwxr-xr-x root root home
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">drwxr-x--x ubuntu ubuntu ubuntu
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">drwxrwxr-x ubuntu ubuntu work
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">drwxr-xr-x root root react-todo-front
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">drwxr-xr-x ubuntu www-data dist
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-rw-r----- root root index.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 如上所示，dist目录下的文件 只有root和root组中用户能够读取，nginx无权限读&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 赋予nginx权限&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">root@VM-4-3-ubuntu:/home/ubuntu/work/react-todo-front# sudo chown -R ubuntu:www-data /home/ubuntu/work/react-todo-front/dist
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">#检查&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">root@VM-4-3-ubuntu:/home/ubuntu/work/react-todo-front# namei -l /home/ubuntu/work/react-todo-front/dist/index.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">f: /home/ubuntu/work/react-todo-front/dist/index.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">drwxr-xr-x root root /
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">drwxr-xr-x root root home
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">drwxr-x--x ubuntu ubuntu ubuntu
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">drwxrwxr-x ubuntu ubuntu work
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">drwxr-xr-x root root react-todo-front
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">drwxr-xr-x ubuntu www-data dist
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-rw-r----- ubuntu www-data index.html
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="vim">vim
+&lt;/h2>&lt;h3 id="文本替换">文本替换
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 替换文本 替换整个文件中的所有匹配项&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">:%s/old/new/g
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="nginx">nginx
+&lt;/h2>&lt;h2 id="go部署">go部署
+&lt;/h2>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ps aux &lt;span class="p">|&lt;/span> grep &lt;span class="s2">&amp;#34;go-todo-back&amp;#34;&lt;/span> &lt;span class="p">|&lt;/span> grep -v grep
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">nohup ./go-todo-back &lt;span class="p">&amp;amp;&lt;/span>&amp;gt; /home/ubuntu/work/log/go-todo-back/nohup.out &lt;span class="p">&amp;amp;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">go env -w &lt;span class="nv">GOPROXY&lt;/span>&lt;span class="o">=&lt;/span>https://goproxy.cn,direct
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="mysql">MySQL
+&lt;/h2>&lt;p>JSON_CONTAINS_PATH(developer_video_v2, &amp;lsquo;one&amp;rsquo;, &amp;lsquo;$.file.cdnurl&amp;rsquo;) = 0&lt;/p>
+&lt;p>&lt;strong>参数说明&lt;/strong> ：&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>&lt;code>developer_video_v2&lt;/code>&lt;/strong> ：要检查的 JSON 字段&lt;/li>
+&lt;li>&lt;strong>&lt;code>'one'&lt;/code>&lt;/strong> ：检查模式，表示只要存在 &lt;strong>任意一个指定的路径&lt;/strong> 就返回 &lt;code>1&lt;/code>
+（若改为 &lt;code>'all'&lt;/code> 则是要求 &lt;strong>所有路径必须存在&lt;/strong> ，此处因只有一个路径，效果等同）&lt;/li>
+&lt;li>&lt;strong>&lt;code>'$.file.cdnurl'&lt;/code>&lt;/strong> ：要探测的 JSON 路径（格式遵循 MySQL JSON 路径语法）&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-sql" data-lang="sql">&lt;span class="line">&lt;span class="cl">&lt;span class="k">SELECT&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="k">FROM&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">`&lt;/span>&lt;span class="n">knight_game&lt;/span>&lt;span class="o">`&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="k">WHERE&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">developer_video_v2&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">!=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">AND&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">IFNULL&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">JSON_UNQUOTE&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">developer_video_v2&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="s1">&amp;#39;$.file.cdnurl&amp;#39;&lt;/span>&lt;span class="p">),&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;&amp;#39;&lt;/span>&lt;span class="p">;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="k">SELECT&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="o">*&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="k">FROM&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="o">`&lt;/span>&lt;span class="n">knight_game&lt;/span>&lt;span class="o">`&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="k">WHERE&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="n">developer_video_v2&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">!=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;&amp;#39;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c1">-- 确保字段本身不是空字符串
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">AND&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="c1">-- 检查JSON路径是否不存在
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">JSON_CONTAINS_PATH&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">developer_video_v2&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;one&amp;#39;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;$.file.cdnurl&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="mi">0&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">OR&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="c1">-- 路径存在但值为空字符串（JSON中存储 &amp;#34;&amp;#34;）
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">JSON_UNQUOTE&lt;/span>&lt;span class="p">(&lt;/span>&lt;span class="n">developer_video_v2&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="s1">&amp;#39;$.file.cdnurl&amp;#39;&lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="o">=&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s1">&amp;#39;&amp;#39;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="k">OR&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="c1">-- 路径存在但值为JSON null（MySQL返回SQL NULL）
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="n">developer_video_v2&lt;/span>&lt;span class="o">-&amp;gt;&lt;/span>&lt;span class="s1">&amp;#39;$.file.cdnurl&amp;#39;&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">IS&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="k">NULL&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="p">)&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="wsl">wsl
+&lt;/h2>&lt;p>直接输入wsl 进入默认ubuntu系统&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item><item><title>React Deploy</title><link>https://godvvvzzz.github.io/p/react-deploy/</link><pubDate>Sun, 23 Feb 2025 00:54:07 +0800</pubDate><guid>https://godvvvzzz.github.io/p/react-deploy/</guid><description>&lt;h1 id="react-项目部署到腾讯云服务器">React 项目部署到腾讯云服务器
+&lt;/h1>&lt;p>本文将介绍如何将 React 项目部署到腾讯云服务器（无需域名），并使用 Nginx 作为 Web 服务器进行配置。&lt;/p>
+&lt;h2 id="准备工作">准备工作
+&lt;/h2>&lt;h3 id="服务器配置">服务器配置
+&lt;/h3>&lt;ul>
+&lt;li>&lt;strong>操作系统&lt;/strong>：推荐 Ubuntu 24.04 LTS&lt;/li>
+&lt;li>&lt;strong>安全组开放端口&lt;/strong>：80 (HTTP) 和 22 (SSH)&lt;/li>
+&lt;li>&lt;strong>获取服务器公网 IP&lt;/strong>：如 &lt;code>123.123.123.123&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h2 id="部署步骤">部署步骤
+&lt;/h2>&lt;h3 id="连接服务器">连接服务器
+&lt;/h3>&lt;p>通过 SSH 连接到服务器，使用密码或密钥登录：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ssh root@服务器IP
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="安装必要环境">安装必要环境
+&lt;/h3>&lt;p>首先，更新软件包列表并安装 Node.js 和 Nginx：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 更新软件包列表&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt update &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> sudo apt upgrade -y
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 安装 Node.js&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">curl -fsSL https://deb.nodesource.com/setup_20.x &lt;span class="p">|&lt;/span> sudo -E bash -
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt install -y nodejs
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 安装 Nginx&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt install nginx -y
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 验证安装&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">node -v &lt;span class="c1"># 应显示 v20.x&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">nginx -v &lt;span class="c1"># 应显示版本号&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="上传项目文件">上传项目文件
+&lt;/h3>&lt;p>将本地 React 项目上传到服务器：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 本地电脑执行（将本地项目上传到服务器）&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">scp -r ./react-project root@服务器IP:/home/react-project
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 或者通过git clone下载仓库&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="构建生产版本">构建生产版本
+&lt;/h3>&lt;p>在服务器端构建 React 应用：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 服务器端操作&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd&lt;/span> /home/react-project
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">npm install
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">npm run build &lt;span class="c1"># 生成 build/ 或 dist/ 目录&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="配置-nginx">配置 Nginx
+&lt;/h3>&lt;p>创建 Nginx 配置文件并启用：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 创建 Nginx 配置文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo vim /etc/nginx/sites-available/react-app
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>在文件中输入以下内容：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-nginx" data-lang="nginx">&lt;span class="line">&lt;span class="cl">&lt;span class="k">server&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">listen&lt;/span> &lt;span class="mi">80&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">server_name&lt;/span> &lt;span class="mi">120&lt;/span>&lt;span class="s">.51.70.205&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1"># 无需域名，替换成自己的服务器公网ip
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="kn">root&lt;/span> &lt;span class="s">/home/react-project/build&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1"># 根据实际构建目录调整
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="kn">index&lt;/span> &lt;span class="s">index.html&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">location&lt;/span> &lt;span class="s">/&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">try_files&lt;/span> &lt;span class="nv">$uri&lt;/span> &lt;span class="nv">$uri/&lt;/span> &lt;span class="s">/index.html&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>启用配置：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo ln -s /etc/nginx/sites-available/react-app /etc/nginx/sites-enabled/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo nginx -t &lt;span class="c1"># 测试配置&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo systemctl restart nginx
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="开放防火墙腾讯云控制台">开放防火墙（腾讯云控制台）
+&lt;/h3>&lt;p>登录腾讯云控制台，进入安全组设置，添加入站规则：&lt;/p>
+&lt;ul>
+&lt;li>协议：TCP&lt;/li>
+&lt;li>端口：80&lt;/li>
+&lt;li>来源：0.0.0.0/0（或你的本地 IP）&lt;/li>
+&lt;/ul>
+&lt;h3 id="本地访问">本地访问
+&lt;/h3>&lt;p>在浏览器中访问：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">http://服务器IP
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="备选方案使用-pm2-部署">备选方案：使用 PM2 部署
+&lt;/h3>&lt;p>若需保持开发模式运行（不推荐生产环境）：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 全局安装 PM2&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">npm install pm2 -g
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 启动应用&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">pm2 serve /home/react-project/build &lt;span class="m">3000&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 设置开机启动&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">pm2 startup
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">pm2 save
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>此时访问地址为：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">http://服务器IP:3000
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="后续维护">后续维护
+&lt;/h2>&lt;h3 id="更新代码">更新代码
+&lt;/h3>&lt;p>若要更新代码：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 本地&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">scp -r ./react-project root@服务器IP:/home/react-project
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 服务器&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd&lt;/span> /home/react-project
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">npm run build
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo systemctl restart nginx
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="常用命令">常用命令
+&lt;/h3>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>命令&lt;/th>
+&lt;th>作用&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>sudo systemctl status nginx&lt;/code>&lt;/td>
+&lt;td>查看 Nginx 状态&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>journalctl -u nginx -f&lt;/code>&lt;/td>
+&lt;td>查看 Nginx 日志&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>pm2 list&lt;/code>&lt;/td>
+&lt;td>查看 PM2 进程&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="注意事项">注意事项
+&lt;/h2>&lt;ul>
+&lt;li>&lt;strong>权限问题&lt;/strong>：确保 &lt;code>/home/react-project&lt;/code> 目录有读取权限。&lt;/li>
+&lt;li>&lt;strong>路径问题&lt;/strong>：检查 Nginx 配置中的路径与实际构建目录是否一致。&lt;/li>
+&lt;li>&lt;strong>端口冲突&lt;/strong>：若使用其他端口需同步修改安全组规则。&lt;/li>
+&lt;/ul>
+&lt;p>通过以上步骤即可通过服务器 IP 直接访问部署的 React 应用。后续获取域名后，只需在 Nginx 配置中修改 &lt;code>server_name&lt;/code> 并配置 SSL 证书即可升级为 HTTPS 站点。&lt;/p></description></item></channel></rss>
