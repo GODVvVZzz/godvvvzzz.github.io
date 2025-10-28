@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Linux on VvVzzz Blog</title><link>https://godvvvzzz.github.io/tags/linux/</link><description>Recent content in Linux on VvVzzz Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 24 Feb 2025 19:14:51 +0800</lastBuildDate><atom:link href="https://godvvvzzz.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml"/><item><title>Linux Permission</title><link>https://godvvvzzz.github.io/p/linux-permission/</link><pubDate>Mon, 24 Feb 2025 19:14:51 +0800</pubDate><guid>https://godvvvzzz.github.io/p/linux-permission/</guid><description>&lt;h2 id="linux-文件权限基础">Linux 文件权限基础
+&lt;/h2>&lt;ol>
+&lt;li>&lt;strong>权限三元组&lt;/strong>&lt;/li>
+&lt;/ol>
+&lt;p>Linux 中每个文件/目录的权限由 3 组字符表示（共 9 位）：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-markdown" data-lang="markdown">&lt;span class="line">&lt;span class="cl"> rwx rwx rwx
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> │││ │││ │││
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> └┬┘ └┬┘ └┬┘
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Owner Group Others
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>
+&lt;p>&lt;code>r = 读 (4)&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>w = 写 (2)&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>x = 执行/进入目录 (1)&lt;/code>&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;ol start="2">
+&lt;li>&lt;strong>数字表示法&lt;/strong>&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;code>755 = rwxr-xr-x&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>644 = rw-r--r--&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>777 = rwxrwxrwx（危险！）&lt;/code>&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="nginx-权限需求分析">Nginx 权限需求分析
+&lt;/h2>&lt;ol>
+&lt;li>&lt;strong>Nginx 运行身份&lt;/strong>
+默认以 &lt;code>www-data&lt;/code> 用户和组运行（可通过 &lt;code>ps aux | grep nginx&lt;/code> 确认）。
+需要至少以下权限：&lt;/li>
+&lt;/ol>
+&lt;ul>
+&lt;li>
+&lt;p>目录：&lt;code>r-x&lt;/code>（读 + 执行）&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>文件：&lt;code>r--&lt;/code>（读）&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;ol start="2">
+&lt;li>&lt;strong>关键路径&lt;/strong>
+假设你的项目路径为：&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-swift" data-lang="swift">&lt;span class="line">&lt;span class="cl">&lt;span class="o">/&lt;/span>&lt;span class="n">home&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">ubuntu&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">work&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">react&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">todo&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">demo&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">dist&lt;/span>&lt;span class="o">/&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="分步权限配置指南">分步权限配置指南
+&lt;/h2>&lt;h3 id="步骤-1检查当前权限">步骤 1：检查当前权限
+&lt;/h3>&lt;ul>
+&lt;li>查看完整路径权限链（关键！）&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">namei -l /home/ubuntu/work/react-todo-demo/dist/index.html
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>示例输出：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">f: /home/ubuntu/work/react-todo-demo/dist/index.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">drwxr-xr-x root root /
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">drwxr-xr-x root root home
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">drwxr-x--- ubuntu ubuntu ubuntu # 问题所在！
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">drwxrwxr-x ubuntu ubuntu work
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">drwxrwxr-x ubuntu ubuntu react-todo-demo
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">drwxrwxrwx www-data www-data dist
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">-rwxrwxrwx www-data www-data index.html
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="步骤-2设置父目录权限">步骤 2：设置父目录权限
+&lt;/h3>&lt;ul>
+&lt;li>开放父目录的 &lt;code>x&lt;/code> 权限（允许进入目录）&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo chmod o+x /home/ubuntu
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo chmod o+x /home/ubuntu/work
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo chmod o+x /home/ubuntu/work/react-todo-demo
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>验证&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">namei -l /home/ubuntu/work/react-todo-demo/dist/index.html &lt;span class="p">|&lt;/span> grep ubuntu
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>应看到类似：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-css" data-lang="css">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">drwx--x--x&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="步骤-3设置项目目录权限">步骤 3：设置项目目录权限
+&lt;/h3>&lt;ul>
+&lt;li>进入项目目录&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd&lt;/span> /home/ubuntu/work/react-todo-demo
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>设置目录权限（&lt;code>755 = owner 可写，其他人只读+执行&lt;/code>）&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo find dist/ -type d -exec chmod &lt;span class="m">755&lt;/span> &lt;span class="o">{}&lt;/span> &lt;span class="se">\;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>设置文件权限（&lt;code>644 = owner 可写，其他人只读&lt;/code>）&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo find dist/ -type f -exec chmod &lt;span class="m">644&lt;/span> &lt;span class="o">{}&lt;/span> &lt;span class="se">\;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>验证&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ls -l dist/
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>应显示：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-css" data-lang="css">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">drwxr-xr-x&lt;/span> &lt;span class="nt">目录&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nt">-rw-r--r--&lt;/span> &lt;span class="nt">文件&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="步骤-4设置所有权推荐方案">步骤 4：设置所有权（推荐方案）
+&lt;/h3>&lt;ul>
+&lt;li>将目录组改为 &lt;code>www-data&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo chown -R ubuntu:www-data /home/ubuntu/work/react-todo-demo/dist
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>设置组写权限（可选，如果你需要自动构建）&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo chmod -R g+w dist/
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>
+&lt;p>最终权限结构：&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;code>drwxrwxr-x 目录（owner:ubuntu, group:www-data）&lt;/code>&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;code>-rw-rw-r-- 文件（owner:ubuntu, group:www-data）&lt;/code>&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="安全增强配置">安全增强配置
+&lt;/h2>&lt;h3 id="方案-a严格模式推荐">方案 A：严格模式（推荐）
+&lt;/h3>&lt;ul>
+&lt;li>父目录权限（仅允许 ubuntu 用户和组访问）&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo chmod &lt;span class="m">750&lt;/span> /home/ubuntu
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo chmod &lt;span class="m">750&lt;/span> /home/ubuntu/work
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo chmod &lt;span class="m">750&lt;/span> /home/ubuntu/work/react-todo-demo
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>将 &lt;code>www-data&lt;/code> 用户加入 &lt;code>ubuntu&lt;/code> 组&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo usermod -aG ubuntu www-data
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>项目目录权限&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo chmod -R &lt;span class="m">750&lt;/span> /home/ubuntu/work/react-todo-demo/dist
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo chown -R ubuntu:ubuntu /home/ubuntu/work/react-todo-demo/dist
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="方案-b宽松模式快速修复">方案 B：宽松模式（快速修复）
+&lt;/h3>&lt;ul>
+&lt;li>宽松权限配置&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo chmod -R &lt;span class="m">755&lt;/span> /home/ubuntu/work/react-todo-demo
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo chown -R ubuntu:www-data /home/ubuntu/work/react-todo-demo
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="selinuxapparmor-处理">SELinux/AppArmor 处理
+&lt;/h2>&lt;p>如果系统启用了强制访问控制：&lt;/p>
+&lt;ul>
+&lt;li>临时禁用（测试用）&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo setenforce &lt;span class="m">0&lt;/span> &lt;span class="c1"># SELinux&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo systemctl stop apparmor &lt;span class="c1"># AppArmor&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>永久解决方案&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo semanage fcontext -a -t httpd_sys_content_t &lt;span class="s2">&amp;#34;/home/ubuntu/work/react-todo-demo/dist(/.*)?&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo restorecon -Rv /home/ubuntu/work/react-todo-demo/dist
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="验证配置">验证配置
+&lt;/h2>&lt;h3 id="模拟-nginx-访问">模拟 Nginx 访问
+&lt;/h3>&lt;ul>
+&lt;li>切换到 &lt;code>www-data&lt;/code> 用户&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo -u www-data bash
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;ul>
+&lt;li>尝试访问文件&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">cat /home/ubuntu/work/react-todo-demo/dist/index.html
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">exit&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="检查-nginx-错误日志">检查 Nginx 错误日志
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo tail -f /var/log/nginx/error.log
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="最佳实践总结">最佳实践总结
+&lt;/h3>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>对象&lt;/th>
+&lt;th>推荐权限&lt;/th>
+&lt;th>所有权&lt;/th>
+&lt;th>说明&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>项目父目录&lt;/td>
+&lt;td>755&lt;/td>
+&lt;td>ubuntu:ubuntu&lt;/td>
+&lt;td>确保 www-data 有 x 权限&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>构建目录（dist）&lt;/td>
+&lt;td>755&lt;/td>
+&lt;td>ubuntu:www-data&lt;/td>
+&lt;td>组权限方便 Nginx 读取&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>静态文件（.html）&lt;/td>
+&lt;td>644&lt;/td>
+&lt;td>ubuntu:www-data&lt;/td>
+&lt;td>防止意外修改&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>可执行文件（.sh）&lt;/td>
+&lt;td>744&lt;/td>
+&lt;td>ubuntu:www-data&lt;/td>
+&lt;td>需要执行权限时使用&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table></description></item></channel></rss>

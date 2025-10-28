@@ -1,0 +1,660 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>部署 on VvVzzz Blog</title><link>https://godvvvzzz.github.io/categories/%E9%83%A8%E7%BD%B2/</link><description>Recent content in 部署 on VvVzzz Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 27 Feb 2025 00:49:52 +0800</lastBuildDate><atom:link href="https://godvvvzzz.github.io/categories/%E9%83%A8%E7%BD%B2/index.xml" rel="self" type="application/rss+xml"/><item><title>前后端域名使用探讨</title><link>https://godvvvzzz.github.io/p/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%9F%9F%E5%90%8D%E4%BD%BF%E7%94%A8%E6%8E%A2%E8%AE%A8/</link><pubDate>Thu, 27 Feb 2025 00:49:52 +0800</pubDate><guid>https://godvvvzzz.github.io/p/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%9F%9F%E5%90%8D%E4%BD%BF%E7%94%A8%E6%8E%A2%E8%AE%A8/</guid><description>&lt;hr>
+&lt;h2 id="核心原则">&lt;strong>核心原则&lt;/strong>
+&lt;/h2>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th style="text-align:center">访问场景&lt;/th>
+&lt;th style="text-align:center">推荐域名类型&lt;/th>
+&lt;th style="text-align:center">说明&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td style="text-align:center">&lt;strong>前端 → 后端接口&lt;/strong>&lt;/td>
+&lt;td style="text-align:center">内网域名/IP&lt;/td>
+&lt;td style="text-align:center">前端与后端部署在同一内网，通过反向代理通信，减少公网暴露风险。&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td style="text-align:center">&lt;strong>客户端 → 后端接口&lt;/strong>&lt;/td>
+&lt;td style="text-align:center">外网域名&lt;/td>
+&lt;td style="text-align:center">客户端（如移动端、第三方）需通过公网访问，需暴露外网域名并加固安全。&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;h2 id="典型场景及配置方案">&lt;strong>典型场景及配置方案&lt;/strong>
+&lt;/h2>&lt;h3 id="场景1纯web应用仅前端调用后端">&lt;strong>场景1：纯Web应用（仅前端调用后端）&lt;/strong>
+&lt;/h3>&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>架构特点&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>前端部署在公网（如Nginx/CDN），后端在内网。&lt;/li>
+&lt;li>所有接口仅由前端调用，&lt;strong>客户端不直接访问后端&lt;/strong>。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>配置方案&lt;/strong>：&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>前端调用后端&lt;/strong>：Nginx使用内网域名/IP代理后端服务（如 &lt;code>proxy_pass http://internal-api.example.com&lt;/code>）。&lt;/li>
+&lt;li>&lt;strong>客户端访问&lt;/strong>：仅访问前端域名（如 &lt;code>https://www.example.com&lt;/code>），不暴露后端接口。&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-nginx" data-lang="nginx">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 前端Nginx配置
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="k">location&lt;/span> &lt;span class="s">/api/&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">proxy_pass&lt;/span> &lt;span class="s">http://internal-api.example.com:8080&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1"># 内网域名
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="kn">proxy_set_header&lt;/span> &lt;span class="s">Host&lt;/span> &lt;span class="nv">$host&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h3 id="场景2混合应用前端客户端均需调用后端">&lt;strong>场景2：混合应用（前端+客户端均需调用后端）&lt;/strong>
+&lt;/h3>&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>架构特点&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>后端需同时服务前端（Web）和客户端（App/第三方）。&lt;/li>
+&lt;li>需区分内部接口和开放接口。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>配置方案&lt;/strong>：&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>前端调用后端&lt;/strong>：通过内网域名/IP（走反向代理）。&lt;/li>
+&lt;li>&lt;strong>客户端调用后端&lt;/strong>：通过外网域名（如 &lt;code>https://api.example.com&lt;/code>），配合API网关、鉴权和限流。&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-nginx" data-lang="nginx">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 对外API网关配置
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="k">server&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">listen&lt;/span> &lt;span class="mi">443&lt;/span> &lt;span class="s">ssl&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">server_name&lt;/span> &lt;span class="s">api.example.com&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1"># 外网域名
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">location&lt;/span> &lt;span class="s">/public-api/&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">proxy_pass&lt;/span> &lt;span class="s">http://backend-cluster&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1"># 后端集群内网地址
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="c1"># 安全加固：API密钥验证、速率限制等
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h3 id="场景3全开放api服务如第三方集成">&lt;strong>场景3：全开放API服务（如第三方集成）&lt;/strong>
+&lt;/h3>&lt;ul>
+&lt;li>架构特点：
+&lt;ul>
+&lt;li>后端需完全暴露给公网，供多客户端直接调用。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>配置方案：
+&lt;ol>
+&lt;li>统一使用外网域名（如 &lt;code>https://api.example.com&lt;/code>）。&lt;/li>
+&lt;li>通过&lt;strong>API网关&lt;/strong>管理流量，并启用HTTPS、OAuth2、IP白名单等安全措施。&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="安全最佳实践">&lt;strong>安全最佳实践&lt;/strong>
+&lt;/h2>&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>内网通信加固&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>使用内网域名/IP，避免后端直接暴露在公网。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>通过防火墙限制后端端口仅允许前端服务器IP访问。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 后端服务器防火墙规则（示例）&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo ufw allow from 前端服务器IP to any port &lt;span class="m">8080&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo ufw deny &lt;span class="m">8080&lt;/span> &lt;span class="c1"># 禁止其他IP访问&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>外网接口防护&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>HTTPS加密&lt;/strong>：强制所有外网域名使用SSL/TLS。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>鉴权机制&lt;/strong>：JWT、OAuth2、API Key等。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>速率限制：防止DDoS和滥用。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-nginx" data-lang="nginx">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># Nginx限流配置
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="k">limit_req_zone&lt;/span> &lt;span class="nv">$binary_remote_addr&lt;/span> &lt;span class="s">zone=api_rate:10m&lt;/span> &lt;span class="s">rate=10r/s&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">location&lt;/span> &lt;span class="s">/api/&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">limit_req&lt;/span> &lt;span class="s">zone=api_rate&lt;/span> &lt;span class="s">burst=20&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">proxy_pass&lt;/span> &lt;span class="s">http://backend&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>监控与日志&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>记录所有外网接口的访问日志。&lt;/li>
+&lt;li>使用工具（如Prometheus+Grafana）监控API健康状态。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;h2 id="常见误区与解答">&lt;strong>常见误区与解答&lt;/strong>
+&lt;/h2>&lt;ul>
+&lt;li>&lt;strong>误区1&lt;/strong>：所有接口都需通过外网暴露。
+​&lt;strong>解答&lt;/strong>：仅客户端直接调用的接口需外网域名，前端调用的接口应通过内网通信。&lt;/li>
+&lt;li>&lt;strong>误区2&lt;/strong>：内网域名不需要HTTPS。
+​&lt;strong>解答&lt;/strong>：内网通信也应启用HTTPS（如自签证书），防止内部流量被窃听。&lt;/li>
+&lt;li>&lt;strong>误区3&lt;/strong>：外网接口仅靠防火墙保护足够。
+​&lt;strong>解答&lt;/strong>：需多层防御（HTTPS+鉴权+WAF），防火墙仅是第一道屏障。&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="总结">&lt;strong>总结&lt;/strong>
+&lt;/h2>&lt;ul>
+&lt;li>&lt;strong>前端调用后端&lt;/strong> → 优先使用内网域名/IP，通过反向代理隐藏后端。&lt;/li>
+&lt;li>&lt;strong>客户端调用后端&lt;/strong> → 使用外网域名，严格加固安全策略。&lt;/li>
+&lt;li>始终遵循最小暴露原则，减少攻击面，结合业务需求设计网络架构。&lt;/li>
+&lt;/ul>
+&lt;h2 id="场景1-详解">场景1 详解
+&lt;/h2>&lt;p>在前后端分离的架构中，通过 &lt;strong>Nginx 反向代理&lt;/strong>实现浏览器间接访问内网后端服务的链路如下：&lt;/p>
+&lt;p>&lt;strong>完整交互流程（以访问 &lt;code>https://example.com&lt;/code> 为例）&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">sequenceDiagram
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> participant 浏览器
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> participant 前端服务器(Nginx)
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> participant 后端服务器
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 浏览器-&amp;gt;&amp;gt;前端服务器(Nginx): 1. 请求前端页面（GET /）
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 前端服务器(Nginx)-&amp;gt;&amp;gt;浏览器: 2. 返回HTML/CSS/JS文件
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 浏览器-&amp;gt;&amp;gt;前端服务器(Nginx): 3. 发起API请求（GET /api/todos）
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 前端服务器(Nginx)-&amp;gt;&amp;gt;后端服务器: 4. 转发请求到内网地址（如http://10.0.0.2:8080）
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 后端服务器-&amp;gt;&amp;gt;前端服务器(Nginx): 5. 返回API响应数据
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> 前端服务器(Nginx)-&amp;gt;&amp;gt;浏览器: 6. 返回数据给浏览器
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;hr>
+&lt;h3 id="关键步骤详解">&lt;strong>关键步骤详解&lt;/strong>
+&lt;/h3>&lt;h4 id="浏览器请求前端页面">&lt;strong>浏览器请求前端页面&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>&lt;strong>用户输入&lt;/strong>：访问 &lt;code>https://example.com&lt;/code>。&lt;/li>
+&lt;li>&lt;strong>DNS解析&lt;/strong>：浏览器通过DNS查询得到 &lt;code>example.com&lt;/code> 的公网IP（如 &lt;code>122.51.70.205&lt;/code>）。&lt;/li>
+&lt;li>&lt;strong>请求前端资源&lt;/strong>：浏览器向该IP的80/443端口发送请求，获取 &lt;code>index.html&lt;/code> 和静态资源（JS/CSS）。&lt;/li>
+&lt;/ul>
+&lt;h4 id="前端服务器nginx响应静态文件">&lt;strong>前端服务器（Nginx）响应静态文件&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>
+&lt;p>Nginx配置：托管前端打包后的文件。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-nginx" data-lang="nginx">&lt;span class="line">&lt;span class="cl">&lt;span class="k">server&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">listen&lt;/span> &lt;span class="mi">80&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">server_name&lt;/span> &lt;span class="s">example.com&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">root&lt;/span> &lt;span class="s">/var/www/dist&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1"># 前端文件目录
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="kn">index&lt;/span> &lt;span class="s">index.html&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">location&lt;/span> &lt;span class="s">/&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">try_files&lt;/span> &lt;span class="nv">$uri&lt;/span> &lt;span class="nv">$uri/&lt;/span> &lt;span class="s">/index.html&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1"># 处理前端路由
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;h4 id="浏览器执行js代码发起api请求">&lt;strong>浏览器执行JS代码发起API请求&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>&lt;strong>前端代码逻辑&lt;/strong>：JS中调用 &lt;code>fetch(&amp;quot;/api/todos&amp;quot;)&lt;/code>。&lt;/li>
+&lt;li>&lt;strong>实际请求地址&lt;/strong>：浏览器会将其解析为 &lt;code>https://example.com/api/todos&lt;/code>（同源请求）。&lt;/li>
+&lt;/ul>
+&lt;h4 id="nginx代理转发到后端服务器">&lt;strong>Nginx代理转发到后端服务器&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>
+&lt;p>Nginx反向代理规则：匹配/api/路径，转发到内网后端。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-nginx" data-lang="nginx">&lt;span class="line">&lt;span class="cl">&lt;span class="k">location&lt;/span> &lt;span class="s">/api/&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">proxy_pass&lt;/span> &lt;span class="s">http://10.0.0.2:8080&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1"># 后端内网IP和端口
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="kn">proxy_set_header&lt;/span> &lt;span class="s">Host&lt;/span> &lt;span class="nv">$host&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">proxy_set_header&lt;/span> &lt;span class="s">X-Real-IP&lt;/span> &lt;span class="nv">$remote_addr&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>内网通信&lt;/strong>：Nginx将请求发送到后端服务器的内网地址 &lt;code>10.0.0.2:8080&lt;/code>。&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;h4 id="后端服务器处理请求">&lt;strong>后端服务器处理请求&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>&lt;strong>监听端口&lt;/strong>：后端服务运行在内网服务器的 &lt;code>8080&lt;/code> 端口。&lt;/li>
+&lt;li>&lt;strong>安全限制&lt;/strong>：防火墙仅允许来自前端服务器IP的请求（如 &lt;code>10.0.0.1&lt;/code>）。&lt;/li>
+&lt;/ul>
+&lt;h4 id="数据返回浏览器">&lt;strong>数据返回浏览器&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>&lt;strong>响应路径&lt;/strong>：后端 → Nginx → 浏览器。&lt;/li>
+&lt;li>&lt;strong>浏览器视角&lt;/strong>：全程只与 &lt;code>example.com&lt;/code> 通信，&lt;strong>感知不到后端服务器的存在&lt;/strong>。&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="为什么后端无需暴露公网">&lt;strong>为什么后端无需暴露公网？&lt;/strong>
+&lt;/h3>&lt;ol>
+&lt;li>
+&lt;p>Nginx的中转作用&lt;/p>
+&lt;ul>
+&lt;li>所有请求通过Nginx进入，后端服务只需在内网监听端口，无需公网IP或端口映射。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>防火墙保护&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>后端服务器的防火墙可配置为仅接受来自前端服务器内网IP的请求：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 后端服务器防火墙规则（示例）&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo ufw allow from 10.0.0.1 to any port &lt;span class="m">8080&lt;/span> &lt;span class="c1"># 仅允许前端服务器访问&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo ufw deny &lt;span class="m">8080&lt;/span> &lt;span class="c1"># 禁止其他IP访问&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>安全性提升&lt;/p>
+&lt;ul>
+&lt;li>后端不暴露公网，减少被扫描攻击的风险。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;h3 id="常见问题解答">&lt;strong>常见问题解答&lt;/strong>
+&lt;/h3>&lt;h4 id="q1为什么浏览器不直接请求后端地址">&lt;strong>Q1：为什么浏览器不直接请求后端地址？&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>&lt;strong>同源策略&lt;/strong>：前端代码部署在 &lt;code>example.com&lt;/code>，若直接请求 &lt;code>http://10.0.0.2:8080/api&lt;/code> 会触发跨域错误（CORS）。&lt;/li>
+&lt;li>&lt;strong>解决方案&lt;/strong>：通过Nginx代理统一域名，规避跨域问题。&lt;/li>
+&lt;/ul>
+&lt;h4 id="q2如何保证内网通信安全">&lt;strong>Q2：如何保证内网通信安全？&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>&lt;strong>使用VPN或专线&lt;/strong>：前后端服务器通过私有网络通信。&lt;/li>
+&lt;li>&lt;strong>内网HTTPS&lt;/strong>：即使在内网，也建议为后端服务启用HTTPS。&lt;/li>
+&lt;/ul>
+&lt;h4 id="q3如何扩展多台后端服务器">&lt;strong>Q3：如何扩展多台后端服务器？&lt;/strong>
+&lt;/h4>&lt;ul>
+&lt;li>
+&lt;p>负载均衡：在Nginx中配置upstream模块：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-nginx" data-lang="nginx">&lt;span class="line">&lt;span class="cl">&lt;span class="k">upstream&lt;/span> &lt;span class="s">backend&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">server&lt;/span> &lt;span class="n">10.0.0.2&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="mi">8080&lt;/span> &lt;span class="s">weight=1&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">server&lt;/span> &lt;span class="n">10.0.0.3&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="mi">8080&lt;/span> &lt;span class="s">weight=2&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="k">location&lt;/span> &lt;span class="s">/api/&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">proxy_pass&lt;/span> &lt;span class="s">http://backend&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="总结-1">&lt;strong>总结&lt;/strong>
+&lt;/h3>&lt;ul>
+&lt;li>&lt;strong>核心逻辑&lt;/strong>：Nginx作为中间层，将公网请求转发到内网后端，隐藏后端细节。&lt;/li>
+&lt;li>&lt;strong>安全要点&lt;/strong>：后端仅在内网监听，通过防火墙限制访问来源。&lt;/li>
+&lt;li>&lt;strong>优势&lt;/strong>：前端域名统一管理请求，提升安全性和扩展性。&lt;/li>
+&lt;/ul>
+&lt;h2 id="dns-nginx如何协作的">dns nginx如何协作的
+&lt;/h2>&lt;h3 id="1-dns-解析阶段域名到-nginx-服务器的-ip">&lt;strong>1. DNS 解析阶段：域名到 Nginx 服务器的 IP&lt;/strong>
+&lt;/h3>&lt;ul>
+&lt;li>&lt;strong>用户访问域名&lt;/strong>：例如 &lt;code>https://www.example.com&lt;/code>。&lt;/li>
+&lt;li>DNS 查询：
+&lt;ol>
+&lt;li>浏览器向本地 DNS 缓存或运营商 DNS 服务器查询 &lt;code>www.example.com&lt;/code> 的 IP。&lt;/li>
+&lt;li>DNS 服务器返回该域名对应的 &lt;strong>Nginx 服务器的公网 IP&lt;/strong>（如 &lt;code>122.51.70.205&lt;/code>）。&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>&lt;strong>结果&lt;/strong>：浏览器的所有请求（无论路径是 &lt;code>/&lt;/code>、&lt;code>/api/xxx&lt;/code> 或其他）都会发送到 &lt;code>122.51.70.205&lt;/code> 的 80/443 端口。&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="2-nginx-接收请求后的处理逻辑">&lt;strong>2. Nginx 接收请求后的处理逻辑&lt;/strong>
+&lt;/h3>&lt;p>Nginx &lt;strong>不依赖域名后缀&lt;/strong>（如 &lt;code>/api&lt;/code>），而是通过以下两个关键机制确定如何转发请求：&lt;/p>
+&lt;hr>
+&lt;p>&lt;strong>5(1) 根据 &lt;code>Host&lt;/code> 头匹配 &lt;code>server&lt;/code> 块&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>HTTP 请求头&lt;/strong>：浏览器在请求中自动携带 &lt;code>Host: www.example.com&lt;/code>。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>Nginx 配置：通过server_name匹配域名，决定由哪个server块处理请求。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-nginx" data-lang="nginx">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 示例：处理 www.example.com 的请求
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="k">server&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">listen&lt;/span> &lt;span class="mi">80&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">server_name&lt;/span> &lt;span class="s">www.example.com&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1"># 关键！匹配 Host 头
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">location&lt;/span> &lt;span class="s">/&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">root&lt;/span> &lt;span class="s">/var/www/html&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1"># 返回前端页面
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">location&lt;/span> &lt;span class="s">/api/&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">proxy_pass&lt;/span> &lt;span class="s">http://backend&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1"># 转发到后端
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 另一个域名（如 api.example.com）的配置
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="k">server&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">listen&lt;/span> &lt;span class="mi">80&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">server_name&lt;/span> &lt;span class="s">api.example.com&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1"># 匹配不同 Host 头
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">location&lt;/span> &lt;span class="s">/&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">proxy_pass&lt;/span> &lt;span class="s">http://another-backend&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1"># 转发到其他后端
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>核心逻辑&lt;/strong>：
+Nginx 通过 &lt;code>server_name&lt;/code> 区分不同域名的请求，&lt;strong>即使它们指向同一个 IP&lt;/strong>。&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;p>&lt;strong>(2) 根据 &lt;code>location&lt;/code> 块匹配路径&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>
+&lt;p>路径匹配：在同一个server块内，通过location规则（如/api/）进一步决定是否转发到后端。&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-nginx" data-lang="nginx">&lt;span class="line">&lt;span class="cl">&lt;span class="k">location&lt;/span> &lt;span class="s">/api/&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">proxy_pass&lt;/span> &lt;span class="s">http://10.0.0.2:8080&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1"># 转发到内网后端
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>最终流程&lt;/strong>：
+&lt;code>域名解析 → Nginx 接收请求 → 匹配 server_name → 匹配 location → 转发或返回静态文件&lt;/code>。&lt;/p>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="3-为什么域名后缀如-api不是关键">&lt;strong>3. 为什么域名后缀（如 &lt;code>/api&lt;/code>）不是关键？&lt;/strong>
+&lt;/h3>&lt;ul>
+&lt;li>&lt;strong>误区澄清&lt;/strong>：
+Nginx ​&lt;strong>不依赖 URL 中的域名后缀&lt;/strong>​（如 &lt;code>https://www.example.com/api/xxx&lt;/code> 中的 &lt;code>api&lt;/code> 路径）来决定转发，而是通过以下两步：
+&lt;ol>
+&lt;li>&lt;strong>域名级别&lt;/strong>：根据 &lt;code>Host&lt;/code> 头选择 &lt;code>server&lt;/code> 块（如 &lt;code>www.example.com&lt;/code> vs &lt;code>api.example.com&lt;/code>）。&lt;/li>
+&lt;li>&lt;strong>路径级别&lt;/strong>：在选中的 &lt;code>server&lt;/code> 块内，根据 &lt;code>location&lt;/code> 匹配路径（如 &lt;code>/api/&lt;/code>）。&lt;/li>
+&lt;/ol>
+&lt;/li>
+&lt;li>&lt;strong>示例场景&lt;/strong>：
+&lt;ul>
+&lt;li>如果用户访问&lt;code>https://www.example.com/api/todos&lt;/code>：
+&lt;ul>
+&lt;li>Nginx 先匹配 &lt;code>server_name www.example.com&lt;/code> 的 &lt;code>server&lt;/code> 块。&lt;/li>
+&lt;li>再通过 &lt;code>location /api/&lt;/code> 将请求转发到后端。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>如果用户访问https://api.example.com/todos：
+&lt;ul>
+&lt;li>Nginx 匹配 &lt;code>server_name api.example.com&lt;/code> 的 &lt;code>server&lt;/code> 块。&lt;/li>
+&lt;li>根据该 &lt;code>server&lt;/code> 块的 &lt;code>location /&lt;/code> 直接转发到另一个后端。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h3 id="关键总结">&lt;strong>关键总结&lt;/strong>
+&lt;/h3>&lt;ol>
+&lt;li>&lt;strong>DNS 解析只是入口&lt;/strong>：
+&lt;ul>
+&lt;li>仅负责将域名解析到 Nginx 服务器的 IP，不涉及后续路径处理。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>Nginx 的核心匹配逻辑&lt;/strong>：
+&lt;ul>
+&lt;li>&lt;strong>第 1 层&lt;/strong>：通过 &lt;code>server_name&lt;/code> 匹配域名（&lt;code>Host&lt;/code> 头）。&lt;/li>
+&lt;li>&lt;strong>第 2 层&lt;/strong>：通过 &lt;code>location&lt;/code> 匹配路径。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>隐藏后端的关键&lt;/strong>：
+&lt;ul>
+&lt;li>浏览器始终只与 Nginx 通信，后端服务的 IP、端口、内网架构对浏览器完全透明。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;h3 id="配置示例多域名--路径转发">&lt;strong>配置示例：多域名 + 路径转发&lt;/strong>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-nginx" data-lang="nginx">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 域名 www.example.com：处理前端页面和API
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="k">server&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">listen&lt;/span> &lt;span class="mi">80&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">server_name&lt;/span> &lt;span class="s">www.example.com&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># 前端静态资源
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="kn">location&lt;/span> &lt;span class="s">/&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">root&lt;/span> &lt;span class="s">/var/www/html&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">index&lt;/span> &lt;span class="s">index.html&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1"># 转发API请求到后端
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="kn">location&lt;/span> &lt;span class="s">/api/&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">proxy_pass&lt;/span> &lt;span class="s">http://10.0.0.2:8080&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 域名 api.example.com：直接转发到另一个后端
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span>&lt;span class="k">server&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">listen&lt;/span> &lt;span class="mi">80&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">server_name&lt;/span> &lt;span class="s">api.example.com&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">location&lt;/span> &lt;span class="s">/&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">proxy_pass&lt;/span> &lt;span class="s">http://10.0.0.3:8080&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;hr>
+&lt;h3 id="测试方法">&lt;strong>测试方法&lt;/strong>
+&lt;/h3>&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>验证 DNS 解析&lt;/strong>：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">dig www.example.com &lt;span class="c1"># 查看是否返回 Nginx 服务器 IP&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>验证 Nginx 域名匹配&lt;/strong>：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 模拟携带不同 Host 头的请求&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">curl -H &lt;span class="s2">&amp;#34;Host: www.example.com&amp;#34;&lt;/span> http://122.51.70.205/api/todos
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">curl -H &lt;span class="s2">&amp;#34;Host: api.example.com&amp;#34;&lt;/span> http://122.51.70.205/todos
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>浏览器调试&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>在浏览器开发者工具的 &lt;strong>Network&lt;/strong> 选项卡中，观察请求的 &lt;code>Host&lt;/code> 头和响应来源。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;h3 id="常见问题">&lt;strong>常见问题&lt;/strong>
+&lt;/h3>&lt;p>&lt;strong>Q1：如果多个域名指向同一个 IP，Nginx 如何区分？&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>答案&lt;/strong>：通过 &lt;code>server_name&lt;/code> 匹配请求头中的 &lt;code>Host&lt;/code> 字段，无需不同 IP。&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Q2：Nginx 能根据 URL 路径（如 &lt;code>/api&lt;/code>）直接转发吗？&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>答案&lt;/strong>：可以，但需在同一 &lt;code>server&lt;/code> 块内配置 &lt;code>location&lt;/code> 规则，而不是依赖域名后缀。&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Q3：如何实现类似 &lt;code>https://example.com/api&lt;/code> 和 &lt;code>https://api.example.com&lt;/code> 的共存？&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>方案：
+&lt;ul>
+&lt;li>&lt;code>https://example.com/api&lt;/code> → 使用 &lt;code>server_name example.com&lt;/code> + &lt;code>location /api&lt;/code>。&lt;/li>
+&lt;li>&lt;code>https://api.example.com&lt;/code> → 使用 &lt;code>server_name api.example.com&lt;/code> + &lt;code>location /&lt;/code>。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;p>通过以上机制，Nginx 完美实现了 &lt;strong>域名解析 → 请求分发 → 后端隐藏&lt;/strong> 的全链路控制。&lt;/p></description></item></channel></rss>

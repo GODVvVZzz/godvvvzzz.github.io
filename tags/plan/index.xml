@@ -1,0 +1,331 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Plan on VvVzzz Blog</title><link>https://godvvvzzz.github.io/tags/plan/</link><description>Recent content in Plan on VvVzzz Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 27 Oct 2025 23:01:41 +0800</lastBuildDate><atom:link href="https://godvvvzzz.github.io/tags/plan/index.xml" rel="self" type="application/rss+xml"/><item><title>Backend Dev Plan</title><link>https://godvvvzzz.github.io/p/backend-dev-plan/</link><pubDate>Mon, 27 Oct 2025 23:01:41 +0800</pubDate><guid>https://godvvvzzz.github.io/p/backend-dev-plan/</guid><description>&lt;h1 id="-后端工程师成长路径概览">🗺️ 后端工程师成长路径概览
+&lt;/h1>&lt;p>RoadMap:https://cloud.tencent.com.cn/developer/article/2354207&lt;/p>
+&lt;p>&lt;strong>核心理念&lt;/strong>：后端工程师的成长是从“实现功能”的编码者，进化为“构建可靠、高效、可扩展系统”的工程师，最终成为能够驾驭技术不确定性、驱动业务发展的决策者。&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>深挖底层与业务，系统好奇是根基&lt;/strong>（好奇）&lt;/li>
+&lt;li>&lt;strong>学抽象建体系，动手实践出真知&lt;/strong>（学习）&lt;/li>
+&lt;li>&lt;strong>专精设计懂权衡，架构能力是壁垒&lt;/strong>（架构）&lt;/li>
+&lt;li>&lt;strong>工程协作提效能，影响团队共进步&lt;/strong>（影响）&lt;/li>
+&lt;li>&lt;strong>严谨韧性保稳定，构建线上确定性&lt;/strong>（严谨）&lt;/li>
+&lt;li>&lt;strong>名师引路破瓶颈，加速成长为栋梁&lt;/strong>（加速）&lt;/li>
+&lt;/ol>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>成长维度&lt;/th>
+&lt;th>初级阶段 (编码者)&lt;/th>
+&lt;th>进阶阶段 (工程师)&lt;/th>
+&lt;th>高级阶段 (决策者)&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;strong>核心关注点&lt;/strong>&lt;/td>
+&lt;td>实现功能、完成需求&lt;/td>
+&lt;td>系统设计、性能优化、稳定性保障&lt;/td>
+&lt;td>技术战略、业务驱动、团队赋能&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>技术深度&lt;/strong>&lt;/td>
+&lt;td>学习框架、API调用&lt;/td>
+&lt;td>深挖底层原理（操作系统、网络、数据库）&lt;/td>
+&lt;td>构建技术体系，形成技术判断力&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>影响力范围&lt;/strong>&lt;/td>
+&lt;td>个人任务、模块代码&lt;/td>
+&lt;td>团队项目、工程规范、架构设计&lt;/td>
+&lt;td>跨团队协作、技术规划、人才培养&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h1 id="-结论">💡 结论
+&lt;/h1>&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>深度系统好奇心：从“怎么做”到“为什么这么做”&lt;/strong>&lt;/p>
+&lt;p>不满足于表面功能实现，要主动探究底层原理（如操作系统、网络协议、数据库）和业务逻辑的深层原因。这能让你在出现复杂问题时快速定位根因，做出更明智的技术决策。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>高效学习与抽象力&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>方法&lt;/strong>：优先阅读&lt;strong>官方文档和源码&lt;/strong>以获得最准确信息。&lt;/li>
+&lt;li>&lt;strong>关键&lt;/strong>：勤于&lt;strong>动手实践&lt;/strong>，并通过&lt;strong>抽象与归纳&lt;/strong>，从纷繁的技术和业务中提炼出共通的设计模式和领域模型，构建自己的知识体系。&lt;/li>
+&lt;li>&lt;strong>善用工具&lt;/strong>：合理利用AI工具辅助代码生成、技术调研和问题排查，但核心是培养自身的技术判断力。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>架构与设计能力：从功能实现到系统雕塑&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>打造技术专长&lt;/strong>：在广博的基础上，选择一个如&lt;strong>性能优化&lt;/strong>、&lt;strong>分布式系统&lt;/strong>或&lt;strong>安全稳定性&lt;/strong>等高价值领域进行深度钻研，建立个人技术品牌。&lt;/li>
+&lt;li>&lt;strong>掌握权衡艺术&lt;/strong>：深刻理解并在性能与成本、一致性与可用性等关键维度之间做出明智的权衡。&lt;/li>
+&lt;li>&lt;strong>输出蓝图&lt;/strong>：能够产出清晰的技术方案文档和架构图，并清晰地阐述其背后的思考。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>工程与协作影响力：从个人贡献者到团队杠杆&lt;/strong>&lt;/p>
+&lt;p>你的价值不再仅仅是你写了多少代码，而在于你如何提升整个团队的效能。这包括：&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>对代码&lt;/strong>：具备“代码洁癖”，积极推动工程规范。&lt;/li>
+&lt;li>&lt;strong>对团队&lt;/strong>：在评审中提供深度反馈，主动分享知识，&lt;strong>赋能他人&lt;/strong>。&lt;/li>
+&lt;li>&lt;strong>对业务&lt;/strong>：主动沟通，理解业务背景，用技术手段直接创造业务价值。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>严谨与韧性：在不确定性中构建确定性&lt;/strong>&lt;/p>
+&lt;p>这是后端工程师的基石素养。要对线上环境抱有&lt;strong>敬畏之心&lt;/strong>，通过完善的日志、监控和系统性思维来保障稳定性。面对故障和难题，要具备冷静排查和彻底复盘的能力，并拥有“死磕”的韧性。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>关键加速器：寻找“架构师导师”&lt;/strong>&lt;/p>
+&lt;p>一位经验丰富的导师能在你面临技术抉择时点拨迷津，分享宝贵的踩坑经验，并通过高标准的代码评审提供成长反馈。你可以从团队内部或外部技术社区中寻找这样的引路人。&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;h1 id="-细节">💎 细节
+&lt;/h1>&lt;h2 id="一深度系统好奇心从怎么做到为什么这么做">一、深度系统好奇心：从“怎么做”到“为什么这么做”
+&lt;/h2>&lt;p>&lt;strong>对象与行动&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>底层原理&lt;/strong>：不满足于API调用，深挖操作系统（进程/线程/IO）、网络（TCP/IP/HTTP）、数据库（索引/事务/锁）、中间件（消息队列/缓存）的工作原理。&lt;/li>
+&lt;li>&lt;strong>业务逻辑&lt;/strong>：深入理解你所支持的业务领域（如电商、社交、金融），明白每一行代码背后的商业意图和用户价值。&lt;/li>
+&lt;li>&lt;strong>依赖生态&lt;/strong>：了解你使用的框架、组件、云服务的核心机制、优劣和边界。知其然，并知其所以然。&lt;/li>
+&lt;li>&lt;strong>全局架构&lt;/strong>：跳出自己的一亩三分地，去理解整个系统的架构设计、模块划分、数据流、部署流程以及它们为何如此设计。&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>目的&lt;/strong>：在出现疑难杂症时，能快速定位根因；在设计方案时，能做出更符合底层原理和长期发展的明智选择。&lt;/p>
+&lt;h2 id="二高效学习与抽象力在技术浪潮中屹立不倒">二、高效学习与抽象力：在技术浪潮中屹立不倒
+&lt;/h2>&lt;p>&lt;strong>核心方法&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>官方文档优先（深度访谈）&lt;/strong>：像产品经理访谈用户一样，精读官方文档和源码，这是最一手、最准确的信息。博客和二手教程（电话访谈）可作为辅助，但不能替代。&lt;/li>
+&lt;li>&lt;strong>动手实践（构建原型）&lt;/strong>：学习新技术时，亲手搭建、写Demo、做压测，在实践中感受其特性和瓶颈。&lt;/li>
+&lt;li>&lt;strong>抽象与归纳&lt;/strong>：从纷繁复杂的技术和业务逻辑中，抽象出共通的设计模式、架构模式和领域模型。例如，能否将不同的业务需求抽象为统一的任务调度模型？&lt;/li>
+&lt;li>AI高效辅助：
+&lt;ul>
+&lt;li>代码生成与解释：让AI生成样板代码、单元测试、或解释一段复杂的遗留代码。&lt;/li>
+&lt;li>技术调研：快速获取不同技术方案的对比、最佳实践和潜在风险。&lt;/li>
+&lt;li>问题排查：提供错误日志，让AI辅助分析可能的原因。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>核心&lt;/strong>：构建自己的知识体系和技术判断力，能快速甄别技术的价值，并将其抽象为可复用的解决方案，而非被动地追逐最新名词。&lt;/p>
+&lt;h2 id="三架构与设计能力从功能实现到系统雕塑">三、架构与设计能力：从功能实现到系统雕塑
+&lt;/h2>&lt;p>&lt;strong>行动策略&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>打造技术“利基”：在广度之上，选择一个或多个高价值领域深度钻研，建立技术品牌，例如：
+&lt;ul>
+&lt;li>性能优化专家：深入JVM/GC、数据库调优、缓存体系、高并发服务。&lt;/li>
+&lt;li>分布式系统专家：精通微服务治理、分布式事务、一致性协议、弹性设计。&lt;/li>
+&lt;li>数据领域专家：深耕大数据平台、实时计算、数据仓库与湖仓一体。&lt;/li>
+&lt;li>安全与稳定性专家：专精于架构安全、流量防护、故障演练、SLA保障。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>设计原则与权衡&lt;/strong>：掌握SOLID、DRY、KISS等设计原则，并能在实际设计中灵活运用。深刻理解并在性能VS成本、一致性VS可用性、开发效率VS系统稳定性、技术前瞻性VS团队技术栈之间做出明智的权衡。&lt;/li>
+&lt;li>&lt;strong>输出蓝图&lt;/strong>：能够产出清晰的技术方案文档、架构图，并能清晰地阐述技术选型理由、潜在风险和演进路线。&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>目标&lt;/strong>：从“实现一个接口”的视角，上升到“设计一个优雅、健壮、易于演进的服务”的层面，成为团队的技术设计核心。&lt;/p>
+&lt;h2 id="四工程与协作影响力从个人贡献者到团队杠杆">四、工程与协作影响力：从个人贡献者到团队杠杆
+&lt;/h2>&lt;p>&lt;strong>如何升级&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>对代码与工程：
+&lt;ul>
+&lt;li>代码洁癖：写出清晰、可读、可维护的代码，视为职业素养。积极重构，偿还技术债。&lt;/li>
+&lt;li>工程规范推动者：主动推动团队的代码规范、CI/CD流程、单元测试覆盖率、文档文化。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>对同事与团队：
+&lt;ul>
+&lt;li>高效协作：在设计评审、代码评审中提供建设性、有深度的反馈，帮助团队共同成长。&lt;/li>
+&lt;li>知识传承：主动分享技术难点、设计思路和复盘总结，将个人能力转化为团队资产。&lt;/li>
+&lt;li>赋能他人：设计易于理解和使用的接口、SDK、平台工具，降低他人的使用成本。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>对业务与产品：
+&lt;ul>
+&lt;li>主动沟通：主动与产品/前端沟通，了解业务背景，识别技术风险，提出更优的技术实现方案，而不仅仅是被动接收需求。&lt;/li>
+&lt;li>用技术创造价值：通过技术手段（如引入缓存、优化查询）直接带来业务指标（如响应时间、吞吐量）的提升，并清晰地展示其价值。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>核心&lt;/strong>：价值不再仅仅是写了多少行代码，而是如何通过技术能力、工程素养和协作精神，提升整个团队的产出效率和质量。&lt;/p>
+&lt;h2 id="五严谨与韧性在复杂性与不确定性中构建确定性">五、严谨与韧性：在复杂性与不确定性中构建确定性
+&lt;/h2>&lt;p>&lt;strong>必备特质&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>严谨性：
+&lt;ul>
+&lt;li>敬畏线上：对每一次变更都抱有敬畏之心，严格遵守上线流程，做好回滚预案。&lt;/li>
+&lt;li>日志与监控：坚信“可观测性是最好的医生”，为自己开发的服务设计完善的日志、监控和告警。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>系统性思维：
+&lt;ul>
+&lt;li>考虑问题时，能想到上下游依赖、流量洪峰、单点故障、安全漏洞等方方面面。&lt;/li>
+&lt;li>养成“如果&amp;hellip;会&amp;hellip;”的思维习惯，提前预判风险。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>问题驱动与韧性：
+&lt;ul>
+&lt;li>面对线上故障，能冷静、清晰、按优先级地进行排查、定位和修复，并事后进行彻底复盘。&lt;/li>
+&lt;li>面对技术难题，有“死磕”的精神，乐于钻进复杂的代码库和日志中寻找线索。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>耐心与远见：懂得“慢就是快”，在前期投入足够的设计和测试时间，避免后期无尽的修补。对技术体系的建设有长期主义的耐心。&lt;/li>
+&lt;/ul>
+&lt;h2 id="六关键加速器寻找你的架构师导师architect-mentor">六、关键加速器：寻找你的“架构师导师”（Architect Mentor）
+&lt;/h2>&lt;p>&lt;strong>为什么至关重要&lt;/strong>：后端技术的深度和架构设计的艺术，需要高人指点。一位好的导师能帮你：&lt;/p>
+&lt;ul>
+&lt;li>点拨迷津：在你面对多个技术方案犹豫不决时，一针见血地指出优劣和背后的权衡。&lt;/li>
+&lt;li>传授“内功”：分享他踩过的坑、解决问题的思维模式、架构演进的历程，这些是无价之宝。&lt;/li>
+&lt;li>代码与设计评审：以极高的标准评审你的代码和设计，让你看到差距和提升方向。&lt;/li>
+&lt;li>提供舞台：给予你负责更具挑战性模块的机会，在实战中锻炼你。&lt;/li>
+&lt;li>职业导航：帮你规划在技术（专家路线/管理路线）上的成长路径。&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>如何寻找&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>内部&lt;/strong>：你的技术主管、架构师团队中的资深成员、你敬佩的其他技术团队负责人。&lt;/li>
+&lt;li>&lt;strong>外部&lt;/strong>：技术社区/大会上的演讲者、开源项目负责人、技术博客的作者。&lt;/li>
+&lt;li>&lt;strong>关键&lt;/strong>：带着你思考过的技术方案、遇到的具体难题、或者阅读源码后的困惑去请教，让对方看到你的潜力和诚意。&lt;/li>
+&lt;/ul></description></item><item><title>Go Study Plan</title><link>https://godvvvzzz.github.io/p/go-study-plan/</link><pubDate>Fri, 27 Jun 2025 15:01:17 +0800</pubDate><guid>https://godvvvzzz.github.io/p/go-study-plan/</guid><description>&lt;h2 id="1-深入巩固技术基础">1️⃣ 深入巩固技术基础
+&lt;/h2>&lt;ul>
+&lt;li>
+&lt;p>&lt;strong>Go语言 (核心中的核心)：&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>语法精通：&lt;/strong> 确保对goroutine, channel, sync包（Mutex, WaitGroup, Cond, Map等）, defer, panic/recover, interface, struct, 反射等核心概念烂熟于心。不仅要会用，要理解其&lt;strong>实现原理和适用场景&lt;/strong>。&lt;/li>
+&lt;li>&lt;strong>并发模型：&lt;/strong> 深入理解GMP调度模型、channel的底层实现（环形队列）、goroutine泄漏场景与排查、sync包各原语的适用场景和性能差异。这是Go面试的绝对重点。&lt;/li>
+&lt;li>&lt;strong>内存管理：&lt;/strong> 了解逃逸分析、GC的三色标记法基本原理、GC触发条件、如何减少GC压力（如复用对象、避免小对象频繁分配）。&lt;/li>
+&lt;li>&lt;strong>标准库：&lt;/strong> 熟练掌握&lt;code>net/http&lt;/code>, &lt;code>context&lt;/code>, &lt;code>encoding/json&lt;/code> (及其他序列化), &lt;code>database/sql&lt;/code>, &lt;code>os&lt;/code>, &lt;code>time&lt;/code>, &lt;code>sync&lt;/code>等常用包。&lt;/li>
+&lt;li>&lt;strong>性能优化：&lt;/strong> 掌握pprof工具的使用（CPU, Memory, Goroutine, Block, Mutex profiling），benchmark测试，理解常见性能瓶颈（锁竞争、GC频繁、低效算法、网络IO）。&lt;/li>
+&lt;li>&lt;strong>依赖管理：&lt;/strong> 熟悉Go Module的使用和最佳实践。&lt;/li>
+&lt;li>&lt;strong>推荐资源：&lt;/strong> 《Go语言设计与实现》、《Go语言高级编程》、官方文档、Dave Cheney博客、GopherCon Talks。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>计算机基础：&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>数据结构与算法：&lt;/strong>
+&lt;ul>
+&lt;li>&lt;strong>重点突破：&lt;/strong> 链表、栈、队列、哈希表、堆（优先队列）、二叉树（遍历、BST）、图（BFS, DFS）、排序（快排、归并、堆排序）、二分查找、双指针、滑动窗口、递归、回溯、动态规划（基础）。&lt;/li>
+&lt;li>&lt;strong>平台刷题：&lt;/strong> LeetCode是必须的。目标：Easy 100%能做，Medium 高频题和经典题&lt;strong>非常熟练&lt;/strong>（做到bug-free，能分析时空复杂度，能讲清楚思路），Hard题可以尝试理解思路。&lt;/li>
+&lt;li>&lt;strong>刻意练习：&lt;/strong> 每天坚持，按类型刷，总结模板和易错点。模拟面试环境（白板/在线IDE）。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>操作系统：&lt;/strong>
+&lt;ul>
+&lt;li>&lt;strong>进程、线程、协程：&lt;/strong> 区别、通信方式（管道、信号、消息队列、共享内存、Socket）、上下文切换开销。&lt;/li>
+&lt;li>&lt;strong>内存管理：&lt;/strong> 虚拟内存、分页、分段、页面置换算法。&lt;/li>
+&lt;li>&lt;strong>文件系统：&lt;/strong> 基本概念（inode, dentry）、IO方式（阻塞/非阻塞/IO多路复用/异步）。&lt;/li>
+&lt;li>&lt;strong>死锁：&lt;/strong> 条件、预防、避免、检测。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>网络：&lt;/strong>
+&lt;ul>
+&lt;li>&lt;strong>TCP/IP协议栈：&lt;/strong> 重点掌握TCP（三次握手、四次挥手、状态机、可靠传输机制 - 序列号/确认号/超时重传/滑动窗口/拥塞控制）、UDP、HTTP/HTTPS（报文结构、方法、状态码、Header、Cookie/Session、HTTPS握手流程）。&lt;/li>
+&lt;li>&lt;strong>网络模型：&lt;/strong> OSI七层模型、TCP/IP五层模型。&lt;/li>
+&lt;li>&lt;strong>网络编程：&lt;/strong> Socket编程基础（Go的net包就是对socket的封装）。&lt;/li>
+&lt;li>&lt;strong>常用协议：&lt;/strong> DNS、WebSocket等。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>数据库：&lt;/strong>
+&lt;ul>
+&lt;li>&lt;strong>MySQL (重点)：&lt;/strong>
+&lt;ul>
+&lt;li>索引：B+树原理、聚集/非聚集索引、覆盖索引、最左前缀原则、索引失效场景、索引优化。&lt;/li>
+&lt;li>事务：ACID、隔离级别（现象 - 脏读、不可重复读、幻读；实现原理 - MVCC, Locking）、锁（行锁、表锁、间隙锁、Next-Key Lock）。&lt;/li>
+&lt;li>存储引擎：InnoDB vs MyISAM。&lt;/li>
+&lt;li>优化：Explain分析、慢查询优化、分库分表（概念、场景）。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>Redis (重点)：&lt;/strong>
+&lt;ul>
+&lt;li>数据类型及适用场景：String, Hash, List, Set, Sorted Set, Bitmap, HyperLogLog, Geo, Stream。&lt;/li>
+&lt;li>持久化：RDB, AOF。&lt;/li>
+&lt;li>高可用：主从复制、哨兵、Cluster模式（分片、槽位）。&lt;/li>
+&lt;li>淘汰策略。&lt;/li>
+&lt;li>缓存问题：穿透、击穿、雪崩及其解决方案（布隆过滤器、互斥锁、随机过期时间、多级缓存）。&lt;/li>
+&lt;li>分布式锁：用Redis实现（SETNX + Lua脚本保证原子性）。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>了解其他：&lt;/strong> 消息队列（Kafka/RabbitMQ/RocketMQ）的基本概念（解耦、削峰、异步）、使用场景、核心术语（Producer, Consumer, Topic, Partition/Queue, Broker）。选一个了解即可。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;h2 id="2-深度梳理和包装项目经验">2️⃣ 深度梳理和包装项目经验
+&lt;/h2>&lt;p>突出业务价值和技术亮点&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>聚焦游戏分发业务：&lt;/strong>
+&lt;ul>
+&lt;li>&lt;strong>深入挖掘：&lt;/strong> 不要停留在表面功能描述。思考：
+&lt;ul>
+&lt;li>负责的模块/服务解决了什么核心业务问题？（例如：如何保证海量游戏包体快速、稳定地分发到全球CDN节点？如何管理游戏元数据（名称、版本、大小、下载链接）？如何设计高并发的下载调度？如何防止盗链/恶意下载？如何做灰度发布？）&lt;/li>
+&lt;li>系统面临的&lt;strong>挑战&lt;/strong>是什么？（高并发？低延迟？数据一致性？高可用？）&lt;/li>
+&lt;li>用了哪些&lt;strong>关键技术/架构&lt;/strong>来解决？（微服务？用了什么框架？数据库选型？缓存策略？消息队列？）&lt;/li>
+&lt;li>做了哪些&lt;strong>关键设计和技术选型&lt;/strong>？为什么这么选？（对比其他方案优劣）&lt;/li>
+&lt;li>进行了哪些&lt;strong>性能优化&lt;/strong>？效果如何？（量化指标！例如：QPS从X提升到Y，延迟从A降低到B，节省服务器Z台）&lt;/li>
+&lt;li>遇到过哪些&lt;strong>线上问题/故障&lt;/strong>？如何&lt;strong>排查&lt;/strong>（用了哪些工具 - pprof, tracing, logs）？如何&lt;strong>解决&lt;/strong>？如何&lt;strong>预防&lt;/strong>？&lt;/li>
+&lt;li>代码层面：如何保证代码质量？单元测试？Code Review？设计模式的应用？&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>STAR法则包装：&lt;/strong> 为每个项目或重要模块准备清晰的故事线：
+&lt;ul>
+&lt;li>&lt;strong>Situation:&lt;/strong> 背景是什么？要解决什么问题？&lt;/li>
+&lt;li>&lt;strong>Task:&lt;/strong> 的具体职责和任务是什么？&lt;/li>
+&lt;li>&lt;strong>Action:&lt;/strong> 采取了哪些&lt;strong>技术行动&lt;/strong>？（这是重点！要讲清楚技术细节和决策过程）&lt;/li>
+&lt;li>&lt;strong>Result:&lt;/strong> 取得了什么&lt;strong>可量化&lt;/strong>的结果？（性能提升、成本降低、稳定性提高、用户满意度增加等）&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>突出Go的特性：&lt;/strong> 在描述项目时，融入Go的最佳实践：
+&lt;ul>
+&lt;li>如何利用goroutine和channel实现并发控制/异步处理？&lt;/li>
+&lt;li>如何利用context进行超时和取消控制？&lt;/li>
+&lt;li>如何设计清晰的interface？&lt;/li>
+&lt;li>如何做错误处理？&lt;/li>
+&lt;li>如何利用sync包解决并发安全问题？&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>准备项目难点和亮点：&lt;/strong> 每个项目准备1-2个技术难点突破或技术亮点的故事，讲深讲透。&lt;/li>
+&lt;/ul>
+&lt;h2 id="3-系统设计能力提升">3️⃣ 系统设计能力提升
+&lt;/h2>&lt;p>针对工作年限，要求基础能力&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>掌握基础方法论：&lt;/strong>
+&lt;ul>
+&lt;li>明确需求（功能需求、非功能需求 - QPS、延迟、可用性、一致性要求）。&lt;/li>
+&lt;li>估算（请求量、存储量、带宽 - 费米估算）。&lt;/li>
+&lt;li>核心组件设计（API设计、数据模型 - 数据库选型及Schema设计、存储设计）。&lt;/li>
+&lt;li>深入一个方向（根据场景选一个深入，如高可用设计、缓存策略、数据库扩展）。&lt;/li>
+&lt;li>识别瓶颈并讨论解决方案。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>学习经典案例：&lt;/strong>
+&lt;ul>
+&lt;li>&lt;strong>必看：&lt;/strong> 《Grokking the System Design Interview》或类似课程/书籍。&lt;/li>
+&lt;li>&lt;strong>常见题目：&lt;/strong> 设计短链系统、设计Twitter/微博Feed流、设计秒杀系统、设计聊天系统、设计搜索引擎、设计文件存储服务、设计推荐系统等。理解其通用模式和权衡（CAP）。&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;strong>结合自身业务思考：&lt;/strong> 尝试用系统设计的方法论来重新审视你参与过的游戏分发系统：
+&lt;ul>
+&lt;li>整个游戏分发平台的架构图是什么样的？&lt;/li>
+&lt;li>元数据管理服务如何设计？（DB+Cache）&lt;/li>
+&lt;li>下载调度服务如何应对高并发？（队列、限流、负载均衡）&lt;/li>
+&lt;li>如何保证包体分发的速度和正确性？（CDN、校验机制）&lt;/li>
+&lt;li>如何做监控和报警？&lt;/li>
+&lt;li>如果用户量翻10倍，系统哪里会成为瓶颈？如何扩容？&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>**目标：**能清晰地阐述一个中小型服务的设计思路（比如负责的某个微服务），理解基本组件的用途（为什么用Redis？为什么用MQ？），并能在指导下讨论扩展性、可用性问题。&lt;strong>展现设计思维和潜力。&lt;/strong>&lt;/li>
+&lt;/ul>
+&lt;h2 id="4-一些资料收集">4️⃣ 一些资料收集
+&lt;/h2>&lt;h3 id="后台管理系统">后台管理系统
+&lt;/h3>&lt;p>&lt;a class="link" href="https://github.com/go-admin-team/go-admin" target="_blank" rel="noopener"
+>go-admin&lt;/a>&lt;/p>
+&lt;h3 id="博客">博客
+&lt;/h3>&lt;p>&lt;a class="link" href="https://github.com/LiuYuYang01/ThriveX-Blog" target="_blank" rel="noopener"
+>ThriveX-Blog&lt;/a>&lt;/p>
+&lt;h3 id="go基础">go基础
+&lt;/h3>&lt;p>&lt;a class="link" href="https://draven.co/" target="_blank" rel="noopener"
+>Go语言设计与实现&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://books.studygolang.com/advanced-go-programming-book/" target="_blank" rel="noopener"
+>Go语言高级编程&lt;/a>&lt;/p>
+&lt;p>&lt;a class="link" href="https://gopl-zh.github.io/" target="_blank" rel="noopener"
+>Go语言圣经&lt;/a>&lt;/p>
+&lt;h3 id="低代码">低代码
+&lt;/h3></description></item></channel></rss>
