@@ -9,6 +9,7 @@ categories:
 tags:
     - plan
 comments: true
+hidden: true
 ---
 
 ## 1️⃣ 深入巩固技术基础
