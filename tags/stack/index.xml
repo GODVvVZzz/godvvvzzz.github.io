@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Stack on VvVzzz Blog</title><link>https://godvvvzzz.github.io/tags/stack/</link><description>Recent content in Stack on VvVzzz Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 11 Dec 2024 09:44:53 +0800</lastBuildDate><atom:link href="https://godvvvzzz.github.io/tags/stack/index.xml" rel="self" type="application/rss+xml"/><item><title>记录本博客搭建过程</title><link>https://godvvvzzz.github.io/p/hugo-stack-study/</link><pubDate>Wed, 11 Dec 2024 09:44:53 +0800</pubDate><guid>https://godvvvzzz.github.io/p/hugo-stack-study/</guid><description>&lt;h2 id="hugo-stack-starter">Hugo Stack Starter
+&lt;/h2>&lt;p>&lt;a class="link" href="https://github.com/CaiJimmy/hugo-theme-stack-starter" target="_blank" rel="noopener"
+>https://github.com/CaiJimmy/hugo-theme-stack-starter&lt;/a>&lt;/p>
+&lt;p>这是一个为 &lt;strong>Hugo Stack&lt;/strong> 主题设计的快速上手模板，使用了 &lt;strong>Hugo 模块&lt;/strong> 来加载主题。它提供了基础的主题结构和配置，同时配置了 &lt;strong>GitHub Actions&lt;/strong>，可以自动将网站部署到 GitHub Pages。还包含一个每天自动更新主题的定时任务（cron job）。&lt;/p>
+&lt;h3 id="创建-github-仓库">创建 GitHub 仓库
+&lt;/h3>&lt;ol>
+&lt;li>点击 GitHub 上的 &lt;strong>Use this template&lt;/strong> 按钮。&lt;/li>
+&lt;li>将新仓库命名为 &lt;code>&amp;lt;用户名&amp;gt;.github.io&lt;/code>。其中，用户名建议为全小写。&lt;/li>
+&lt;/ol>
+&lt;h3 id="创建-github-codespace">创建 GitHub Codespace
+&lt;/h3>&lt;ol>
+&lt;li>仓库创建完成后，创建一个与之关联的 &lt;strong>GitHub Codespace&lt;/strong>。&lt;/li>
+&lt;li>Codespace 已经配置好了 Hugo 的最新扩展版本。&lt;/li>
+&lt;li>在终端中运行命令 &lt;code>hugo server&lt;/code>，即可在浏览器中预览你的网站。&lt;/li>
+&lt;/ol>
+&lt;h3 id="配置站点信息">配置站点信息
+&lt;/h3>&lt;ol>
+&lt;li>检查仓库中的 &lt;code>config&lt;/code> 文件夹，里面是站点的配置文件。&lt;/li>
+&lt;li>修改 &lt;code>config/_default/config.toml&lt;/code> 文件中的 &lt;code>baseurl&lt;/code> 属性，填入你的网站 URL。&lt;/li>
+&lt;/ol>
+&lt;h3 id="部署到-github-pages">部署到 GitHub Pages
+&lt;/h3>&lt;ol>
+&lt;li>打开仓库的 &lt;strong>Settings -&amp;gt; Pages&lt;/strong> 页面。&lt;/li>
+&lt;li>将构建分支从 &lt;code>master&lt;/code> 改为 &lt;code>gh-pages&lt;/code>。&lt;/li>
+&lt;li>每次编辑完网站后，只需将更改提交并推送到仓库，GitHub Actions 会自动将网站部署到对应的 GitHub Pages。&lt;/li>
+&lt;/ol>
+&lt;h2 id="如何写博客">如何写博客
+&lt;/h2>&lt;h3 id="本地下载hugo">本地下载hugo
+&lt;/h3>&lt;p>以ububtu为例&lt;/p>
+&lt;p>&lt;strong>1. 下载 Hugo 最新版&lt;/strong>&lt;/p>
+&lt;p>访问 Hugo 的 GitHub Releases 页面找到最新版下载链接：
+&lt;a class="link" href="https://github.com/gohugoio/hugo/releases" target="_blank" rel="noopener"
+>Hugo Releases&lt;/a>&lt;/p>
+&lt;p>或者直接通过命令行下载 &lt;code>hugo_extended&lt;/code> 的 Linux 64 位版本：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">wget https://github.com/gohugoio/hugo/releases/download/v0.139.3/hugo_extended_0.139.3_Linux-64bit.tar.gz
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;strong>2. 解压下载的文件&lt;/strong>&lt;/p>
+&lt;p>解压 &lt;code>.tar.gz&lt;/code> 文件：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">tar -xvzf hugo_extended_0.139.3_Linux-64bit.tar.gz
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>解压后会生成一个 &lt;code>hugo&lt;/code> 二进制文件。&lt;/p>
+&lt;p>&lt;strong>3. 安装 Hugo&lt;/strong>&lt;/p>
+&lt;p>将解压后的 &lt;code>hugo&lt;/code> 二进制文件移动到系统路径（如 &lt;code>/usr/local/bin&lt;/code>），以便全局使用：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">sudo mv hugo /usr/local/bin/
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;strong>4. 验证安装&lt;/strong>&lt;/p>
+&lt;p>运行以下命令验证安装并检查版本：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">hugo version
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>输出示例：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-plaintext" data-lang="plaintext">&lt;span class="line">&lt;span class="cl">hugo v0.139.3+extended linux/amd64 BuildDate=2024-12-09T10:00:00Z
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="创建新文章">&lt;strong>创建新文章&lt;/strong>
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">hugo new post/react-study-plan/index.md
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>在 &lt;code>content/post/react-study-plan/index.mdd&lt;/code> 中编辑内容，例如：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nn">---&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">title&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;My First Post&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">date&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="ld">2024-12-09&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">draft&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">false&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">tags&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;hugo&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;theme&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">categories&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="p">[&lt;/span>&lt;span class="s2">&amp;#34;blog&amp;#34;&lt;/span>&lt;span class="p">]&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nn">---&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="l">This is my first post with Hugo Stack theme!&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="启用评论">&lt;strong>启用评论&lt;/strong>
+&lt;/h3>&lt;p>Stack 主题默认支持 Utterances评论系统，只需要在 &lt;code>/config/params.toml&lt;/code>配置以下参数：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-toml" data-lang="toml">&lt;span class="line">&lt;span class="cl">&lt;span class="c">## Comments&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">[&lt;/span>&lt;span class="nx">comments&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">enabled&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="kc">true&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">provider&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;utterances&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">[&lt;/span>&lt;span class="nx">comments&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="nx">utterances&lt;/span>&lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">repo&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;GODVvVZzz/blog-comments&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">issueTerm&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;pathname&amp;#34;&lt;/span> &lt;span class="c"># 评论与文章的关联方式，可选 title, pathname, url&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">label&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;Comments&amp;#34;&lt;/span> &lt;span class="c"># GitHub Issue 的标签名称&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nx">theme&lt;/span> &lt;span class="p">=&lt;/span> &lt;span class="s2">&amp;#34;github-light&amp;#34;&lt;/span> &lt;span class="c"># 评论框的主题风格&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="本地预览">本地预览
+&lt;/h3>&lt;p>在项目根目录下执行hugo server，访问http://localhost:1313/&lt;/p>
+&lt;h3 id="标签tag配置">标签&amp;amp;tag配置
+&lt;/h3>&lt;p>直接在文章 Front Matter中添加即可&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nn">---&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">title&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;测试文章&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">date&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="ld">2024-12-18&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">categories&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">测试分类&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">tags&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">标签1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">标签2&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nn">---&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="其他">其他
+&lt;/h2>&lt;h3 id="配置项目git忽略文件">配置项目git忽略文件
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;span class="lnt">23
+&lt;/span>&lt;span class="lnt">24
+&lt;/span>&lt;span class="lnt">25
+&lt;/span>&lt;span class="lnt">26
+&lt;/span>&lt;span class="lnt">27
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl"># Hugo 缓存目录
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">.cache/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">hugo_stats.json
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">resources/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># 构建输出目录
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">public/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># Node.js 和前端工具生成的文件（如适用）
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">node_modules/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">dist/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># 临时文件和日志
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">*.log
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">*.lock
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">.DS_Store
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Thumbs.db
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">*.tmp
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">*.bak
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># TypeScript 或编辑器相关配置文件
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">tsconfig.json
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">jsconfig.json
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># 操作系统或编辑器生成的文件
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">.idea/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">.vscode/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">*.swp
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">*~
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"># Hugo 模块缓存
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">go.sum
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">go.mod
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div></description></item></channel></rss>

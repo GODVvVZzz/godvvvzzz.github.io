@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>React部署 on VvVzzz Blog</title><link>https://godvvvzzz.github.io/tags/react%E9%83%A8%E7%BD%B2/</link><description>Recent content in React部署 on VvVzzz Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 23 Feb 2025 00:54:07 +0800</lastBuildDate><atom:link href="https://godvvvzzz.github.io/tags/react%E9%83%A8%E7%BD%B2/index.xml" rel="self" type="application/rss+xml"/><item><title>React Deploy</title><link>https://godvvvzzz.github.io/p/react-deploy/</link><pubDate>Sun, 23 Feb 2025 00:54:07 +0800</pubDate><guid>https://godvvvzzz.github.io/p/react-deploy/</guid><description>&lt;h1 id="react-项目部署到腾讯云服务器">React 项目部署到腾讯云服务器
+&lt;/h1>&lt;p>本文将介绍如何将 React 项目部署到腾讯云服务器（无需域名），并使用 Nginx 作为 Web 服务器进行配置。&lt;/p>
+&lt;h2 id="准备工作">准备工作
+&lt;/h2>&lt;h3 id="服务器配置">服务器配置
+&lt;/h3>&lt;ul>
+&lt;li>&lt;strong>操作系统&lt;/strong>：推荐 Ubuntu 24.04 LTS&lt;/li>
+&lt;li>&lt;strong>安全组开放端口&lt;/strong>：80 (HTTP) 和 22 (SSH)&lt;/li>
+&lt;li>&lt;strong>获取服务器公网 IP&lt;/strong>：如 &lt;code>123.123.123.123&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;h2 id="部署步骤">部署步骤
+&lt;/h2>&lt;h3 id="连接服务器">连接服务器
+&lt;/h3>&lt;p>通过 SSH 连接到服务器，使用密码或密钥登录：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">ssh root@服务器IP
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="安装必要环境">安装必要环境
+&lt;/h3>&lt;p>首先，更新软件包列表并安装 Node.js 和 Nginx：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 更新软件包列表&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt update &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> sudo apt upgrade -y
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 安装 Node.js&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">curl -fsSL https://deb.nodesource.com/setup_20.x &lt;span class="p">|&lt;/span> sudo -E bash -
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt install -y nodejs
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 安装 Nginx&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt install nginx -y
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 验证安装&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">node -v &lt;span class="c1"># 应显示 v20.x&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">nginx -v &lt;span class="c1"># 应显示版本号&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="上传项目文件">上传项目文件
+&lt;/h3>&lt;p>将本地 React 项目上传到服务器：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 本地电脑执行（将本地项目上传到服务器）&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">scp -r ./react-project root@服务器IP:/home/react-project
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 或者通过git clone下载仓库&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="构建生产版本">构建生产版本
+&lt;/h3>&lt;p>在服务器端构建 React 应用：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 服务器端操作&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd&lt;/span> /home/react-project
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">npm install
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">npm run build &lt;span class="c1"># 生成 build/ 或 dist/ 目录&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="配置-nginx">配置 Nginx
+&lt;/h3>&lt;p>创建 Nginx 配置文件并启用：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 创建 Nginx 配置文件&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo vim /etc/nginx/sites-available/react-app
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>在文件中输入以下内容：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-nginx" data-lang="nginx">&lt;span class="line">&lt;span class="cl">&lt;span class="k">server&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">listen&lt;/span> &lt;span class="mi">80&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">server_name&lt;/span> &lt;span class="mi">120&lt;/span>&lt;span class="s">.51.70.205&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1"># 无需域名，替换成自己的服务器公网ip
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="kn">root&lt;/span> &lt;span class="s">/home/react-project/build&lt;/span>&lt;span class="p">;&lt;/span> &lt;span class="c1"># 根据实际构建目录调整
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="kn">index&lt;/span> &lt;span class="s">index.html&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">location&lt;/span> &lt;span class="s">/&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kn">try_files&lt;/span> &lt;span class="nv">$uri&lt;/span> &lt;span class="nv">$uri/&lt;/span> &lt;span class="s">/index.html&lt;/span>&lt;span class="p">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>启用配置：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo ln -s /etc/nginx/sites-available/react-app /etc/nginx/sites-enabled/
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo nginx -t &lt;span class="c1"># 测试配置&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo systemctl restart nginx
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="开放防火墙腾讯云控制台">开放防火墙（腾讯云控制台）
+&lt;/h3>&lt;p>登录腾讯云控制台，进入安全组设置，添加入站规则：&lt;/p>
+&lt;ul>
+&lt;li>协议：TCP&lt;/li>
+&lt;li>端口：80&lt;/li>
+&lt;li>来源：0.0.0.0/0（或你的本地 IP）&lt;/li>
+&lt;/ul>
+&lt;h3 id="本地访问">本地访问
+&lt;/h3>&lt;p>在浏览器中访问：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">http://服务器IP
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="备选方案使用-pm2-部署">备选方案：使用 PM2 部署
+&lt;/h3>&lt;p>若需保持开发模式运行（不推荐生产环境）：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 全局安装 PM2&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">npm install pm2 -g
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 启动应用&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">pm2 serve /home/react-project/build &lt;span class="m">3000&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 设置开机启动&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">pm2 startup
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">pm2 save
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>此时访问地址为：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">http://服务器IP:3000
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h2 id="后续维护">后续维护
+&lt;/h2>&lt;h3 id="更新代码">更新代码
+&lt;/h3>&lt;p>若要更新代码：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 本地&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">scp -r ./react-project root@服务器IP:/home/react-project
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 服务器&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">cd&lt;/span> /home/react-project
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">npm run build
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo systemctl restart nginx
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="常用命令">常用命令
+&lt;/h3>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>命令&lt;/th>
+&lt;th>作用&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;code>sudo systemctl status nginx&lt;/code>&lt;/td>
+&lt;td>查看 Nginx 状态&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>journalctl -u nginx -f&lt;/code>&lt;/td>
+&lt;td>查看 Nginx 日志&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;code>pm2 list&lt;/code>&lt;/td>
+&lt;td>查看 PM2 进程&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;h2 id="注意事项">注意事项
+&lt;/h2>&lt;ul>
+&lt;li>&lt;strong>权限问题&lt;/strong>：确保 &lt;code>/home/react-project&lt;/code> 目录有读取权限。&lt;/li>
+&lt;li>&lt;strong>路径问题&lt;/strong>：检查 Nginx 配置中的路径与实际构建目录是否一致。&lt;/li>
+&lt;li>&lt;strong>端口冲突&lt;/strong>：若使用其他端口需同步修改安全组规则。&lt;/li>
+&lt;/ul>
+&lt;p>通过以上步骤即可通过服务器 IP 直接访问部署的 React 应用。后续获取域名后，只需在 Nginx 配置中修改 &lt;code>server_name&lt;/code> 并配置 SSL 证书即可升级为 HTTPS 站点。&lt;/p></description></item></channel></rss>

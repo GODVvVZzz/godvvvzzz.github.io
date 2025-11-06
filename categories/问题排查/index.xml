@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>问题排查 on VvVzzz Blog</title><link>https://godvvvzzz.github.io/categories/%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/</link><description>Recent content in 问题排查 on VvVzzz Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 10 Dec 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://godvvvzzz.github.io/categories/%E9%97%AE%E9%A2%98%E6%8E%92%E6%9F%A5/index.xml" rel="self" type="application/rss+xml"/><item><title>FD泄露排查</title><link>https://godvvvzzz.github.io/p/fd-leak-investigation/</link><pubDate>Tue, 10 Dec 2024 00:00:00 +0000</pubDate><guid>https://godvvvzzz.github.io/p/fd-leak-investigation/</guid><description>&lt;h3 id="文件描述符fd概述">文件描述符（FD）概述
+&lt;/h3>&lt;p>文件描述符（FD）是操作系统内核用来标识已打开文件的非负整数索引。在程序中，文件描述符用于文件的读写操作，如通过&lt;code>read&lt;/code>、&lt;code>write&lt;/code>系统调用。在POSIX标准中，文件描述符0、1、2分别代表标准输入、标准输出和标准错误。&lt;/p>
+&lt;h3 id="fd泄露现象">FD泄露现象
+&lt;/h3>&lt;p>当一个进程打开的文件描述符数量超过系统限制（默认为1024），系统将无法为新文件分配描述符，并可能抛出“Too many open files”错误。这通常意味着有未正确关闭的文件或连接，导致描述符占用过高。&lt;/p>
+&lt;h3 id="排查步骤">排查步骤
+&lt;/h3>&lt;ol>
+&lt;li>&lt;strong>发现问题&lt;/strong> ：通过监控系统发现服务的文件描述符数量异常增长。&lt;/li>
+&lt;li>&lt;strong>查找服务PID&lt;/strong> ：使用&lt;code>ps aux | grep [服务名]&lt;/code>命令找出目标服务的进程ID。&lt;/li>
+&lt;li>&lt;strong>查看当前服务占用FD数量&lt;/strong> ：执行&lt;code>ls /proc/[PID]/fd | wc -l&lt;/code>检查服务当前打开的文件描述符数量。&lt;/li>
+&lt;li>&lt;strong>查看FD使用情况&lt;/strong> ：详细列出当前服务的文件描述符使用情况，&lt;code>ls -ls /proc/[PID]/fd&lt;/code>。&lt;/li>
+&lt;li>&lt;strong>检查网络连接&lt;/strong> ：使用&lt;code>ss -anp |grep [PID]&lt;/code>命令查看服务相关的网络连接，帮助定位可能的泄露来源。&lt;/li>
+&lt;/ol>
+&lt;h3 id="典型案例">典型案例
+&lt;/h3>&lt;p>以某服务的FD泄露为例：&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>现象&lt;/strong> ：文件描述符持续增长，达到1w+。&lt;/li>
+&lt;li>&lt;strong>原因&lt;/strong> ：服务在高QPS（200~300）下调用第三方验证接口，由于HTTP连接默认超时时间较长（60s），且未主动关闭连接，导致大量描述符持续占用。&lt;/li>
+&lt;li>&lt;strong>复现&lt;/strong> ：通过脚本模拟高频率请求，持续观察FD数量变化，验证泄露情况。&lt;/li>
+&lt;li>&lt;strong>排查&lt;/strong> ：利用上述步骤定位到问题来源为HTTP请求未正确关闭。&lt;/li>
+&lt;li>&lt;strong>代码修改&lt;/strong> ：增加了连接超时和读写超时设置，确保连接在指定时间内被关闭，从而释放描述符。&lt;/li>
+&lt;li>&lt;strong>结果&lt;/strong> ：服务使用的FD数量显著下降，泄露问题得到解决。&lt;/li>
+&lt;/ul></description></item></channel></rss>
