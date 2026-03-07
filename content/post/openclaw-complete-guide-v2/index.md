@@ -118,6 +118,32 @@ cdpUrl: http://127.0.0.1:18801
 - 点击 Chrome 工具栏上的 OpenClaw 扩展图标
 - 图标显示 "ON" 表示已连接，AI 可以控制该标签页
 
+### 3.3 连接模式详解
+
+**两种连接方式的区别：**
+
+| 方式 | 连接目标 | 使用场景 |
+|------|---------|---------|
+| **直接 CDP 连接** | OpenClaw 启动的 Chrome | 自动化测试、独立环境 |
+| **Chrome 扩展中继** | 你的日常 Chrome | 操作已登录的页面、个人浏览 |
+
+**为什么需要扩展？**
+
+直接连接只能控制 OpenClaw 启动的 Chrome（独立的、没有你的登录状态），无法连接你**正在使用**的 Chrome。
+
+扩展的作用是让**你日常使用的 Chrome**（有你的登录状态、书签、历史）也能被控制，通过 `chrome.debugger` API 把 CDP 消息转发给 OpenClaw。
+
+**实际架构：**
+
+```
+AI Agent → OpenClaw Relay (18801) → Chrome 扩展 → 你的日常 Chrome
+```
+
+**注意**：`chrome` 配置文件默认启动的是 OpenClaw 托管的浏览器，不是你的日常 Chrome。如果要控制日常浏览器，需要：
+1. 关闭 `openclaw browser --browser-profile chrome`
+2. 启动你自己的 Chrome：`chrome.exe --remote-debugging-port=9222`
+3. 或配置 `attachOnly: true` 附加到已运行的 Chrome
+
 ---
 
 ## 四、使用示例
