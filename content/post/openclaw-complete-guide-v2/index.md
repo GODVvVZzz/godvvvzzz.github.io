@@ -46,26 +46,21 @@ openclaw --version
 
 ## 二、放开 Agent 权限（满血复活）
 
-由于安全考虑，新版 OpenClaw 默认禁用了 agent 功能，需要手动开启。
+由于安全考虑，新版 OpenClaw 默认禁用了许多功能，需要手动开启满权限。
 
 ### 2.1 编辑配置文件
 
-打开 `~/.openclaw/openclaw.json`，添加或修改：
+打开 `~/.openclaw/openclaw.json`，修改 `tools` 配置：
 
 ```json
 {
-  "agents": {
-    "defaults": {
-      "permissions": {
-        "filesystem": "full",
-        "network": "full",
-        "browser": "full",
-        "clipboard": "full"
-      }
-    }
+  "tools": {
+    "profile": "full"
   }
 }
 ```
+
+这会让 OpenClaw 获得完整的工具访问权限，包括文件系统、网络、浏览器等操作。
 
 ### 2.2 重启服务
 
