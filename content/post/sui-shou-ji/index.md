@@ -8,7 +8,7 @@ description: "即时想法、灵感、碎片思考的统一记录处，按时间
 ---
 
 > 随手记，记录一切冒出来的想法。
-> 最后更新：2026-03-08
+> 最后更新：2026-03-09
 
 ---
 
@@ -21,6 +21,8 @@ description: "即时想法、灵感、碎片思考的统一记录处，按时间
 ---
 
 ## 技术思考
+
+### [2026-03-09] OpenClaw安装飞书官方插件：https://www.feishu.cn/content/article/7613711414611463386
 
 ### [2026-03-08] QQ Bot接入步骤：https://q.qq.com/qqbot/openclaw/index.html
 
