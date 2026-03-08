@@ -22,6 +22,8 @@ description: "即时想法、灵感、碎片思考的统一记录处，按时间
 
 ## 技术思考
 
+### [2026-03-08] QQ Bot接入步骤：https://q.qq.com/qqbot/openclaw/index.html
+
 ### [2026-03-08] 继续调通 OpenClaw 的浏览器中继模式（Chrome Relay）
 
 ---
