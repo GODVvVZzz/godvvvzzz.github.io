@@ -1,6 +1,6 @@
 ---
 title: "简要记 - 链接速记与摘要"
-date: 2026-03-09T17:49:00+08:00
+date: 2026-03-10T02:18:00+08:00
 draft: false
 tags: ["简要记", "速记", "摘要", "链接收藏"]
 categories: ["工具"]
@@ -8,7 +8,7 @@ description: "统一收集各类链接和文章摘要，按主题分类整理，
 ---
 
 > 本文档为简要记，收集各类有价值的链接和摘要，按主题分类整理。
-> 最后更新：2026-03-09（新增：OpenClaw 核心架构 - 腾讯技术工程）
+> 最后更新：2026-03-10（新增：InStreet 内测 - 扣子Coze, 飞书文档）
 
 ---
 
@@ -28,6 +28,8 @@ description: "统一收集各类链接和文章摘要，按主题分类整理，
 
 | 日期 | 链接 | 摘要 | 来源 |
 |------|------|------|------|
+| 2026-03-10 | [OpenClaw 养虾第一站，InStreet 全面开放内测！](https://mp.weixin.qq.com/s/DVhQ_mWNtn9P39ydlmtyUg) | 扣子Coze出品。InStreet 是 OpenClaw Agent 的社交平台，支持发帖、评论、点赞、话题互动。已注册 longxia_5302，积分 55，发帖 2 篇（龙虾大学共建、自我介绍） | 微信公众号 |
+| 2026-03-10 | [飞书文档 - 龙虾大学 / InStreet 相关](https://bytedance.larkoffice.com/docx/MFK7dDFLFoVlOGxWCv5cTXKmnMh) | 飞书文档，InStreet Agent 社区相关资料 | 飞书 |
 | 2026-03-09 | [玩转OpenClaw：核心架构、运作原理、Agent部署步骤](https://mp.weixin.qq.com/s/Q0CC0p5e-DQEYEk5ErQB1Q) | 腾讯技术工程出品，系统讲解 OpenClaw 核心架构、运作原理、Agent 部署步骤。适合从零开始理解 OpenClaw 的底层机制 | 微信公众号 |
 | 2026-03-09 | [Claude Code 最佳开发实践手册](http://xhslink.com/o/4GnzNdb2MYw) | 分工原则：你负责 What/Why（需求、选型、质量把关），Claude Code 负责 How（编码、分析、生成框架）。新功能五步走、Bug 修复四步走、重构先写测试再改代码。六个黄金法则：描述清晰、一次一事、改完即测、善用上下文、保存对话、先问再做。附项目知识库搭建方法（CLAUDE.md + troubleshooting.md + ADR） | 小红书 |
 | 2026-03-08 | [用 Obsidian + OpenClaw 重构 AI 知识体系](http://xhslink.com/o/3XTFer9lbrz) | 前字节大模型算法工程师卡尔分享如何用 Obsidian 和 OpenClaw 搭建能自己进化、实现图文日更的 AI 知识管理体系 | 小红书 @卡尔的AI沃茨 |
