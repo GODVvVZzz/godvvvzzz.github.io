@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ubuntu on VvVzzz Blog</title><link>https://godvvvzzz.github.io/tags/ubuntu/</link><description>Recent content in Ubuntu on VvVzzz Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 11 Mar 2026 02:35:00 +0800</lastBuildDate><atom:link href="https://godvvvzzz.github.io/tags/ubuntu/index.xml" rel="self" type="application/rss+xml"/><item><title>Ubuntu 24.04 安装完整指南（HP 暗影精灵3）</title><link>https://godvvvzzz.github.io/p/ubuntu-24-04-install-guide/</link><pubDate>Wed, 11 Mar 2026 02:35:00 +0800</pubDate><guid>https://godvvvzzz.github.io/p/ubuntu-24-04-install-guide/</guid><description>&lt;h2 id="前言">前言
+&lt;/h2>&lt;p>记录一次完整的 Ubuntu 24.04.4 LTS 安装过程，硬件是 HP 暗影精灵3。踩过的坑都写进去了，下次照着装就行。&lt;/p>
+&lt;hr>
+&lt;h2 id="一准备工作">一、准备工作
+&lt;/h2>&lt;h3 id="1-下载镜像">1. 下载镜像
+&lt;/h3>&lt;ul>
+&lt;li>官网：https://ubuntu.com/download/desktop&lt;/li>
+&lt;li>版本：Ubuntu 24.04.4 LTS (Noble Numbat)&lt;/li>
+&lt;li>文件：&lt;code>ubuntu-24.04.4-desktop-amd64.iso&lt;/code>（约 5.7GB）&lt;/li>
+&lt;/ul>
+&lt;h3 id="2-验证镜像完整性">2. 验证镜像完整性
+&lt;/h3>&lt;p>下载后务必校验 SHA256，确保文件没损坏：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">Get-FileHash&lt;/span> &lt;span class="s2">&amp;#34;C:\Users\用户名\Downloads\ubuntu-24.04.4-desktop-amd64.iso&amp;#34;&lt;/span> &lt;span class="n">-Algorithm&lt;/span> &lt;span class="n">SHA256&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>官方校验值（Ubuntu 24.04.4 Desktop AMD64）：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">3a4c9877b483ab46d7c3fbe165a0db275e1ae3cfe56a5657e5a47c2f99a99d1e
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;strong>必须完全匹配，否则重新下载。&lt;/strong>&lt;/p>
+&lt;h3 id="3-准备-u-盘">3. 准备 U 盘
+&lt;/h3>&lt;ul>
+&lt;li>容量：至少 8GB（推荐 16GB+）&lt;/li>
+&lt;li>先清空 U 盘（用 diskpart）&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;span class="lnt">7
+&lt;/span>&lt;span class="lnt">8
+&lt;/span>&lt;span class="lnt">9
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="c"># 以管理员打开 CMD 或 PowerShell&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">diskpart&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">list&lt;/span> &lt;span class="n">disk&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nb">select &lt;/span>&lt;span class="n">disk&lt;/span> &lt;span class="n">X&lt;/span> &lt;span class="err">←&lt;/span> &lt;span class="n">替换&lt;/span> &lt;span class="n">X&lt;/span> &lt;span class="n">为你的&lt;/span> &lt;span class="n">U&lt;/span> &lt;span class="n">盘编号&lt;/span>&lt;span class="err">，&lt;/span>&lt;span class="n">看容量判断&lt;/span>&lt;span class="err">，&lt;/span>&lt;span class="n">千万别选错&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">clean&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">create&lt;/span> &lt;span class="n">partition&lt;/span> &lt;span class="n">primary&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">format&lt;/span> &lt;span class="n">fs&lt;/span>&lt;span class="p">=&lt;/span>&lt;span class="n">fat32&lt;/span> &lt;span class="n">quick&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">assign&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">exit&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;strong>⚠️ 选错磁盘会清掉硬盘数据，务必确认好。&lt;/strong>&lt;/p>
+&lt;hr>
+&lt;h2 id="二烧录镜像">二、烧录镜像
+&lt;/h2>&lt;h3 id="推荐工具rufus">推荐工具：Rufus
+&lt;/h3>&lt;p>balenaEtcher 对 Ubuntu 24.04 支持有问题，容易报&amp;quot;源镜像已损坏&amp;quot;。&lt;strong>直接用 Rufus。&lt;/strong>&lt;/p>
+&lt;ol>
+&lt;li>下载 Rufus：https://rufus.ie&lt;/li>
+&lt;li>插入 U 盘，打开 Rufus&lt;/li>
+&lt;li>选择 U 盘设备&lt;/li>
+&lt;li>点&amp;quot;选择&amp;quot;，选下载好的 ISO&lt;/li>
+&lt;li>分区类型：&lt;strong>GPT&lt;/strong>&lt;/li>
+&lt;li>目标系统：&lt;strong>UEFI（非 CSM）&lt;/strong>&lt;/li>
+&lt;li>文件系统：&lt;strong>FAT32&lt;/strong>&lt;/li>
+&lt;li>点击&amp;quot;开始&amp;quot;&lt;/li>
+&lt;/ol>
+&lt;p>等待完成即可。&lt;/p>
+&lt;hr>
+&lt;h2 id="三bios-设置">三、BIOS 设置
+&lt;/h2>&lt;h3 id="进入-bioshp-暗影精灵3">进入 BIOS（HP 暗影精灵3）
+&lt;/h3>&lt;ol>
+&lt;li>完全关机&lt;/li>
+&lt;li>按电源键，立即反复按 &lt;strong>&lt;code>F10&lt;/code>&lt;/strong> 键&lt;/li>
+&lt;li>如果没反应，试试 &lt;strong>&lt;code>ESC&lt;/code>&lt;/strong>，在启动菜单里选 &lt;code>F10 BIOS Setup&lt;/code>&lt;/li>
+&lt;/ol>
+&lt;h3 id="bios-配置">BIOS 配置
+&lt;/h3>&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>关闭 Secure Boot&lt;/strong>（如果安装遇到问题）&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>Security&lt;/code> → &lt;code>Secure Boot&lt;/code> → &lt;code>Disable&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>设置启动顺序&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>Boot Options&lt;/code> → 把 USB Device 移到第一位&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>或者直接按 &lt;strong>&lt;code>F9&lt;/code>&lt;/strong> 开机时选择启动设备&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;h2 id="四安装-ubuntu">四、安装 Ubuntu
+&lt;/h2>&lt;h3 id="启动到安装界面">启动到安装界面
+&lt;/h3>&lt;ol>
+&lt;li>插入 U 盘&lt;/li>
+&lt;li>开机按 &lt;code>F9&lt;/code> 选择从 USB 启动&lt;/li>
+&lt;li>或按 &lt;code>ESC&lt;/code> → 选择 USB 启动项&lt;/li>
+&lt;/ol>
+&lt;h3 id="安装步骤">安装步骤
+&lt;/h3>&lt;ol>
+&lt;li>
+&lt;p>&lt;strong>选择语言&lt;/strong> → 中文（简体）&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>选择&amp;quot;试用 Ubuntu&amp;quot;或&amp;quot;安装 Ubuntu&amp;quot;&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>建议直接选&amp;quot;安装 Ubuntu&amp;quot;&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>键盘布局&lt;/strong> → Chinese&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>网络连接&lt;/strong> → 连上 Wi-Fi（建议连，方便安装时下载更新）&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>安装类型&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>如果是全新安装：选择&amp;quot;擦除磁盘并安装 Ubuntu&amp;quot;&lt;/li>
+&lt;li>如果要双系统：选择&amp;quot;其他选项&amp;quot;，手动分区&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>⚠️ 重要：选择安装到固态硬盘（SSD）&lt;/strong>&lt;/p>
+&lt;p>HP 暗影精灵3 有两个硬盘：&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>nvme0n1&lt;/code> — 固态硬盘（SSD，ROTA=0），128GB&lt;/li>
+&lt;li>&lt;code>sda&lt;/code> — 机械硬盘（HDD，ROTA=1），1TB&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>必须把系统装到固态盘（&lt;code>nvme0n1&lt;/code>）上！&lt;/strong> 性能差距巨大，开机快、响应快。&lt;/p>
+&lt;p>&lt;strong>如何识别哪个是固态：&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>在终端运行：&lt;code>lsblk -d -o NAME,ROTA&lt;/code>&lt;/li>
+&lt;li>&lt;code>ROTA=0&lt;/code> 是固态，&lt;code>ROTA=1&lt;/code> 是机械&lt;/li>
+&lt;li>固态通常是 &lt;code>nvme0n1&lt;/code>（NVMe 接口），机械是 &lt;code>sda&lt;/code>（SATA 接口）&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>手动分区方案（推荐）：&lt;/strong>&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>分区&lt;/th>
+&lt;th>设备&lt;/th>
+&lt;th>大小&lt;/th>
+&lt;th>挂载点&lt;/th>
+&lt;th>文件系统&lt;/th>
+&lt;th>说明&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>EFI&lt;/td>
+&lt;td>nvme0n1p1&lt;/td>
+&lt;td>512MB&lt;/td>
+&lt;td>/boot/efi&lt;/td>
+&lt;td>EFI&lt;/td>
+&lt;td>引导分区&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>根分区&lt;/td>
+&lt;td>nvme0n1p2&lt;/td>
+&lt;td>剩余全部（~118GB）&lt;/td>
+&lt;td>/&lt;/td>
+&lt;td>ext4&lt;/td>
+&lt;td>系统分区&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;strong>操作步骤：&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>选择&amp;quot;其他选项&amp;quot;（手动分区）&lt;/li>
+&lt;li>找到 &lt;code>nvme0n1&lt;/code>，删除所有现有分区（Windows 残留分区直接删）&lt;/li>
+&lt;li>新建 EFI 分区：512MB，类型选&amp;quot;EFI 系统分区&amp;quot;，挂载 &lt;code>/boot/efi&lt;/code>&lt;/li>
+&lt;li>新建根分区：剩余全部，挂载 &lt;code>/&lt;/code>，文件系统 ext4&lt;/li>
+&lt;li>&lt;strong>&amp;ldquo;安装启动引导器的设备&amp;quot;选 &lt;code>/dev/nvme0n1&lt;/code>&lt;/strong>（不要选 sda）&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>机械硬盘（sda）等系统装完后再处理&lt;/strong>，可以格式化后挂载到 &lt;code>/home&lt;/code> 或 &lt;code>/data&lt;/code>，当数据盘用。&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>时区&lt;/strong> → Shanghai&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>创建用户&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>用户名、密码自己填&lt;/li>
+&lt;li>记住密码！&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>开始安装&lt;/strong> → 等待完成（约 10-20 分钟）&lt;/p>
+&lt;/li>
+&lt;li>
+&lt;p>&lt;strong>安装完成提示重启&lt;/strong> → 点击&amp;quot;现在重启&amp;rdquo;&lt;/p>
+&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;h2 id="五重启后">五、重启后
+&lt;/h2>&lt;h3 id="拔-u-盘">拔 U 盘
+&lt;/h3>&lt;p>屏幕黑掉（或出现 HP Logo）时 → &lt;strong>拔掉 U 盘&lt;/strong>&lt;/p>
+&lt;h3 id="首次启动">首次启动
+&lt;/h3>&lt;p>进入 Ubuntu 首次配置向导：&lt;/p>
+&lt;ol>
+&lt;li>登录你创建的账号&lt;/li>
+&lt;li>连接网络&lt;/li>
+&lt;li>跳过或完成其他设置&lt;/li>
+&lt;/ol>
+&lt;h3 id="验证安装">验证安装
+&lt;/h3>&lt;p>打开终端，运行：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">lsb_release -a
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">uname -a
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>应该显示 Ubuntu 24.04 LTS。&lt;/p>
+&lt;hr>
+&lt;h2 id="六常见问题">六、常见问题
+&lt;/h2>&lt;h3 id="问题-1balenaetcher-报源镜像已损坏">问题 1：balenaEtcher 报&amp;quot;源镜像已损坏&amp;quot;
+&lt;/h3>&lt;ul>
+&lt;li>原因：balenaEtcher 对大文件支持有问题&lt;/li>
+&lt;li>解决：换 Rufus&lt;/li>
+&lt;/ul>
+&lt;h3 id="问题-2iso-校验值不匹配">问题 2：ISO 校验值不匹配
+&lt;/h3>&lt;ul>
+&lt;li>原因：下载不完整或传输出错&lt;/li>
+&lt;li>解决：重新下载&lt;/li>
+&lt;/ul>
+&lt;h3 id="问题-3u-盘烧录后容量变小只剩-6gb">问题 3：U 盘烧录后容量变小（只剩 6GB）
+&lt;/h3>&lt;ul>
+&lt;li>原因：分区表损坏&lt;/li>
+&lt;li>解决：用 diskpart clean 清理，再重新格式化&lt;/li>
+&lt;/ul>
+&lt;h3 id="问题-4安装后拔掉-u-盘又进安装界面">问题 4：安装后拔掉 U 盘又进安装界面
+&lt;/h3>&lt;ul>
+&lt;li>原因：GRUB 菜单里选了 Try or Install&lt;/li>
+&lt;li>解决：选 Ubuntu 或直接拔 U 盘&lt;/li>
+&lt;/ul>
+&lt;h3 id="问题-5进不去-bios">问题 5：进不去 BIOS
+&lt;/h3>&lt;ul>
+&lt;li>HP 暗影精灵3：反复按 F10，或 ESC + F10&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="七后续配置">七、后续配置
+&lt;/h2>&lt;h3 id="配置机械硬盘为数据盘">配置机械硬盘为数据盘
+&lt;/h3>&lt;p>系统装到固态后，机械硬盘（sda，1TB）可以当数据盘用：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 查看磁盘信息&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">lsblk -o NAME,SIZE,TYPE,FSTYPE,MOUNTPOINT
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 格式化机械盘（会清空数据！）&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo mkfs.ext4 /dev/sda1
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 创建挂载点&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo mkdir /data
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 挂载&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo mount /dev/sda1 /data
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 设置开机自动挂载（编辑 /etc/fstab）&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo nano /etc/fstab
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 添加一行：/dev/sda1 /data ext4 defaults 0 2&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>或者挂载到 &lt;code>/home&lt;/code>（需要迁移用户数据，操作更复杂，建议新装系统时直接做）。&lt;/p>
+&lt;h3 id="安装常用软件">安装常用软件
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo apt update &lt;span class="o">&amp;amp;&amp;amp;&lt;/span> sudo apt upgrade -y
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo apt install vim git curl wget build-essential -y
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="安装-nvidia-驱动如果有独显">安装 NVIDIA 驱动（如果有独显）
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">sudo ubuntu-drivers autoinstall
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">sudo reboot
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="配置-git">配置 Git
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">git config --global user.name &lt;span class="s2">&amp;#34;你的名字&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">git config --global user.email &lt;span class="s2">&amp;#34;你的邮箱&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;hr>
+&lt;h2 id="参考资料">参考资料
+&lt;/h2>&lt;ul>
+&lt;li>&lt;a class="link" href="https://ubuntu.com/tutorials/install-ubuntu-desktop" target="_blank" rel="noopener"
+>Ubuntu 官方安装指南&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://releases.ubuntu.com/24.04/SHA256SUMS" target="_blank" rel="noopener"
+>Ubuntu 24.04 SHA256 校验值&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://rufus.ie" target="_blank" rel="noopener"
+>Rufus 官网&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="https://support.hp.com" target="_blank" rel="noopener"
+>HP BIOS 进入方法&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;p>&lt;em>本文由龙虾 🦞 记录于 2026-03-11，下次重装照着走就行。&lt;/em>&lt;/p></description></item></channel></rss>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>测试 on VvVzzz Blog</title><link>https://godvvvzzz.github.io/tags/%E6%B5%8B%E8%AF%95/</link><description>Recent content in 测试 on VvVzzz Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 07 Mar 2026 20:45:00 +0800</lastBuildDate><atom:link href="https://godvvvzzz.github.io/tags/%E6%B5%8B%E8%AF%95/index.xml" rel="self" type="application/rss+xml"/><item><title>自动化博客测试 V2</title><link>https://godvvvzzz.github.io/p/%E8%87%AA%E5%8A%A8%E5%8C%96%E5%8D%9A%E5%AE%A2%E6%B5%8B%E8%AF%95-v2/</link><pubDate>Sat, 07 Mar 2026 20:45:00 +0800</pubDate><guid>https://godvvvzzz.github.io/p/%E8%87%AA%E5%8A%A8%E5%8C%96%E5%8D%9A%E5%AE%A2%E6%B5%8B%E8%AF%95-v2/</guid><description>&lt;h2 id="测试内容">测试内容
+&lt;/h2>&lt;p>这是通过自动化流程生成的博客文章。&lt;/p>
+&lt;h3 id="功能验证">功能验证
+&lt;/h3>&lt;ul>
+&lt;li>✅ GitHub 提交权限&lt;/li>
+&lt;li>✅ Hugo 文章格式&lt;/li>
+&lt;li>✅ 标签分类&lt;/li>
+&lt;/ul>
+&lt;h3 id="下一步">下一步
+&lt;/h3>&lt;p>实现从链接自动生成博客的完整流程。&lt;/p></description></item></channel></rss>

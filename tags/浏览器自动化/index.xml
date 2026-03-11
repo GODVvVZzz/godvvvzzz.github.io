@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>浏览器自动化 on VvVzzz Blog</title><link>https://godvvvzzz.github.io/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%87%AA%E5%8A%A8%E5%8C%96/</link><description>Recent content in 浏览器自动化 on VvVzzz Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 08 Mar 2026 02:00:00 +0800</lastBuildDate><atom:link href="https://godvvvzzz.github.io/tags/%E6%B5%8F%E8%A7%88%E5%99%A8%E8%87%AA%E5%8A%A8%E5%8C%96/index.xml" rel="self" type="application/rss+xml"/><item><title>OpenClaw 完全指南：满权限配置与浏览器自动化</title><link>https://godvvvzzz.github.io/p/openclaw-%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97%E6%BB%A1%E6%9D%83%E9%99%90%E9%85%8D%E7%BD%AE%E4%B8%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E8%87%AA%E5%8A%A8%E5%8C%96/</link><pubDate>Sun, 08 Mar 2026 02:00:00 +0800</pubDate><guid>https://godvvvzzz.github.io/p/openclaw-%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97%E6%BB%A1%E6%9D%83%E9%99%90%E9%85%8D%E7%BD%AE%E4%B8%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E8%87%AA%E5%8A%A8%E5%8C%96/</guid><description>&lt;blockquote>
+&lt;p>本文内容整合自微信公众号文章，记录了 OpenClaw 2026.3.2 版本的完整配置和使用方法。&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="前言">前言
+&lt;/h2>&lt;p>OpenClaw（被戏称为&amp;quot;小龙虾&amp;quot;）是一款开源 AI Agent 项目，近期在全球爆火。但由于安全考虑，2026.3.2 版本默认禁用了许多功能。本文将介绍如何满血复活 OpenClaw，包括权限配置和浏览器自动化。&lt;/p>
+&lt;hr>
+&lt;h2 id="一openclaw-安装">一、OpenClaw 安装
+&lt;/h2>&lt;h3 id="11-一键安装">1.1 一键安装
+&lt;/h3>&lt;p>以管理员身份运行 PowerShell：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">iwr &lt;/span>&lt;span class="n">-useb&lt;/span> &lt;span class="n">https&lt;/span>&lt;span class="err">:&lt;/span>&lt;span class="p">//&lt;/span>&lt;span class="n">openclaw&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">ai&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="n">install&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">ps1&lt;/span> &lt;span class="p">|&lt;/span> &lt;span class="nb">iex
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="12-解决执行策略问题">1.2 解决执行策略问题
+&lt;/h3>&lt;p>如果出现报错，执行：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">Set-ExecutionPolicy&lt;/span> &lt;span class="n">RemoteSigned&lt;/span> &lt;span class="n">-Scope&lt;/span> &lt;span class="n">CurrentUser&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>然后重新执行安装命令。&lt;/p>
+&lt;h3 id="13-验证安装">1.3 验证安装
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">openclaw --version
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 输出：2026.3.2（或更新版本）&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;hr>
+&lt;h2 id="二放开-agent-权限满血复活">二、放开 Agent 权限（满血复活）
+&lt;/h2>&lt;p>由于安全考虑，新版 OpenClaw 默认禁用了许多功能，需要手动开启满权限。&lt;/p>
+&lt;h3 id="21-编辑配置文件">2.1 编辑配置文件
+&lt;/h3>&lt;p>打开 &lt;code>~/.openclaw/openclaw.json&lt;/code>，修改 &lt;code>tools&lt;/code> 配置：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-json" data-lang="json">&lt;span class="line">&lt;span class="cl">&lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;tools&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;profile&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;full&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>这会让 OpenClaw 获得完整的工具访问权限，包括文件系统、网络、浏览器等操作。&lt;/p>
+&lt;h3 id="22-重启服务">2.2 重启服务
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">openclaw gateway restart
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;hr>
+&lt;h2 id="三浏览器自动化配置">三、浏览器自动化配置
+&lt;/h2>&lt;h3 id="31-查看浏览器状态">3.1 查看浏览器状态
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">openclaw browser status
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="32-启动-chrome-扩展中继模式">3.2 启动 Chrome 扩展中继模式
+&lt;/h3>&lt;p>这种方式让 AI 控制你正在使用的 Chrome 标签页，而非启动独立浏览器。&lt;/p>
+&lt;p>&lt;strong>步骤1：启动 chrome 配置文件&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">openclaw browser --browser-profile chrome start
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;strong>步骤2：查看实际端口&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">openclaw browser --browser-profile chrome status
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>输出示例：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">profile: chrome
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">running: true
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">cdpPort: 18801
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">cdpUrl: http://127.0.0.1:18801
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;strong>步骤3：安装 Chrome 扩展&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>访问 Chrome Web Store 搜索 &amp;ldquo;OpenClaw Browser Relay&amp;rdquo;&lt;/li>
+&lt;li>或访问：https://chromewebstore.google.com/detail/openclaw-browser-relay/nglingapjinhecnfejdcpihlpneeadjp&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>步骤4：配置扩展&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>中继 URL：&lt;code>http://127.0.0.1:18801&lt;/code>（根据实际 cdpPort 调整）&lt;/li>
+&lt;li>Token：从 &lt;code>openclaw.json&lt;/code> 的 &lt;code>gateway.auth.token&lt;/code> 获取&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>步骤5：使用&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>打开任意网页&lt;/li>
+&lt;li>点击 Chrome 工具栏上的 OpenClaw 扩展图标&lt;/li>
+&lt;li>图标显示 &amp;ldquo;ON&amp;rdquo; 表示已连接，AI 可以控制该标签页&lt;/li>
+&lt;/ul>
+&lt;h3 id="33-连接模式详解">3.3 连接模式详解
+&lt;/h3>&lt;p>&lt;strong>两种连接方式的区别：&lt;/strong>&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>方式&lt;/th>
+&lt;th>连接目标&lt;/th>
+&lt;th>使用场景&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;strong>直接 CDP 连接&lt;/strong>&lt;/td>
+&lt;td>OpenClaw 启动的 Chrome&lt;/td>
+&lt;td>自动化测试、独立环境&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>Chrome 扩展中继&lt;/strong>&lt;/td>
+&lt;td>你的日常 Chrome&lt;/td>
+&lt;td>操作已登录的页面、个人浏览&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;strong>为什么需要扩展？&lt;/strong>&lt;/p>
+&lt;p>直接连接只能控制 OpenClaw 启动的 Chrome（独立的、没有你的登录状态），无法连接你&lt;strong>正在使用&lt;/strong>的 Chrome。&lt;/p>
+&lt;p>扩展的作用是让&lt;strong>你日常使用的 Chrome&lt;/strong>（有你的登录状态、书签、历史）也能被控制，通过 &lt;code>chrome.debugger&lt;/code> API 把 CDP 消息转发给 OpenClaw。&lt;/p>
+&lt;p>&lt;strong>实际架构：&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">AI Agent → OpenClaw Relay (18801) → Chrome 扩展 → 你的日常 Chrome
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;strong>注意&lt;/strong>：&lt;code>chrome&lt;/code> 配置文件默认启动的是 OpenClaw 托管的浏览器，不是你的日常 Chrome。如果要控制日常浏览器，需要：&lt;/p>
+&lt;ol>
+&lt;li>关闭 &lt;code>openclaw browser --browser-profile chrome&lt;/code>&lt;/li>
+&lt;li>启动你自己的 Chrome：&lt;code>chrome.exe --remote-debugging-port=9222&lt;/code>&lt;/li>
+&lt;li>或配置 &lt;code>attachOnly: true&lt;/code> 附加到已运行的 Chrome&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;h2 id="四使用示例">四、使用示例
+&lt;/h2>&lt;h3 id="41-查看当前浏览器状态">4.1 查看当前浏览器状态
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">openclaw browser --browser-profile chrome status
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="42-打开指定网页">4.2 打开指定网页
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">openclaw browser --browser-profile chrome open https://example.com
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="43-通过-ai-对话控制">4.3 通过 AI 对话控制
+&lt;/h3>&lt;p>在飞书或其他接入的聊天窗口中：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">我已经打开并登录了微博，获取今天最新10条微博热搜消息
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>AI 会自动操作浏览器完成任务。&lt;/p>
+&lt;hr>
+&lt;h2 id="五配置文件详解">五、配置文件详解
+&lt;/h2>&lt;p>完整的 &lt;code>openclaw.json&lt;/code> 浏览器配置：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-json" data-lang="json">&lt;span class="line">&lt;span class="cl">&lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;browser&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;enabled&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;remoteCdpTimeoutMs&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">1500&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;remoteCdpHandshakeTimeoutMs&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">3000&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;defaultProfile&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;chrome&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;color&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;#FF4500&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;headless&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;noSandbox&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;attachOnly&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;profiles&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;openclaw&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="nt">&amp;#34;cdpPort&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">18800&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nt">&amp;#34;color&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;#FF4500&amp;#34;&lt;/span> &lt;span class="p">},&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;chrome&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="nt">&amp;#34;cdpPort&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">18801&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nt">&amp;#34;color&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;#0066CC&amp;#34;&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;strong>配置说明：&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>enabled&lt;/code>: 启用浏览器控制&lt;/li>
+&lt;li>&lt;code>defaultProfile&lt;/code>: 默认配置文件（chrome 或 openclaw）&lt;/li>
+&lt;li>&lt;code>headless&lt;/code>: 是否无头模式（false 显示浏览器窗口）&lt;/li>
+&lt;li>&lt;code>profiles&lt;/code>: 配置文件列表，每个有独立的 cdpPort&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="六常见问题">六、常见问题
+&lt;/h2>&lt;h3 id="q1-扩展显示-relay-unreachable">Q1: 扩展显示 &amp;ldquo;Relay unreachable&amp;rdquo;
+&lt;/h3>&lt;p>&lt;strong>解决&lt;/strong>：&lt;/p>
+&lt;ol>
+&lt;li>确认 &lt;code>openclaw browser --browser-profile chrome status&lt;/code> 显示 &lt;code>running: true&lt;/code>&lt;/li>
+&lt;li>检查扩展配置的中继 URL 是否匹配 &lt;code>cdpUrl&lt;/code>&lt;/li>
+&lt;li>确认 Token 正确&lt;/li>
+&lt;/ol>
+&lt;h3 id="q2-点击扩展图标没有反应">Q2: 点击扩展图标没有反应
+&lt;/h3>&lt;p>&lt;strong>解决&lt;/strong>：&lt;/p>
+&lt;ol>
+&lt;li>确保在普通网页（非 chrome:// 页面）上点击&lt;/li>
+&lt;li>检查扩展权限：进入 &lt;code>chrome://extensions/&lt;/code> → OpenClaw Browser Relay → 详情 → 确保权限已开启&lt;/li>
+&lt;li>刷新页面后重试&lt;/li>
+&lt;/ol>
+&lt;h3 id="q3-如何查看实际端口">Q3: 如何查看实际端口？
+&lt;/h3>&lt;p>&lt;strong>解决&lt;/strong>：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">openclaw browser --browser-profile chrome status
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 查看 cdpPort 字段&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;strong>注意&lt;/strong>：端口不是固定的，必须通过命令查看！&lt;/p>
+&lt;hr>
+&lt;h2 id="七总结">七、总结
+&lt;/h2>&lt;p>通过本文的配置，你可以：&lt;/p>
+&lt;ul>
+&lt;li>✅ 满血复活 OpenClaw，放开所有权限&lt;/li>
+&lt;li>✅ 通过 Chrome 扩展让 AI 控制你的浏览器&lt;/li>
+&lt;li>✅ 实现说话就能让 AI 帮你操作网页&lt;/li>
+&lt;/ul>
+&lt;p>这让 OpenClaw 可以：&lt;/p>
+&lt;ul>
+&lt;li>自动查资料、搜信息&lt;/li>
+&lt;li>打开网页、操作页面&lt;/li>
+&lt;li>填写表单、点击按钮&lt;/li>
+&lt;li>截图、提取内容&lt;/li>
+&lt;/ul>
+&lt;p>大大提高自动化效率！&lt;/p>
+&lt;hr>
+&lt;h2 id="参考链接">参考链接
+&lt;/h2>&lt;ul>
+&lt;li>OpenClaw 官方文档：https://docs.openclaw.ai&lt;/li>
+&lt;li>Chrome 扩展：https://chromewebstore.google.com/detail/openclaw-browser-relay/nglingapjinhecnfejdcpihlpneeadjp&lt;/li>
+&lt;li>本文 GitHub 仓库：https://github.com/GODVvVZzz/godvvvzzz.github.io&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;blockquote>
+&lt;p>本文由 OpenClaw 自动整理生成&lt;/p>
+&lt;/blockquote></description></item></channel></rss>

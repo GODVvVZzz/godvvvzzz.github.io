@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>笔记 on VvVzzz Blog</title><link>https://godvvvzzz.github.io/tags/%E7%AC%94%E8%AE%B0/</link><description>Recent content in 笔记 on VvVzzz Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Wed, 11 Mar 2026 18:46:00 +0800</lastBuildDate><atom:link href="https://godvvvzzz.github.io/tags/%E7%AC%94%E8%AE%B0/index.xml" rel="self" type="application/rss+xml"/><item><title>好记性不如养龙虾：AI 时代的笔记进化论</title><link>https://godvvvzzz.github.io/p/good-memory-vs-lobster/</link><pubDate>Wed, 11 Mar 2026 18:46:00 +0800</pubDate><guid>https://godvvvzzz.github.io/p/good-memory-vs-lobster/</guid><description>&lt;h2 id="前言">前言
+&lt;/h2>&lt;p>&amp;ldquo;好记性不如烂笔头&amp;quot;是从小受到的教育。但在 AI 时代，烂笔头也面临新的困境：信息爆炸、格式混乱、分类困难、工作量繁杂，最终很容易放弃。&lt;/p>
+&lt;p>AI 时代，笔记方式需要进化。&lt;/p>
+&lt;p>&lt;strong>好记性不如养龙虾。&lt;/strong>&lt;/p>
+&lt;p>本文讲清楚：为什么传统笔记方式不够用了，我们用什么方案解决，以及这套方案的优势在哪里。&lt;/p>
+&lt;hr>
+&lt;h2 id="一痛点信息爆炸时代的笔记困境">一、痛点：信息爆炸时代的笔记困境
+&lt;/h2>&lt;h3 id="信息过载好东西看过就忘">信息过载，好东西看过就忘
+&lt;/h3>&lt;p>每天的信息轰炸让人应接不暇：&lt;/p>
+&lt;ul>
+&lt;li>刷到一篇好文章，收藏了，下次想找却想不起标题&lt;/li>
+&lt;li>灵光一闪的想法，没有及时记录，转眼就忘了&lt;/li>
+&lt;li>和 AI 对话解决了实际问题，下次遇到同样的问题，还得从头问起&lt;/li>
+&lt;/ul>
+&lt;h3 id="传统笔记方式的困境">传统笔记方式的困境
+&lt;/h3>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>困境&lt;/th>
+&lt;th>具体表现&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;strong>格式问题&lt;/strong>&lt;/td>
+&lt;td>Markdown？富文本？笔记软件自带格式？不知道用什么&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>分类问题&lt;/strong>&lt;/td>
+&lt;td>标签怎么打？文件夹怎么分？分着分着就乱了&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>工作量繁杂&lt;/strong>&lt;/td>
+&lt;td>写笔记本身就很耗时，整理更耗时&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>容易放弃&lt;/strong>&lt;/td>
+&lt;td>记了几周就懒得记了，笔记系统形同虚设&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;strong>结果：&lt;/strong> 好东西看了不少，真正沉淀下来的却很少。每次需要用的时候，要么找不到，要么得重新搜索、重新学习。&lt;/p>
+&lt;h3 id="ai-时代的新挑战">AI 时代的新挑战
+&lt;/h3>&lt;p>和 AI 交流已经成为解决问题的主要方式之一。但 AI 对话是即时的、一次性的：&lt;/p>
+&lt;ul>
+&lt;li>解决了问题 → 对话结束 → 下次遇到同样的问题 → 重新问、重新等&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>问题的本质：&lt;/strong> AI 帮你解决了当下，但没有帮你积累未来。&lt;/p>
+&lt;p>&lt;strong>结论：&lt;/strong> 好记性不如养龙虾。AI 时代需要一种新的笔记方式——能够自动记录、自动整理、随时可用。&lt;/p>
+&lt;hr>
+&lt;h2 id="二现有产品的局限">二、现有产品的局限
+&lt;/h2>&lt;h3 id="腾讯系笔记如腾讯文档微信收藏">腾讯系笔记（如腾讯文档、微信收藏）
+&lt;/h3>&lt;p>&lt;strong>优势：&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>微信公众号生态好，可以直接分享导入&lt;/li>
+&lt;li>一键收藏，操作便捷&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>问题：&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>无法自动整理，导入多了就乱&lt;/li>
+&lt;li>微信收藏的内容，无法二次编辑和结构化&lt;/li>
+&lt;li>数据存储在腾讯服务器，导出困难&lt;/li>
+&lt;/ul>
+&lt;h3 id="第三方笔记产品如-get-好记印象笔记等">第三方笔记产品（如 Get 好记、印象笔记等）
+&lt;/h3>&lt;p>&lt;strong>优势：&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>功能丰富，支持多平台同步&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>问题：&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>微信公众号文章被腾讯风控，无法正常抓取&lt;/li>
+&lt;li>小红书链接被小红书风控，同样无法获取&lt;/li>
+&lt;li>大厂数据封闭，第三方产品难以打通&lt;/li>
+&lt;li>数据存储在服务商处，需要付费，且面临后续数据迁移风险&lt;/li>
+&lt;/ul>
+&lt;h3 id="核心矛盾">核心矛盾
+&lt;/h3>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>需求&lt;/th>
+&lt;th>现状&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>数据完全自己掌控&lt;/td>
+&lt;td>数据在大厂手里&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>能够自动记录、自动整理&lt;/td>
+&lt;td>需要手动整理，工作量大&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>费用要低&lt;/td>
+&lt;td>大厂产品需要付费订阅&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;strong>我们需要的是一种：数据自己掌控、能够自动记录整理、成本低廉的方案。&lt;/strong>&lt;/p>
+&lt;hr>
+&lt;h2 id="三方案openclaw--hugo-博客">三、方案：OpenClaw + Hugo 博客
+&lt;/h2>&lt;h3 id="核心架构">核心架构
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">信息源 → OpenClaw（AI 自动处理） → Hugo 博客（Markdown 存储）
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> │
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ▼
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> GitHub 仓库（数据自有）
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> │
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ▼
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> GitHub Actions（自动部署）
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> │
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> ▼
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> GitHub Pages（免费托管）
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="三大支柱">三大支柱
+&lt;/h3>&lt;p>&lt;strong>1. Hugo 博客：数据完全自己掌控&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>所有内容以 Markdown 文件形式存储在本地&lt;/li>
+&lt;li>通过 GitHub 仓库存储，版本管理，随时可导出&lt;/li>
+&lt;li>GitHub Pages 免费托管，零成本&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>2. OpenClaw：自动化流程赋能&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>自动记录：一句话即可记录想法、链接、对话&lt;/li>
+&lt;li>自动整理：按规则分类、打标签、归档&lt;/li>
+&lt;li>随时沟通调整：自然语言交互，不用记操作手册&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>3. GitHub 生态：自动化部署&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>GitHub Actions 自动编译 Hugo 站点&lt;/li>
+&lt;li>git push 后自动发布，无需手动部署&lt;/li>
+&lt;li>完全免费，无服务器成本&lt;/li>
+&lt;/ul>
+&lt;h3 id="方案优势">方案优势
+&lt;/h3>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>优势&lt;/th>
+&lt;th>说明&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>✅ &lt;strong>数据完全自控&lt;/strong>&lt;/td>
+&lt;td>所有内容以 Markdown 形式存在本地/GitHub，随时导出&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>✅ &lt;strong>零成本&lt;/strong>&lt;/td>
+&lt;td>GitHub Pages 免费托管，GitHub Actions 免费构建&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>✅ &lt;strong>自动记录&lt;/strong>&lt;/td>
+&lt;td>一句话即可完成记录，AI 处理格式和分类&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>✅ &lt;strong>自动整理&lt;/strong>&lt;/td>
+&lt;td>按规则自动归档，不用手动分类&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>✅ &lt;strong>可扩展&lt;/strong>&lt;/td>
+&lt;td>通过 Skill 机制定制工作流，按需扩展&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>✅ &lt;strong>随时可用&lt;/strong>&lt;/td>
+&lt;td>自然语言交互，不用记操作步骤&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;h2 id="四实现细节">四、实现细节
+&lt;/h2>&lt;h3 id="41-hugo-博客的人工记录流程">4.1 Hugo 博客的人工记录流程
+&lt;/h3>&lt;p>传统的 Hugo 博客记录流程：&lt;/p>
+&lt;ol>
+&lt;li>创建文章文件 &lt;code>content/post/xxx/index.md&lt;/code>&lt;/li>
+&lt;li>手写 frontmatter（标题、日期、标签、分类）&lt;/li>
+&lt;li>写正文&lt;/li>
+&lt;li>本地预览 &lt;code>hugo server&lt;/code>&lt;/li>
+&lt;li>git add/commit/push&lt;/li>
+&lt;li>等 GitHub Actions 部署&lt;/li>
+&lt;/ol>
+&lt;p>这个流程需要手动操作多步，且每一步都需要记忆和执行。&lt;/p>
+&lt;h3 id="42-四种记录模式">4.2 四种记录模式
+&lt;/h3>&lt;p>我们约定四种固定的记录模式，覆盖从碎片想法到完整文章的所有场景：&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>模式&lt;/th>
+&lt;th>场景&lt;/th>
+&lt;th>一句话触发&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;strong>简单记&lt;/strong>&lt;/td>
+&lt;td>一句话速记、收藏链接&lt;/td>
+&lt;td>&amp;ldquo;简要记这个链接：xxx 文章讲的是&amp;hellip;&amp;rdquo;&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>随想记&lt;/strong>&lt;/td>
+&lt;td>灵光一闪、即时想法&lt;/td>
+&lt;td>&amp;ldquo;随手记一下：今天学到了&amp;hellip;&amp;rdquo;&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>融合记&lt;/strong>&lt;/td>
+&lt;td>追加到已有文章&lt;/td>
+&lt;td>&amp;ldquo;把这段内容记到 XXX 博客里&amp;rdquo;&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>详细记&lt;/strong>&lt;/td>
+&lt;td>完整独立文章&lt;/td>
+&lt;td>&amp;ldquo;帮我写一篇关于 XXX 的博客&amp;rdquo;&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;strong>个性化记录需求随时沟通。&lt;/strong> 比如&amp;quot;帮我记一下这个会议要点&amp;rdquo;，AI 会自动选择合适的模式。&lt;/p>
+&lt;h3 id="43-通过-createskill-固化流程">4.3 通过 CreateSkill 固化流程
+&lt;/h3>&lt;p>将整个记录流程固化为一个 Skill：&lt;code>hugo-blog-publisher&lt;/code>&lt;/p>
+&lt;p>&lt;strong>Skill 的作用：&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>自动匹配用户意图 → 选择对应记录模式&lt;/li>
+&lt;li>自动调用对应脚本 → 处理内容提取、文章生成&lt;/li>
+&lt;li>自动提交 GitHub → 触发自动部署&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>一句话触发完整流程：&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">用户：随手记一下：今天学到 Linux 的 pipe 机制很强大
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">→ OpenClaw 匹配 Skill → 调用 sui_shou_ji.py → 生成文章 → commit → push → 自动上线
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="44-解决数据获取难题">4.4 解决数据获取难题
+&lt;/h3>&lt;p>&lt;strong>开放数据（普通网页）：&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>直接请求 URL，自动提取正文内容&lt;/li>
+&lt;li>Python 脚本（requests + readability）自动处理&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>大厂封闭数据（微信公众号、小红书等）：&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>使用 &lt;strong>浏览器中继模式（Chrome Relay）&lt;/strong>&lt;/li>
+&lt;li>操作你自己常用的 Chrome 浏览器，浏览器上预先登录好&lt;/li>
+&lt;li>直接访问页面，提取内容&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>原理：&lt;/strong> 不走 API，直接用你已登录的浏览器访问页面，绕过风控限制。&lt;/p>
+&lt;h3 id="45-和-ai-多轮对话解决问题">4.5 和 AI 多轮对话解决问题
+&lt;/h3>&lt;p>&lt;strong>场景：&lt;/strong> 和 AI 对话解决了实际问题，想要记录下来。&lt;/p>
+&lt;p>&lt;strong>操作：&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">用户：把我们刚才的解决过程写一篇博客，我下次看了就会的那种
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">→ OpenClaw 回顾对话历史 → 提取关键信息 → 生成完整文章 → 提交 GitHub
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;strong>优势：&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>不用自己整理，AI 自动提炼要点&lt;/li>
+&lt;li>不用担心遗漏，AI 会回顾完整对话&lt;/li>
+&lt;li>下次遇到同样的问题，直接看博客就行，不用重新问&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="五未来展望">五、未来展望
+&lt;/h2>&lt;h3 id="应用到工作场景团队知识库共建">应用到工作场景：团队知识库共建
+&lt;/h3>&lt;p>&lt;strong>现状：&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>各团队成员各自记录，知识分散&lt;/li>
+&lt;li>缺乏统一的整理和审核机制&lt;/li>
+&lt;li>新人入职需要大量重复沟通&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>方案：&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>各团队共建知识库，使用同一套 Hugo 博客系统&lt;/li>
+&lt;li>人工审核机制，保证团队知识库质量&lt;/li>
+&lt;li>标签体系统一，方便跨团队检索&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>效果：&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>一次记录，全团队受益&lt;/li>
+&lt;li>知识沉淀，降低沟通成本&lt;/li>
+&lt;li>新人快速上手，减少重复培训&lt;/li>
+&lt;/ul>
+&lt;h3 id="知识库复用打造个性化模型">知识库复用：打造个性化模型
+&lt;/h3>&lt;p>&lt;strong>方向：&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>基于个人/团队知识库，进行模型微调&lt;/li>
+&lt;li>打造专属的个性化问答助手&lt;/li>
+&lt;li>基于知识库进行精准回答，减少幻觉&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>场景：&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>个人：基于自己的笔记库，打造&amp;quot;第二大脑&amp;quot;&lt;/li>
+&lt;li>团队：基于团队知识库，打造专属客服/助手&lt;/li>
+&lt;li>企业：基于企业知识库，打造行业专家模型&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>核心理念：&lt;/strong>&lt;/p>
+&lt;blockquote>
+&lt;p>知识库不是终点，而是起点。沉淀的知识可以进一步赋能，形成闭环。&lt;/p>
+&lt;/blockquote>
+&lt;hr>
+&lt;h2 id="六总结">六、总结
+&lt;/h2>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>维度&lt;/th>
+&lt;th>传统方式&lt;/th>
+&lt;th>本方案&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>记录&lt;/td>
+&lt;td>手动，繁琐&lt;/td>
+&lt;td>一句话自动记录&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>整理&lt;/td>
+&lt;td>手动分类，易乱&lt;/td>
+&lt;td>自动归档，按规则分类&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>存储&lt;/td>
+&lt;td>分散在各个 App&lt;/td>
+&lt;td>集中在 GitHub，自己掌控&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>成本&lt;/td>
+&lt;td>付费订阅&lt;/td>
+&lt;td>零成本&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>部署&lt;/td>
+&lt;td>手动操作&lt;/td>
+&lt;td>自动部署&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>可用性&lt;/td>
+&lt;td>需要记忆操作&lt;/td>
+&lt;td>自然语言交互&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;strong>核心价值：&lt;/strong>&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>好记性不如养龙虾&lt;/strong> — AI 时代，笔记方式需要进化&lt;/li>
+&lt;li>&lt;strong>数据完全自己掌控&lt;/strong> — 不依赖大厂，不怕数据丢失&lt;/li>
+&lt;li>&lt;strong>零成本运行&lt;/strong> — GitHub Pages 免费托管，GitHub Actions 免费构建&lt;/li>
+&lt;li>&lt;strong>自动记录整理&lt;/strong> — 一句话即可完成，AI 处理一切&lt;/li>
+&lt;li>&lt;strong>可扩展可复用&lt;/strong> — Skill 机制、知识库复用，持续进化&lt;/li>
+&lt;/ol>
+&lt;p>&lt;strong>从想法到沉淀，从沉淀到复用。&lt;/strong>&lt;/p>
+&lt;hr>
+&lt;p>&lt;em>本文由 🦞 龙虾整理，记录于 2026-03-11。好记性不如养龙虾。&lt;/em>&lt;/p></description></item></channel></rss>

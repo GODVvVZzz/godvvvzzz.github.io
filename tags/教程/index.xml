@@ -1,0 +1,592 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>教程 on VvVzzz Blog</title><link>https://godvvvzzz.github.io/tags/%E6%95%99%E7%A8%8B/</link><description>Recent content in 教程 on VvVzzz Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 10 Mar 2026 02:35:00 +0800</lastBuildDate><atom:link href="https://godvvvzzz.github.io/tags/%E6%95%99%E7%A8%8B/index.xml" rel="self" type="application/rss+xml"/><item><title>OpenClaw 使用技巧大全 - 持续更新</title><link>https://godvvvzzz.github.io/p/openclaw-%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7%E5%A4%A7%E5%85%A8-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/</link><pubDate>Tue, 10 Mar 2026 02:35:00 +0800</pubDate><guid>https://godvvvzzz.github.io/p/openclaw-%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7%E5%A4%A7%E5%85%A8-%E6%8C%81%E7%BB%AD%E6%9B%B4%E6%96%B0/</guid><description>&lt;blockquote>
+&lt;p>本文持续更新，记录 OpenClaw 从安装、配置到实战的各种技巧和优质资源。
+更新时间：2026-03-10（新增：龙虾社区 InStreet, 飞书插件安装教程）&lt;/p>
+&lt;/blockquote>
+&lt;hr>
+&lt;h2 id="-目录">📋 目录
+&lt;/h2>&lt;ul>
+&lt;li>&lt;a class="link" href="#%e4%b8%80%e4%bb%8e%e9%9b%b6%e6%90%ad%e5%bb%ba" >一、从零搭建&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="#%e4%ba%8c%e9%85%8d%e7%bd%ae%e6%96%87%e4%bb%b6" >二、配置文件&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="#%e4%b8%89%e5%ae%9e%e6%88%98%e5%9c%ba%e6%99%af" >三、实战场景&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="#%e5%9b%9b%e8%bf%9b%e9%98%b6%e6%8a%80%e5%b7%a7" >四、进阶技巧&lt;/a>&lt;/li>
+&lt;li>&lt;a class="link" href="#%e4%ba%94%e8%b5%84%e6%ba%90%e6%b1%87%e6%80%bb" >五、资源汇总&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="一从零搭建">一、从零搭建
+&lt;/h2>&lt;h3 id="11-安装-ubuntu-2404-系统">1.1 安装 Ubuntu 24.04 系统
+&lt;/h3>&lt;p>&lt;strong>来源&lt;/strong>：&lt;a class="link" href="https://mp.weixin.qq.com/s/6YKie0itksGm7YRWveNngw" target="_blank" rel="noopener"
+>技术爬爬虾 - 12年长期维护！Ubuntu24.04震撼发布，手把手安装教程&lt;/a>&lt;/p>
+&lt;p>&lt;strong>关键要点&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>Ubuntu 24.04 LTS 长期支持版本，官方维护到 2029 年&lt;/li>
+&lt;li>推荐的系统安装方案（双系统/单系统）&lt;/li>
+&lt;li>BIOS 设置注意事项（Secure Boot、启动顺序）&lt;/li>
+&lt;li>分区方案建议（/boot/efi、/、swap）&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>OpenClaw 安装推荐&lt;/strong>：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;span class="lnt">6
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 一键安装 OpenClaw&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">curl -fsSL https://openclaw.ai/install.sh &lt;span class="p">|&lt;/span> bash
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 安装后配置 Gateway 自启&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">openclaw gateway install
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">openclaw gateway start
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;strong>系统要求&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>Node 22+（安装脚本自动处理）&lt;/li>
+&lt;li>最低 1GB 内存（推荐 2GB+）&lt;/li>
+&lt;li>Ubuntu 22.04 LTS / Ubuntu 24.04 LTS / Debian 12&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>后续补充&lt;/strong>：待添加详细分区步骤、驱动安装、中文环境配置&lt;/p>
+&lt;hr>
+&lt;h2 id="二配置文件">二、配置文件
+&lt;/h2>&lt;h3 id="21-openclawjson-终极配置指南">2.1 openclaw.json 终极配置指南
+&lt;/h3>&lt;p>&lt;strong>来源&lt;/strong>：&lt;a class="link" href="https://mp.weixin.qq.com/s/fdhIpyuiCJFw8-aVCs-3Fw" target="_blank" rel="noopener"
+>陈林 ABC - openclaw.json 终极配置指南&lt;/a>&lt;/p>
+&lt;p>&lt;strong>关键要点&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>openclaw.json 是 OpenClaw 的核心配置文件&lt;/li>
+&lt;li>位置：&lt;code>~/.openclaw/openclaw.json&lt;/code>（Linux）或 &lt;code>C:\Users\用户名\.openclaw\openclaw.json&lt;/code>（Windows）&lt;/li>
+&lt;li>主要配置项：
+&lt;ul>
+&lt;li>&lt;strong>providers&lt;/strong>：模型供应商配置（API Key、base URL）&lt;/li>
+&lt;li>&lt;strong>agents&lt;/strong>：Agent 行为配置（模型选择、并发限制）&lt;/li>
+&lt;li>&lt;strong>channels&lt;/strong>：消息渠道配置（飞书、Telegram 等）&lt;/li>
+&lt;li>&lt;strong>gateway&lt;/strong>：Gateway 服务配置（端口、认证）&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>关键配置示例&lt;/strong>：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;span class="lnt">17
+&lt;/span>&lt;span class="lnt">18
+&lt;/span>&lt;span class="lnt">19
+&lt;/span>&lt;span class="lnt">20
+&lt;/span>&lt;span class="lnt">21
+&lt;/span>&lt;span class="lnt">22
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-json" data-lang="json">&lt;span class="line">&lt;span class="cl">&lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;providers&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;mimo&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;baseURL&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;https://api.xiaomimimo.com/v1&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;apiKey&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;sk-xxx&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">},&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;agents&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;defaults&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;model&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;mimo/mimo-claw-0301&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;subagents&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;maxConcurrent&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">8&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">},&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;gateway&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;port&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">18789&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;auth&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;token&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;your-secret-token&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;strong>经验总结&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>子代理并发上限默认 8 个，可通过 &lt;code>agents.defaults.subagents.maxConcurrent&lt;/code> 调整&lt;/li>
+&lt;li>Gateway 端口默认 18789，控制面板在 18789+3（18792）&lt;/li>
+&lt;li>模型别名可在配置文件中自定义&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>后续补充&lt;/strong>：待添加更多配置项详解、环境变量覆盖、多环境配置&lt;/p>
+&lt;hr>
+&lt;h2 id="三实战场景">三、实战场景
+&lt;/h2>&lt;h3 id="31-openclaw--飞书知识库打造云端知识库">3.1 OpenClaw + 飞书知识库：打造云端知识库
+&lt;/h3>&lt;p>&lt;strong>来源&lt;/strong>：&lt;a class="link" href="https://mp.weixin.qq.com/s/j8cqrhmHuYFzv6tuuAa2PQ" target="_blank" rel="noopener"
+>DracoVibeCoding - OpenClaw+飞书知识库：打造可以赚钱的云端知识库另类玩法&lt;/a>&lt;/p>
+&lt;p>&lt;strong>关键要点&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>利用飞书知识库作为 OpenClaw 的持久化存储&lt;/li>
+&lt;li>通过 API 自动创建、更新文档&lt;/li>
+&lt;li>构建可检索的知识体系&lt;/li>
+&lt;li>结合 AI 自动整理、归纳内容&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>实现思路&lt;/strong>：&lt;/p>
+&lt;ol>
+&lt;li>飞书创建知识库，配置文档结构&lt;/li>
+&lt;li>OpenClaw 通过飞书 API 读写知识库&lt;/li>
+&lt;li>利用 AI 自动生成摘要、分类标签&lt;/li>
+&lt;li>形成可搜索的知识库体系&lt;/li>
+&lt;/ol>
+&lt;p>&lt;strong>实战价值&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>个人知识管理自动化&lt;/li>
+&lt;li>团队文档协作&lt;/li>
+&lt;li>内容沉淀与检索&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>后续补充&lt;/strong>：待添加具体 API 调用示例、脚本代码&lt;/p>
+&lt;hr>
+&lt;h2 id="四进阶技巧">四、进阶技巧
+&lt;/h2>&lt;h3 id="41-子代理并行化">4.1 子代理并行化
+&lt;/h3>&lt;ul>
+&lt;li>最多 8 个并发子代理&lt;/li>
+&lt;li>使用 &lt;code>sessions_spawn(runtime=&amp;quot;subagent&amp;quot;)&lt;/code> 创建&lt;/li>
+&lt;li>适合批量搜索、并行处理任务&lt;/li>
+&lt;li>独立计费，注意成本控制&lt;/li>
+&lt;/ul>
+&lt;h3 id="42-浏览器自动化">4.2 浏览器自动化
+&lt;/h3>&lt;ul>
+&lt;li>Linux 原生环境最适合（Playwright/Puppeteer）&lt;/li>
+&lt;li>Windows 上可使用 uiautomation 操作用户 Chrome&lt;/li>
+&lt;li>LLM 驱动方式 API 调用过多，建议纯脚本优先&lt;/li>
+&lt;/ul>
+&lt;h3 id="43-git-代理配置中国网络">4.3 Git 代理配置（中国网络）
+&lt;/h3>&lt;ul>
+&lt;li>GitHub 443 端口被 GFW 阻断&lt;/li>
+&lt;li>本地代理端口：&lt;code>127.0.0.1:7890&lt;/code>&lt;/li>
+&lt;li>配置：&lt;code>git config --global http(s).proxy http://127.0.0.1:7890&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="五资源汇总">五、资源汇总
+&lt;/h2>&lt;h3 id="官方文档">官方文档
+&lt;/h3>&lt;ul>
+&lt;li>OpenClaw 官方文档：https://docs.openclaw.ai&lt;/li>
+&lt;li>中文文档站：https://openclaw101.dev/zh&lt;/li>
+&lt;/ul>
+&lt;h3 id="优质文章持续补充">优质文章（持续补充）
+&lt;/h3>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>日期&lt;/th>
+&lt;th>主题&lt;/th>
+&lt;th>链接&lt;/th>
+&lt;th>来源&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>2026-03-10&lt;/td>
+&lt;td>龙虾社区 InStreet 全面开放内测&lt;/td>
+&lt;td>&lt;a class="link" href="https://mp.weixin.qq.com/s/DVhQ_mWNtn9P39ydlmtyUg" target="_blank" rel="noopener"
+>链接&lt;/a>&lt;/td>
+&lt;td>扣子Coze&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>2026-03-10&lt;/td>
+&lt;td>飞书官方 OpenClaw 插件安装教程&lt;/td>
+&lt;td>&lt;a class="link" href="https://bytedance.larkoffice.com/docx/MFK7dDFLFoVlOGxWCv5cTXKmnMh" target="_blank" rel="noopener"
+>链接&lt;/a>&lt;/td>
+&lt;td>飞书文档&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>2026-03-10&lt;/td>
+&lt;td>Ubuntu 24.04 安装教程&lt;/td>
+&lt;td>&lt;a class="link" href="https://mp.weixin.qq.com/s/6YKie0itksGm7YRWveNngw" target="_blank" rel="noopener"
+>链接&lt;/a>&lt;/td>
+&lt;td>技术爬爬虾&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>2026-03-10&lt;/td>
+&lt;td>openclaw.json 配置指南&lt;/td>
+&lt;td>&lt;a class="link" href="https://mp.weixin.qq.com/s/fdhIpyuiCJFw8-aVCs-3Fw" target="_blank" rel="noopener"
+>链接&lt;/a>&lt;/td>
+&lt;td>陈林 ABC&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>2026-03-10&lt;/td>
+&lt;td>OpenClaw+飞书知识库&lt;/td>
+&lt;td>&lt;a class="link" href="https://mp.weixin.qq.com/s/j8cqrhmHuYFzv6tuuAa2PQ" target="_blank" rel="noopener"
+>链接&lt;/a>&lt;/td>
+&lt;td>DracoVibeCoding&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>2026-03-09&lt;/td>
+&lt;td>OpenClaw 3层记忆系统&lt;/td>
+&lt;td>&lt;a class="link" href="https://mp.weixin.qq.com/s/Q0CC0p5e-DQEYEk5ErQB1Q" target="_blank" rel="noopener"
+>链接&lt;/a>&lt;/td>
+&lt;td>腾讯技术工程&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>2026-03-09&lt;/td>
+&lt;td>Claude Code 最佳实践&lt;/td>
+&lt;td>&lt;a class="link" href="http://xhslink.com/o/4GnzNdb2MYw" target="_blank" rel="noopener"
+>链接&lt;/a>&lt;/td>
+&lt;td>小红书&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>2026-03-08&lt;/td>
+&lt;td>OpenClaw 跑通公众号全流程&lt;/td>
+&lt;td>&lt;a class="link" href="http://xhslink.com/o/9K9SCGTec7f" target="_blank" rel="noopener"
+>链接&lt;/a>&lt;/td>
+&lt;td>小红书 @小盖&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;h2 id="-我的实战笔记">🔧 我的实战笔记
+&lt;/h2>&lt;h3 id="今日记录2026-03-10">今日记录（2026-03-10）
+&lt;/h3>&lt;p>&lt;strong>小红书自动化教训&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>&amp;ldquo;写长文&amp;quot;模式反爬严重，用&amp;quot;文字配图&amp;quot;路径更稳&lt;/li>
+&lt;li>标题限制 20 字，正文 ≤300 字&lt;/li>
+&lt;li>去掉 emoji，卡片模板不支持&lt;/li>
+&lt;li>纯脚本 &amp;gt; LLM 驱动（避免 API 限流）&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Git 代理&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>已配置 &lt;code>127.0.0.1:7890&lt;/code>，GitHub push 可直接走代理&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>Linux 重装计划&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>计划重装 Ubuntu 24.04 LTS&lt;/li>
+&lt;li>重装后用 Playwright 重写小红书自动化&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>龙虾社区 InStreet&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>OpenClaw Agent 社交平台（扣子Coze 出品）&lt;/li>
+&lt;li>已注册账号：longxia_5302，积分 55&lt;/li>
+&lt;li>支持发帖、评论、点赞、话题互动&lt;/li>
+&lt;li>适合 Agent 交流经验、分享技巧&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>飞书 OpenClaw 插件&lt;/strong>：&lt;/p>
+&lt;ul>
+&lt;li>官方插件安装教程已发布&lt;/li>
+&lt;li>支持飞书消息接入 OpenClaw&lt;/li>
+&lt;li>参考链接：&lt;a class="link" href="https://bytedance.larkoffice.com/docx/MFK7dDFLFoVlOGxWCv5cTXKmnMh" target="_blank" rel="noopener"
+>飞书文档&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;p>&lt;em>本文持续更新，欢迎补充。&lt;/em>&lt;/p></description></item><item><title>OpenClaw 完全指南：满权限配置与浏览器自动化</title><link>https://godvvvzzz.github.io/p/openclaw-%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97%E6%BB%A1%E6%9D%83%E9%99%90%E9%85%8D%E7%BD%AE%E4%B8%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E8%87%AA%E5%8A%A8%E5%8C%96/</link><pubDate>Sun, 08 Mar 2026 02:00:00 +0800</pubDate><guid>https://godvvvzzz.github.io/p/openclaw-%E5%AE%8C%E5%85%A8%E6%8C%87%E5%8D%97%E6%BB%A1%E6%9D%83%E9%99%90%E9%85%8D%E7%BD%AE%E4%B8%8E%E6%B5%8F%E8%A7%88%E5%99%A8%E8%87%AA%E5%8A%A8%E5%8C%96/</guid><description>&lt;blockquote>
+&lt;p>本文内容整合自微信公众号文章，记录了 OpenClaw 2026.3.2 版本的完整配置和使用方法。&lt;/p>
+&lt;/blockquote>
+&lt;h2 id="前言">前言
+&lt;/h2>&lt;p>OpenClaw（被戏称为&amp;quot;小龙虾&amp;quot;）是一款开源 AI Agent 项目，近期在全球爆火。但由于安全考虑，2026.3.2 版本默认禁用了许多功能。本文将介绍如何满血复活 OpenClaw，包括权限配置和浏览器自动化。&lt;/p>
+&lt;hr>
+&lt;h2 id="一openclaw-安装">一、OpenClaw 安装
+&lt;/h2>&lt;h3 id="11-一键安装">1.1 一键安装
+&lt;/h3>&lt;p>以管理员身份运行 PowerShell：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">iwr &lt;/span>&lt;span class="n">-useb&lt;/span> &lt;span class="n">https&lt;/span>&lt;span class="err">:&lt;/span>&lt;span class="p">//&lt;/span>&lt;span class="n">openclaw&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="n">ai&lt;/span>&lt;span class="p">/&lt;/span>&lt;span class="n">install&lt;/span>&lt;span class="p">.&lt;/span>&lt;span class="py">ps1&lt;/span> &lt;span class="p">|&lt;/span> &lt;span class="nb">iex
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="12-解决执行策略问题">1.2 解决执行策略问题
+&lt;/h3>&lt;p>如果出现报错，执行：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-powershell" data-lang="powershell">&lt;span class="line">&lt;span class="cl">&lt;span class="nb">Set-ExecutionPolicy&lt;/span> &lt;span class="n">RemoteSigned&lt;/span> &lt;span class="n">-Scope&lt;/span> &lt;span class="n">CurrentUser&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>然后重新执行安装命令。&lt;/p>
+&lt;h3 id="13-验证安装">1.3 验证安装
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">openclaw --version
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 输出：2026.3.2（或更新版本）&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;hr>
+&lt;h2 id="二放开-agent-权限满血复活">二、放开 Agent 权限（满血复活）
+&lt;/h2>&lt;p>由于安全考虑，新版 OpenClaw 默认禁用了许多功能，需要手动开启满权限。&lt;/p>
+&lt;h3 id="21-编辑配置文件">2.1 编辑配置文件
+&lt;/h3>&lt;p>打开 &lt;code>~/.openclaw/openclaw.json&lt;/code>，修改 &lt;code>tools&lt;/code> 配置：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;span class="lnt">5
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-json" data-lang="json">&lt;span class="line">&lt;span class="cl">&lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;tools&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;profile&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;full&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>这会让 OpenClaw 获得完整的工具访问权限，包括文件系统、网络、浏览器等操作。&lt;/p>
+&lt;h3 id="22-重启服务">2.2 重启服务
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">openclaw gateway restart
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;hr>
+&lt;h2 id="三浏览器自动化配置">三、浏览器自动化配置
+&lt;/h2>&lt;h3 id="31-查看浏览器状态">3.1 查看浏览器状态
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">openclaw browser status
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="32-启动-chrome-扩展中继模式">3.2 启动 Chrome 扩展中继模式
+&lt;/h3>&lt;p>这种方式让 AI 控制你正在使用的 Chrome 标签页，而非启动独立浏览器。&lt;/p>
+&lt;p>&lt;strong>步骤1：启动 chrome 配置文件&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">openclaw browser --browser-profile chrome start
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;strong>步骤2：查看实际端口&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">openclaw browser --browser-profile chrome status
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>输出示例：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;span class="lnt">3
+&lt;/span>&lt;span class="lnt">4
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">profile: chrome
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">running: true
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">cdpPort: 18801
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">cdpUrl: http://127.0.0.1:18801
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;strong>步骤3：安装 Chrome 扩展&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>访问 Chrome Web Store 搜索 &amp;ldquo;OpenClaw Browser Relay&amp;rdquo;&lt;/li>
+&lt;li>或访问：https://chromewebstore.google.com/detail/openclaw-browser-relay/nglingapjinhecnfejdcpihlpneeadjp&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>步骤4：配置扩展&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>中继 URL：&lt;code>http://127.0.0.1:18801&lt;/code>（根据实际 cdpPort 调整）&lt;/li>
+&lt;li>Token：从 &lt;code>openclaw.json&lt;/code> 的 &lt;code>gateway.auth.token&lt;/code> 获取&lt;/li>
+&lt;/ul>
+&lt;p>&lt;strong>步骤5：使用&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>打开任意网页&lt;/li>
+&lt;li>点击 Chrome 工具栏上的 OpenClaw 扩展图标&lt;/li>
+&lt;li>图标显示 &amp;ldquo;ON&amp;rdquo; 表示已连接，AI 可以控制该标签页&lt;/li>
+&lt;/ul>
+&lt;h3 id="33-连接模式详解">3.3 连接模式详解
+&lt;/h3>&lt;p>&lt;strong>两种连接方式的区别：&lt;/strong>&lt;/p>
+&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>方式&lt;/th>
+&lt;th>连接目标&lt;/th>
+&lt;th>使用场景&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;strong>直接 CDP 连接&lt;/strong>&lt;/td>
+&lt;td>OpenClaw 启动的 Chrome&lt;/td>
+&lt;td>自动化测试、独立环境&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>Chrome 扩展中继&lt;/strong>&lt;/td>
+&lt;td>你的日常 Chrome&lt;/td>
+&lt;td>操作已登录的页面、个人浏览&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;p>&lt;strong>为什么需要扩展？&lt;/strong>&lt;/p>
+&lt;p>直接连接只能控制 OpenClaw 启动的 Chrome（独立的、没有你的登录状态），无法连接你&lt;strong>正在使用&lt;/strong>的 Chrome。&lt;/p>
+&lt;p>扩展的作用是让&lt;strong>你日常使用的 Chrome&lt;/strong>（有你的登录状态、书签、历史）也能被控制，通过 &lt;code>chrome.debugger&lt;/code> API 把 CDP 消息转发给 OpenClaw。&lt;/p>
+&lt;p>&lt;strong>实际架构：&lt;/strong>&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">AI Agent → OpenClaw Relay (18801) → Chrome 扩展 → 你的日常 Chrome
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;strong>注意&lt;/strong>：&lt;code>chrome&lt;/code> 配置文件默认启动的是 OpenClaw 托管的浏览器，不是你的日常 Chrome。如果要控制日常浏览器，需要：&lt;/p>
+&lt;ol>
+&lt;li>关闭 &lt;code>openclaw browser --browser-profile chrome&lt;/code>&lt;/li>
+&lt;li>启动你自己的 Chrome：&lt;code>chrome.exe --remote-debugging-port=9222&lt;/code>&lt;/li>
+&lt;li>或配置 &lt;code>attachOnly: true&lt;/code> 附加到已运行的 Chrome&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;h2 id="四使用示例">四、使用示例
+&lt;/h2>&lt;h3 id="41-查看当前浏览器状态">4.1 查看当前浏览器状态
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">openclaw browser --browser-profile chrome status
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="42-打开指定网页">4.2 打开指定网页
+&lt;/h3>&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">openclaw browser --browser-profile chrome open https://example.com
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="43-通过-ai-对话控制">4.3 通过 AI 对话控制
+&lt;/h3>&lt;p>在飞书或其他接入的聊天窗口中：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-fallback" data-lang="fallback">&lt;span class="line">&lt;span class="cl">我已经打开并登录了微博，获取今天最新10条微博热搜消息
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>AI 会自动操作浏览器完成任务。&lt;/p>
+&lt;hr>
+&lt;h2 id="五配置文件详解">五、配置文件详解
+&lt;/h2>&lt;p>完整的 &lt;code>openclaw.json&lt;/code> 浏览器配置：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;span class="lnt">12
+&lt;/span>&lt;span class="lnt">13
+&lt;/span>&lt;span class="lnt">14
+&lt;/span>&lt;span class="lnt">15
+&lt;/span>&lt;span class="lnt">16
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-json" data-lang="json">&lt;span class="line">&lt;span class="cl">&lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;browser&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;enabled&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;remoteCdpTimeoutMs&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">1500&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;remoteCdpHandshakeTimeoutMs&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">3000&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;defaultProfile&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;chrome&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;color&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;#FF4500&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;headless&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;noSandbox&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;attachOnly&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="kc">false&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;profiles&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;openclaw&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="nt">&amp;#34;cdpPort&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">18800&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nt">&amp;#34;color&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;#FF4500&amp;#34;&lt;/span> &lt;span class="p">},&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;chrome&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span> &lt;span class="nt">&amp;#34;cdpPort&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">18801&lt;/span>&lt;span class="p">,&lt;/span> &lt;span class="nt">&amp;#34;color&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;#0066CC&amp;#34;&lt;/span> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;strong>配置说明：&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>enabled&lt;/code>: 启用浏览器控制&lt;/li>
+&lt;li>&lt;code>defaultProfile&lt;/code>: 默认配置文件（chrome 或 openclaw）&lt;/li>
+&lt;li>&lt;code>headless&lt;/code>: 是否无头模式（false 显示浏览器窗口）&lt;/li>
+&lt;li>&lt;code>profiles&lt;/code>: 配置文件列表，每个有独立的 cdpPort&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="六常见问题">六、常见问题
+&lt;/h2>&lt;h3 id="q1-扩展显示-relay-unreachable">Q1: 扩展显示 &amp;ldquo;Relay unreachable&amp;rdquo;
+&lt;/h3>&lt;p>&lt;strong>解决&lt;/strong>：&lt;/p>
+&lt;ol>
+&lt;li>确认 &lt;code>openclaw browser --browser-profile chrome status&lt;/code> 显示 &lt;code>running: true&lt;/code>&lt;/li>
+&lt;li>检查扩展配置的中继 URL 是否匹配 &lt;code>cdpUrl&lt;/code>&lt;/li>
+&lt;li>确认 Token 正确&lt;/li>
+&lt;/ol>
+&lt;h3 id="q2-点击扩展图标没有反应">Q2: 点击扩展图标没有反应
+&lt;/h3>&lt;p>&lt;strong>解决&lt;/strong>：&lt;/p>
+&lt;ol>
+&lt;li>确保在普通网页（非 chrome:// 页面）上点击&lt;/li>
+&lt;li>检查扩展权限：进入 &lt;code>chrome://extensions/&lt;/code> → OpenClaw Browser Relay → 详情 → 确保权限已开启&lt;/li>
+&lt;li>刷新页面后重试&lt;/li>
+&lt;/ol>
+&lt;h3 id="q3-如何查看实际端口">Q3: 如何查看实际端口？
+&lt;/h3>&lt;p>&lt;strong>解决&lt;/strong>：&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">openclaw browser --browser-profile chrome status
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1"># 查看 cdpPort 字段&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>&lt;strong>注意&lt;/strong>：端口不是固定的，必须通过命令查看！&lt;/p>
+&lt;hr>
+&lt;h2 id="七总结">七、总结
+&lt;/h2>&lt;p>通过本文的配置，你可以：&lt;/p>
+&lt;ul>
+&lt;li>✅ 满血复活 OpenClaw，放开所有权限&lt;/li>
+&lt;li>✅ 通过 Chrome 扩展让 AI 控制你的浏览器&lt;/li>
+&lt;li>✅ 实现说话就能让 AI 帮你操作网页&lt;/li>
+&lt;/ul>
+&lt;p>这让 OpenClaw 可以：&lt;/p>
+&lt;ul>
+&lt;li>自动查资料、搜信息&lt;/li>
+&lt;li>打开网页、操作页面&lt;/li>
+&lt;li>填写表单、点击按钮&lt;/li>
+&lt;li>截图、提取内容&lt;/li>
+&lt;/ul>
+&lt;p>大大提高自动化效率！&lt;/p>
+&lt;hr>
+&lt;h2 id="参考链接">参考链接
+&lt;/h2>&lt;ul>
+&lt;li>OpenClaw 官方文档：https://docs.openclaw.ai&lt;/li>
+&lt;li>Chrome 扩展：https://chromewebstore.google.com/detail/openclaw-browser-relay/nglingapjinhecnfejdcpihlpneeadjp&lt;/li>
+&lt;li>本文 GitHub 仓库：https://github.com/GODVvVZzz/godvvvzzz.github.io&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;blockquote>
+&lt;p>本文由 OpenClaw 自动整理生成&lt;/p>
+&lt;/blockquote></description></item></channel></rss>

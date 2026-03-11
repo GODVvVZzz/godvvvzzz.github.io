@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>灵感 on VvVzzz Blog</title><link>https://godvvvzzz.github.io/tags/%E7%81%B5%E6%84%9F/</link><description>Recent content in 灵感 on VvVzzz Blog</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 10 Mar 2026 00:58:00 +0800</lastBuildDate><atom:link href="https://godvvvzzz.github.io/tags/%E7%81%B5%E6%84%9F/index.xml" rel="self" type="application/rss+xml"/><item><title>随手记 - 即时想法与碎片记录</title><link>https://godvvvzzz.github.io/p/%E9%9A%8F%E6%89%8B%E8%AE%B0-%E5%8D%B3%E6%97%B6%E6%83%B3%E6%B3%95%E4%B8%8E%E7%A2%8E%E7%89%87%E8%AE%B0%E5%BD%95/</link><pubDate>Tue, 10 Mar 2026 00:58:00 +0800</pubDate><guid>https://godvvvzzz.github.io/p/%E9%9A%8F%E6%89%8B%E8%AE%B0-%E5%8D%B3%E6%97%B6%E6%83%B3%E6%B3%95%E4%B8%8E%E7%A2%8E%E7%89%87%E8%AE%B0%E5%BD%95/</guid><description>&lt;blockquote>
+&lt;p>随手记，记录一切冒出来的想法。
+最后更新：2026-03-10（新增：龙虾大学想法）&lt;/p>
+&lt;/blockquote>
+&lt;hr>
+&lt;h2 id="即时想法">即时想法
+&lt;/h2>&lt;h3 id="2026-03-10-做一个龙虾大学网站--给龙虾ai自己上的学校六年级进阶体系每个年级有知识学习模块练习考试通过才能升级技术纯-htmlcssjs-静态网站可放-github-pages先不做记下这个想法">[2026-03-10] 做一个龙虾大学网站 — 给龙虾（AI）自己上的学校，六年级进阶体系，每个年级有知识学习模块、练习、考试，通过才能升级。技术：纯 HTML/CSS/JS 静态网站，可放 GitHub Pages。先不做，记下这个想法。
+&lt;/h3>&lt;h3 id="2026-03-09-让龙虾控制浏览器去问-chatgptgemini-等好用的大模型--浏览器自动化--ai-协作一个-ai-帮你问另一个-ai">[2026-03-09] 让龙虾控制浏览器去问 ChatGPT、Gemini 等好用的大模型 — 浏览器自动化 + AI 协作，一个 AI 帮你问另一个 AI
+&lt;/h3>&lt;h3 id="2026-03-09-openclaw官方中文文档站httpsopenclaw101devzh--小龙虾使用教程网站超全的指南">[2026-03-09] OpenClaw官方中文文档站：https://openclaw101.dev/zh — 小龙虾使用教程网站，超全的指南
+&lt;/h3>&lt;h3 id="2026-03-09-龙虾可以使用ffmpeg了能帮忙处理视频">[2026-03-09] 龙虾可以使用ffmpeg了，能帮忙处理视频
+&lt;/h3>&lt;h3 id="2026-03-08-测试随手记脚本是否正常工作">[2026-03-08] 测试随手记脚本是否正常工作
+&lt;/h3>&lt;h3 id="2026-03-08-建立随手记博客用于即时记录想法和碎片思考">[2026-03-08] 建立随手记博客，用于即时记录想法和碎片思考
+&lt;/h3>&lt;hr>
+&lt;h2 id="技术思考">技术思考
+&lt;/h2>&lt;h3 id="2026-03-09-龙虾可以使用-ffmpeg-帮我处理视频音频已安装-v801">[2026-03-09] 龙虾可以使用 FFmpeg 帮我处理视频/音频（已安装 v8.0.1）
+&lt;/h3>&lt;ul>
+&lt;li>能力：视频转GIF、提取音频、压缩视频、格式转换、裁剪&lt;/li>
+&lt;li>路径：C:\ffmpeg\ffmpeg-8.0.1-essentials_build\bin\ffmpeg.exe&lt;/li>
+&lt;li>用法：直接发视频文件给龙虾，让它处理即可&lt;/li>
+&lt;/ul>
+&lt;h3 id="2026-03-09-openclaw安装飞书官方插件httpswwwfeishucncontentarticle7613711414611463386">[2026-03-09] OpenClaw安装飞书官方插件：https://www.feishu.cn/content/article/7613711414611463386
+&lt;/h3>&lt;h3 id="2026-03-08-qq-bot接入步骤httpsqqqcomqqbotopenclawindexhtml">[2026-03-08] QQ Bot接入步骤：https://q.qq.com/qqbot/openclaw/index.html
+&lt;/h3>&lt;h3 id="2026-03-08-继续调通-openclaw-的浏览器中继模式chrome-relay">[2026-03-08] 继续调通 OpenClaw 的浏览器中继模式（Chrome Relay）
+&lt;/h3>&lt;hr>
+&lt;h2 id="待办事项">待办事项
+&lt;/h2>&lt;h3 id="2026-03-08-博客带保存图片并使用的模式还未确认有时间需要测试一下">[2026-03-08] 博客带保存图片并使用的模式还未确认，有时间需要测试一下
+&lt;/h3>&lt;hr>
+&lt;h2 id="灵感碎片">灵感碎片
+&lt;/h2>&lt;hr>
+&lt;h2 id="待整理">待整理
+&lt;/h2>&lt;hr>
+&lt;h2 id="分类说明">分类说明
+&lt;/h2>&lt;table>
+&lt;thead>
+&lt;tr>
+&lt;th>分类&lt;/th>
+&lt;th>内容范围&lt;/th>
+&lt;/tr>
+&lt;/thead>
+&lt;tbody>
+&lt;tr>
+&lt;td>&lt;strong>即时想法&lt;/strong>&lt;/td>
+&lt;td>脑子里一闪而过的念头、观察、感悟&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>技术思考&lt;/strong>&lt;/td>
+&lt;td>技术方案、架构想法、学习笔记&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>待办事项&lt;/strong>&lt;/td>
+&lt;td>想做但还没做的事情&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>灵感碎片&lt;/strong>&lt;/td>
+&lt;td>创意、点子、未来可能的方向&lt;/td>
+&lt;/tr>
+&lt;tr>
+&lt;td>&lt;strong>待整理&lt;/strong>&lt;/td>
+&lt;td>还没想好分类的内容，定期清理&lt;/td>
+&lt;/tr>
+&lt;/tbody>
+&lt;/table>
+&lt;hr>
+&lt;p>&lt;strong>记录规则&lt;/strong>：&lt;/p>
+&lt;ol>
+&lt;li>新想法按时间倒序放在分类最前面&lt;/li>
+&lt;li>每条记录加上日期标签&lt;/li>
+&lt;li>定期整理「待整理」分类，移到正确位置&lt;/li>
+&lt;li>完成的待办事项可以保留并标记完成&lt;/li>
+&lt;/ol></description></item></channel></rss>
