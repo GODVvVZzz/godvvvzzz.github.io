@@ -3,6 +3,7 @@ title: "OpenClaw + Hugo + GitHub Actions：一套全自动的博客工作流"
 description: "用 AI 写文章、自动发布到 GitHub Pages，零运维的博客搭建全流程"
 slug: openclaw-hugo-blog-workflow
 date: 2026-03-11T15:50:00+08:00
+lastmod: 2026-03-11T16:39:00+08:00
 comments: true
 categories:
     - 技术笔记
@@ -15,27 +16,38 @@ tags:
 comments: true
 ---
 
-## 前言
+## 前言：为什么要这套方案？
 
-最近同事问我这套博客是怎么搭的，干脆写篇文章一次性讲清楚。核心就一句话：**用 AI 写，git push 后自动上线，零运维。**
+写博客这件事，说简单也简单，说麻烦也麻烦。以前的流程是这样的：
+
+> 打开编辑器 → 写 Markdown → 本地预览 → 手动部署 → 祈祷别出错
+
+中间任何一个环节卡住，就可能放弃。
+
+最近搭了一套新的工作流，核心就一句话：**用 AI 写，git push 后自动上线，零运维。**
+
+本文会从头讲清楚这套方案是怎么跑起来的，包括：
+- 用了哪些工具，各自做什么
+- 如何一次搭建，终身使用
+- 日常怎么写、怎么发
+- OpenClaw 的 Skill 机制如何让整个流程自动化
 
 ---
 
-## 一、组件简介
+## 一、整体思路：四个组件各司其职
+
+这套方案由四个组件组成，每个组件只做一件事：
 
 | 组件 | 角色 | 一句话解释 |
 |------|------|-----------|
 | **OpenClaw** | AI 助手 | 本地运行的 AI，能读写文件、执行命令、帮你写内容 |
 | **Hugo** | 静态网站生成器 | 把 Markdown 文件转换成漂亮的静态网页 |
-| **Hugo Stack** | Hugo 主题 | 一个现代、简洁的博客主题，开箱即用 |
 | **GitHub Actions** | 自动化 CI/CD | 代码推送后自动构建和部署网站 |
 | **GitHub Pages** | 静态托管 | GitHub 免费提供的静态网页托管服务 |
 
-**整个流程的核心思想：你只管写，剩下的全自动。**
+**核心思想：你只管写，剩下的全自动。**
 
----
-
-## 二、整体架构
+### 整体架构
 
 ```
 OpenClaw (写内容)
@@ -53,16 +65,18 @@ GitHub Pages (网站上线)
 访问你的博客地址
 ```
 
-**流程：**
+数据流向：
 1. 用 OpenClaw 写 Markdown 文章
 2. `git push` 到 GitHub 仓库
 3. GitHub Actions 自动构建 Hugo 站点
 4. 自动部署到 GitHub Pages
-5. 博客自动更新
+5. 博客自动更新，无需人工干预
 
 ---
 
-## 三、搭建步骤
+## 二、一次搭建：从零到上线
+
+这部分只需要做一次，之后就是日常使用。
 
 ### Step 1：创建 GitHub 仓库
 
@@ -89,14 +103,14 @@ choco install hugo-extended
 hugo new site my-blog
 cd my-blog
 
-# 添加 Stack 主题
+# 添加 Stack 主题（简洁现代）
 git init
 git submodule add https://github.com/CaiJimmy/hugo-theme-stack themes/hugo-theme-stack
 ```
 
 ### Step 3：配置 Hugo
 
-编辑 `hugo.toml`（或 `config.toml`）：
+编辑 `hugo.toml`：
 
 ```toml
 baseURL = "https://你的用户名.github.io/"
@@ -133,7 +147,7 @@ theme = "hugo-theme-stack"
 # 添加远程仓库
 git remote add origin https://github.com/你的用户名/你的用户名.github.io.git
 
-# 创建 .gitignore
+# 创建 .gitignore（忽略构建产物）
 echo "public/" >> .gitignore
 echo "resources/" >> .gitignore
 echo ".hugo_build.lock" >> .gitignore
@@ -210,33 +224,15 @@ jobs:
 2. Source 选择 **GitHub Actions**
 3. 等待首次部署完成
 
-### Step 7：用 OpenClaw 写文章
+### Step 7：验证
 
-在 OpenClaw 中直接操作你的博客仓库：
-
-```bash
-# 进入博客目录
-cd C:\path\to\my-blog
-
-# 用 Hugo 创建新文章
-hugo new content/post/my-first-post/index.md
-
-# 编辑文章（用 OpenClaw 直接修改文件）
-# 写完后提交推送
-git add .
-git commit -m "post: 发布第一篇文章"
-git push
-```
-
-**OpenClaw 的优势：**
-- 可以直接读写 Markdown 文件
-- 可以执行 git 命令
-- 可以帮你润色文章、生成内容
-- 可以搜索资料辅助写作
+打开 `https://你的用户名.github.io`，看到 Hugo 默认页面，搭建完成。
 
 ---
 
-## 四、日常使用流程
+## 三、日常使用：从写到上线只需一步
+
+搭建完成后，日常流程变得极其简单：
 
 ```
 1. 在 OpenClaw 中说："帮我写一篇关于 XX 的博客"
@@ -259,81 +255,38 @@ git push
 
 ### 本地预览
 
-```bash
-# 启动本地服务器
-hugo server -D
+写完想先看看效果：
 
+```bash
+hugo server -D
 # 浏览器访问 http://localhost:1313
 ```
 
----
+### OpenClaw 的优势
 
-## 五、目录结构说明
-
-```
-my-blog/
-├── .github/workflows/
-│   └── hugo.yml          # GitHub Actions 配置
-├── content/
-│   └── post/
-│       └── my-post/
-│           └── index.md  # 每篇文章
-├── themes/
-│   └── hugo-theme-stack/ # 主题文件
-├── static/               # 静态资源（图片等）
-├── hugo.toml             # Hugo 配置
-└── .gitignore
-```
-
-**写文章时只需关注 `content/post/` 目录，其他不用管。**
+- 可以直接读写 Markdown 文件
+- 可以执行 git 命令
+- 可以帮你润色文章、生成内容
+- 可以搜索资料辅助写作
 
 ---
 
-## 六、常见问题
+## 四、OpenClaw Skill：让 AI 掌握工作流
 
-### Q1：文章发布后网站没更新？
-
-检查 GitHub Actions 是否成功运行。进入仓库 → Actions 标签页查看构建日志。
-
-### Q2：图片怎么放？
-
-把图片放在文章目录下：
-```
-content/post/my-article/
-├── index.md
-└── image.png
-```
-
-在 Markdown 中引用：`![描述](image.png)`
-
-### Q3：想换主题怎么办？
-
-换主题只需：
-1. `git submodule remove` 旧主题
-2. `git submodule add` 新主题
-3. 修改 `hugo.toml` 的 `theme` 字段
-
-### Q4：私有仓库能用 GitHub Pages 吗？
-
-GitHub Pages 免费版只支持 Public 仓库。私有仓库需要 GitHub Pro。
-
----
-
-## 八、OpenClaw 技能（Skill）介绍
+前面说的"用 OpenClaw 写文章"，背后靠的是 **Skill 机制**。
 
 ### 什么是 Skill？
 
-Skill 是 OpenClaw 的扩展能力模块，本质上是一个包含 `SKILL.md` 配置文件和相关脚本的文件夹。通过 Skill，你可以让 AI 掌握特定的工作流程，比如博客发布、日历管理、文件处理等。
+Skill 是 OpenClaw 的扩展能力模块，本质上是一个包含 `SKILL.md` 配置文件和相关脚本的文件夹。通过 Skill，你可以让 AI 掌握特定的工作流程。
 
-**Skill 的核心组成：**
+**核心组成：**
 - `SKILL.md` — 定义技能名称、描述、使用场景、工作流
 - `scripts/` — 可执行脚本（Python、Shell 等）
 - `references/` — 参考文档（可选）
 
 ### 如何编写一个 Skill
 
-**1. 创建目录结构**
-
+**目录结构：**
 ```
 skills/
 └── my-skill/
@@ -343,8 +296,7 @@ skills/
     └── references/     # 参考资料（可选）
 ```
 
-**2. 编写 SKILL.md**
-
+**SKILL.md 格式：**
 ```yaml
 ---
 name: my-skill
@@ -363,30 +315,13 @@ description: |
 ...
 ```
 
-**3. 编写脚本**
+编写完成后放到 `~/.openclaw/workspace/skills/` 目录下，OpenClaw 会自动识别。
 
-脚本可以是 Python、Shell 等，由 AI 在使用时调用执行。
-
-**4. 放置到 Skill 目录**
-
-OpenClaw 会自动扫描 `~/.openclaw/workspace/skills/` 下的所有 Skill。
-
-### Skill 的功能
-
-| 功能 | 说明 |
-|------|------|
-| 自动触发 | AI 根据用户需求自动匹配最合适的 Skill |
-| 工作流引导 | 按 SKILL.md 定义的步骤执行任务 |
-| 脚本调用 | 执行外部脚本处理复杂逻辑 |
-| 多场景支持 | 一个 Skill 可覆盖多种使用场景 |
-
----
-
-## 九、Hugo 博客发布 Skill 详解
+### Hugo 博客发布 Skill 详解
 
 我们实际使用的是 `hugo-blog-publisher` 这个 Skill，它封装了整个博客发布的工作流。
 
-### 功能概览
+**功能概览：**
 
 | 功能 | 说明 |
 |------|------|
@@ -396,6 +331,8 @@ OpenClaw 会自动扫描 `~/.openclaw/workspace/skills/` 下的所有 Skill。
 | **GitHub 自动提交** | 自动 add/commit/push |
 
 ### 四种记录模式
+
+这个 Skill 最核心的设计是 **四种记录模式**，覆盖从碎片想法到完整文章的所有场景：
 
 **1. 详细记（完整博客）**
 
@@ -433,30 +370,6 @@ OpenClaw 会自动扫描 `~/.openclaw/workspace/skills/` 下的所有 Skill。
 → AI 搜索现有博客 → 找到目标文章 → 追加内容 → 提交
 ```
 
-### 工作流程
-
-```
-用户发链接/内容
-    │
-    ▼
-AI 提取内容（网页/微信/小红书）
-    │
-    ▼
-生成 Hugo 文章（frontmatter + 正文）
-    │
-    ▼
-AI 判断：融合 or 新建
-    │
-    ▼
-写入 content/post/ 目录
-    │
-    ▼
-git add/commit/push
-    │
-    ▼
-GitHub Actions 自动构建 → 网站上线
-```
-
 ### 内容提取策略
 
 | 平台 | 方法 | 说明 |
@@ -468,23 +381,17 @@ GitHub Actions 自动构建 → 网站上线
 
 ### 代码示例
 
-**创建文章（详细记）：**
 ```bash
+# 详细记：创建文章
 python scripts/create_post.py "标题" "正文内容" "标签1,标签2" "分类"
-```
 
-**随手记：**
-```bash
+# 随手记：记录想法
 python scripts/sui_shou_ji.py "今天学到了..." --category thought
-```
 
-**简要记：**
-```bash
+# 简要记：收藏链接
 python scripts/jian_yao_ji.py "https://example.com" "文章摘要" --tags 技术,AI
-```
 
-**提交 GitHub：**
-```bash
+# 提交 GitHub
 python scripts/commit_to_github.py "发布文章"
 ```
 
@@ -513,24 +420,74 @@ content/post/
 
 ---
 
-## 十、总结
+## 五、常见问题
 
-| 步骤 | 操作 | 一次性/每次 |
+### Q1：文章发布后网站没更新？
+
+检查 GitHub Actions 是否成功运行。进入仓库 → Actions 标签页查看构建日志。
+
+### Q2：图片怎么放？
+
+把图片放在文章目录下：
+```
+content/post/my-article/
+├── index.md
+└── image.png
+```
+
+在 Markdown 中引用：`![描述](image.png)`
+
+### Q3：想换主题怎么办？
+
+换主题只需：
+1. `git submodule remove` 旧主题
+2. `git submodule add` 新主题
+3. 修改 `hugo.toml` 的 `theme` 字段
+
+### Q4：私有仓库能用 GitHub Pages 吗？
+
+GitHub Pages 免费版只支持 Public 仓库。私有仓库需要 GitHub Pro。
+
+---
+
+## 六、总结
+
+### 流程回顾
+
+| 阶段 | 操作 | 一次性/每次 |
 |------|------|------------|
-| 1 | 创建 GitHub 仓库 | 一次性 |
-| 2 | 初始化 Hugo + 主题 | 一次性 |
-| 3 | 配置 GitHub Actions | 一次性 |
-| 4 | 启用 GitHub Pages | 一次性 |
-| 5 | 用 OpenClaw 写文章 | **每次** |
-| 6 | git push | **每次** |
-| 7 | 等自动部署 | **每次（自动）** |
+| 搭建 | 创建 GitHub 仓库 | 一次性 |
+| 搭建 | 初始化 Hugo + 主题 | 一次性 |
+| 搭建 | 配置 GitHub Actions | 一次性 |
+| 搭建 | 启用 GitHub Pages | 一次性 |
+| 日常 | 用 OpenClaw 写文章 | **每次** |
+| 日常 | git push | **每次** |
+| 日常 | 等自动部署 | **每次（自动）** |
 
-**核心优势：**
-- ✅ 零运维成本，GitHub 免费托管
-- ✅ AI 辅助写作，效率翻倍
-- ✅ 四种记录模式，覆盖各种场景
-- ✅ 自动化部署，写完就上线
-- ✅ 技能可扩展，按需定制
+### 核心优势
+
+- ✅ **零运维成本**：GitHub 免费托管，无需服务器
+- ✅ **AI 辅助写作**：效率翻倍，润色、生成、资料搜索全搞定
+- ✅ **四种记录模式**：覆盖碎片想法到完整文章的所有场景
+- ✅ **自动化部署**：写完就上线，不需要手动操作
+- ✅ **技能可扩展**：按需定制 Skill，扩展能力
+
+### 完整工作流总览
+
+```
+用户需求 → OpenClaw 匹配 Skill → 调用对应脚本
+    │
+    ▼
+生成/编辑文章 → 写入 content/post/
+    │
+    ▼
+git add/commit/push → GitHub Actions 自动构建
+    │
+    ▼
+GitHub Pages 部署 → 文章上线
+```
+
+**从想法到上线，最快只需一次对话。**
 
 ---
 
