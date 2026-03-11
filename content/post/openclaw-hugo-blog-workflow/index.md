@@ -319,7 +319,201 @@ GitHub Pages 免费版只支持 Public 仓库。私有仓库需要 GitHub Pro。
 
 ---
 
-## 七、总结
+## 八、OpenClaw 技能（Skill）介绍
+
+### 什么是 Skill？
+
+Skill 是 OpenClaw 的扩展能力模块，本质上是一个包含 `SKILL.md` 配置文件和相关脚本的文件夹。通过 Skill，你可以让 AI 掌握特定的工作流程，比如博客发布、日历管理、文件处理等。
+
+**Skill 的核心组成：**
+- `SKILL.md` — 定义技能名称、描述、使用场景、工作流
+- `scripts/` — 可执行脚本（Python、Shell 等）
+- `references/` — 参考文档（可选）
+
+### 如何编写一个 Skill
+
+**1. 创建目录结构**
+
+```
+skills/
+└── my-skill/
+    ├── SKILL.md        # 技能定义文件
+    ├── scripts/        # 脚本目录
+    │   └── do_something.py
+    └── references/     # 参考资料（可选）
+```
+
+**2. 编写 SKILL.md**
+
+```yaml
+---
+name: my-skill
+description: |
+  技能描述，说明适用场景。
+  (1) 场景一
+  (2) 场景二
+---
+
+# My Skill
+
+## 工作流
+...
+
+## 使用方法
+...
+```
+
+**3. 编写脚本**
+
+脚本可以是 Python、Shell 等，由 AI 在使用时调用执行。
+
+**4. 放置到 Skill 目录**
+
+OpenClaw 会自动扫描 `~/.openclaw/workspace/skills/` 下的所有 Skill。
+
+### Skill 的功能
+
+| 功能 | 说明 |
+|------|------|
+| 自动触发 | AI 根据用户需求自动匹配最合适的 Skill |
+| 工作流引导 | 按 SKILL.md 定义的步骤执行任务 |
+| 脚本调用 | 执行外部脚本处理复杂逻辑 |
+| 多场景支持 | 一个 Skill 可覆盖多种使用场景 |
+
+---
+
+## 九、Hugo 博客发布 Skill 详解
+
+我们实际使用的是 `hugo-blog-publisher` 这个 Skill，它封装了整个博客发布的工作流。
+
+### 功能概览
+
+| 功能 | 说明 |
+|------|------|
+| **内容提取** | 从网页、微信、小红书等平台提取文章内容 |
+| **自动创建文章** | 生成 Hugo 文章（含 frontmatter、标签、分类） |
+| **四种记录模式** | 详细记、随手记、简要记、融合记 |
+| **GitHub 自动提交** | 自动 add/commit/push |
+
+### 四种记录模式
+
+**1. 详细记（完整博客）**
+
+写一篇完整的独立博客文章，适用深度技术文章、教程。
+
+```
+用户说："帮我写一篇关于 Docker 的博客"
+→ AI 调用 create_post.py → 生成文章 → 提交 GitHub
+```
+
+**2. 随手记（即时想法）**
+
+记录一闪而过的念头，按分类自动归档（thought/tech/todo/inspiration/unsorted）。
+
+```
+用户说："随手记一下：今天学到了 Linux 的 pipe 机制"
+→ AI 调用 sui_shou_ji.py → 按分类归档
+```
+
+**3. 简要记（链接速记）**
+
+收藏链接，记录一句话摘要。
+
+```
+用户说："简要记这个链接：https://xxx.com 文章讲的是 Kubernetes 入门"
+→ AI 调用 jian_yao_ji.py → 提取内容 → 生成摘要
+```
+
+**4. 融合记（追加到已有博客）**
+
+找到已有博客，把新内容加进去，不覆盖只追加。
+
+```
+用户说："把这段内容记到养虾技巧博客里"
+→ AI 搜索现有博客 → 找到目标文章 → 追加内容 → 提交
+```
+
+### 工作流程
+
+```
+用户发链接/内容
+    │
+    ▼
+AI 提取内容（网页/微信/小红书）
+    │
+    ▼
+生成 Hugo 文章（frontmatter + 正文）
+    │
+    ▼
+AI 判断：融合 or 新建
+    │
+    ▼
+写入 content/post/ 目录
+    │
+    ▼
+git add/commit/push
+    │
+    ▼
+GitHub Actions 自动构建 → 网站上线
+```
+
+### 内容提取策略
+
+| 平台 | 方法 | 说明 |
+|------|------|------|
+| 普通网页 | Python 脚本（requests + readability） | 自动提取正文 |
+| 微信公众号 | 浏览器工具 | SPA 页面，需浏览器渲染 |
+| 小红书 | 浏览器工具 + Chrome Relay | 需登录，操作用户浏览器 |
+| 需登录页面 | 浏览器工具 + Chrome Relay | 操作已登录的浏览器 |
+
+### 代码示例
+
+**创建文章（详细记）：**
+```bash
+python scripts/create_post.py "标题" "正文内容" "标签1,标签2" "分类"
+```
+
+**随手记：**
+```bash
+python scripts/sui_shou_ji.py "今天学到了..." --category thought
+```
+
+**简要记：**
+```bash
+python scripts/jian_yao_ji.py "https://example.com" "文章摘要" --tags 技术,AI
+```
+
+**提交 GitHub：**
+```bash
+python scripts/commit_to_github.py "发布文章"
+```
+
+### 博客目录结构
+
+```
+content/post/
+├── jian-yao-ji/          # 简要记（链接速记）
+├── sui-shou-ji/          # 随手记（碎片想法）
+├── openclaw-complete-guide/  # OpenClaw 完全指南
+└── {post-slug}/          # 其他文章
+    ├── index.md          # 文章正文
+    └── images/           # 图片资源
+```
+
+### 标签体系
+
+**按来源：**
+`微信` / `小红书` / `知乎` / `GitHub` / `转载`
+
+**按主题：**
+`技术` / `后端` / `前端` / `DevOps` / `AI` / `Go` / `Python` / `生活` / `读书笔记` / `学习笔记` / `教程`
+
+**记录类：**
+`简要记` / `随手记` / `想法` / `待办`
+
+---
+
+## 十、总结
 
 | 步骤 | 操作 | 一次性/每次 |
 |------|------|------------|
@@ -334,8 +528,9 @@ GitHub Pages 免费版只支持 Public 仓库。私有仓库需要 GitHub Pro。
 **核心优势：**
 - ✅ 零运维成本，GitHub 免费托管
 - ✅ AI 辅助写作，效率翻倍
+- ✅ 四种记录模式，覆盖各种场景
 - ✅ 自动化部署，写完就上线
-- ✅ 静态网站，速度快、安全
+- ✅ 技能可扩展，按需定制
 
 ---
 
