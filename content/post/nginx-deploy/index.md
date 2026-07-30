@@ -4,8 +4,7 @@ description: 关于什么时候使用内网域名和外网域名
 date: 2025-02-27T00:49:52+08:00
 image: 
 math: 
-license: 
-hidden: false
+license:
 comments: true
 categories:
     - 部署

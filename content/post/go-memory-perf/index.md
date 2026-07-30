@@ -4,8 +4,7 @@ description:
 date: 2025-11-04T00:00:28+08:00
 image: 
 math: 
-license: 
-hidden: false
+license:
 comments: true
 ---
 

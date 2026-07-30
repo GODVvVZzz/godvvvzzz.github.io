@@ -23,11 +23,11 @@ jobs:
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: 0.123.8
+          hugo-version: 0.164.0
           extended: true
 
       - name: Update theme
-        run: hugo mod get -u github.com/CaiJimmy/hugo-theme-stack/v3
+        run: hugo mod get -u github.com/CaiJimmy/hugo-theme-stack/v4
 
       - name: Tidy go.mod, go.sum
         run: hugo mod tidy

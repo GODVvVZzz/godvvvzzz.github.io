@@ -8,7 +8,6 @@ categories:
     - 随记
 tags:
     - notebook
-comments: true
 ---
 
 ## Git操作
