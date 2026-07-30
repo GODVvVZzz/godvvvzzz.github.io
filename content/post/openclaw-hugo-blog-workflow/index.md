@@ -13,7 +13,6 @@ tags:
     - github
     - 自动化
     - 博客
-comments: true
 ---
 
 ## 前言：为什么要这套方案？

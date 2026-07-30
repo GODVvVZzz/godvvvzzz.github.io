@@ -8,8 +8,8 @@ categories:
     - 计划
 tags:
     - plan
-comments: true
-hidden: true
+build:
+    list: never
 ---
 
 ## 1️⃣ 深入巩固技术基础

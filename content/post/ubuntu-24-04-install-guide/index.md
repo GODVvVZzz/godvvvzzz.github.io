@@ -11,7 +11,6 @@ tags:
     - linux
     - 装机
     - HP
-comments: true
 ---
 
 ## 前言
