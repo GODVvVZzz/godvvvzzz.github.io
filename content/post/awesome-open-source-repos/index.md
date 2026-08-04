@@ -62,6 +62,55 @@ tags:
 - **亮点**：个人与共享双层 scope（每人/每房间独立 memory、文件、keychain、权限、crons、web apps、沙箱）；Slack 与 Web 同一身份贯通；管理员可控 org 级配置和安全策略；支持 Pi/OpenCode/Codex/Claude Code 多种 harness 与模型切换，不绑单一厂商；Skills 按作用域拥有、可授权共享、支持从 git 仓库导入 skill packs；三档安全策略（Strict/Auto/Dangerous）+ 预声明命令策略防破坏性操作；部署在自己云账户，核心与定制分离便于上游同步。
 - **场景**：想给整个团队部署共享 AI 助手、希望员工既独立又协作使用 agent、需要 org 级安全管控和审计、想用 Slack 作为 agent 入口的创业公司或团队。
 
+## AI 自驱开发
+
+> 这类工具能独立走完「软件开发闭环」：接收 Issue → 理解代码库 → 改代码 → 跑测试 → 开 PR → 处理反馈。区别于 Copilot/Cursor 这类「人主导、AI 辅助」的编程助手，自驱机器人是「AI 主导、人类兜底」。
+
+### [Qwen Code](https://github.com/QwenLM/qwen-code)
+- **简介**：千问官方开源的编程 agent，配合 GitHub Actions 和定时工作流，能自动拉取 Issue、打标签、修复、开 PR、跑测试，甚至迭代自己的代码——一个「AI 自己养活的仓库」。
+- **亮点**：自驱闭环示范（Issue 自动触发 → 完成 → 开 PR）；scheduled autofix 定时扫描待办；靠成熟开源框架拼装，可接入千问/DeepSeek 等模型；PR 列表里混着「AI 为自己写的代码」。
+- **场景**：想复刻「AI 自动维护开源项目」流程、让仓库自我迭代的参考实现。
+
+### [OpenHands](https://github.com/OpenHands/OpenHands)
+- **简介**：最接近「全家桶」的自驱开发平台（原名 OpenDevin，70k+ stars），能写代码、跑 shell、浏览网页、操作浏览器、开 PR，任务跑在 Docker 沙箱里。
+- **亮点**：Agent Canvas 控制台 + SDK + CLI + Web UI；支持多 Agent 协作；模型随便换；可连接本地/Docker/VM/云多种 backend；Slack/GitHub/Linear 自动化集成；配置 GitHub 集成即变成「Issue 自动触发 → 完成 → 开 PR」的无人值守流水线。
+- **场景**：想要完整平台型方案、需要 Web UI 和多 backend、想把 agent 接入 Slack/GitHub 自动化的团队和个人。
+
+### [SWE-agent](https://github.com/SWE-agent/SWE-agent)
+- **简介**：普林斯顿团队出品的专精选手，只做一件事——真实 GitHub Issue 的端到端自动解决，SWE-bench 开源项目 SoTA。
+- **亮点**：专为 LLM 设计的 Agent-Computer Interface（文件浏览/编辑/搜索/测试工具接口，比裸 shell 更适合大模型操作）；输入 Issue URL 自动 clone/定位/修改/跑测试/输出 patch 或开 PR；官方推荐更轻量的 mini-SWE-agent（100 行 Python 达到 65% SWE-bench verified）。
+- **场景**：想快速复现「Issue → 修复 → patch」、做学术研究、需要专精型而非全家桶方案的开发者。
+
+### [Aider](https://github.com/Aider-AI/aider)
+- **简介**：终端里的 AI 结对编程工具，Git-native——每次改动自动 commit，适合当自动化流程的底层引擎。
+- **亮点**：支持云端和本地 LLM；与 Git 深度集成（改动自动提交、可随时回滚）；可操作本地代码库、运行命令、跑测试；OpenRouter Top 20、周处理 15B tokens；新版本 88% 代码由 Aider 自己写（自我迭代示范）。
+- **场景**：喜欢终端交互、想把 AI 当底层引擎嵌入自动化流程、需要 Git 原生体验的开发者。
+
+### [Autonomous Dev Team](https://github.com/zxkane/autonomous-dev-team)
+- **简介**：全自动流水线型方案，多 Agent 协作（调度 + 开发 + 审查），打标签的 Issue 自动一路走到合并 PR。
+- **亮点**：多 Agent 分工（规划/编码/测试/审查）；Git Worktree 隔离支持并行；完整流水线从 Issue 到合并 PR；GitHub Action 驱动。
+- **场景**：想要「Issue → 自动合并」的全自动流水线、希望多 Agent 分工产出高质量 PR 的团队。
+
+### [issue-agent](https://github.com/clover0/issue-agent)
+- **简介**：轻量实用的 Issue 自动解决工具，支持 CLI 与 GitHub Action 两种形态。
+- **亮点**：轻量易上手；Issue 自动解决 + 开 PR；CLI 与 GitHub Action 双模式。
+- **场景**：想快速给现有仓库挂一个「Issue 自动修复」机器人、不想上重型平台的开发者。
+
+### [Phoenix](https://github.com/kkipngenokoech/phoenix)
+- **简介**：多 Agent 全自动流水线（规划、复现、编码、测试、PR），带安全检查与 webhook 状态机，学术 + 工程结合。
+- **亮点**：多 Agent 覆盖完整闭环；内置安全检查；webhook 状态机驱动流程。
+- **场景**：研究多 Agent 自驱流水线设计、需要安全检查机制的开发者。
+
+### [Sweep AI](https://github.com/sweepai/sweep)
+- **简介**：早期「Issue → PR」开拓者，社区仍在维护。
+- **亮点**：最早一批做 Issue 到 PR 自动化的方案；社区持续维护。
+- **场景**：了解 Issue → PR 自动化演进历史、评估早期方案设计的参考。
+
+### [Qwen-Agent](https://github.com/QwenLM/Qwen-Agent)
+- **简介**：千问官方 Agent 框架，支持工具调用、MCP、RAG、代码解释器，是造轮子的积木。
+- **亮点**：官方维护，与千问模型深度适配；工具调用/MCP/RAG/代码解释器齐全；再包一层「GitHub Issue 拉取 + 自动执行」即可复刻 Qwen Code。
+- **场景**：想自己造自驱开发轮子、需要 Agent 框架做底座、用千问模型的开发者。
+
 ## 学习资源
 
 *（暂无记录，待收录）*
