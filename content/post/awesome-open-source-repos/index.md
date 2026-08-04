@@ -57,6 +57,11 @@ tags:
 - **亮点**：Agent 状态感知（blocked/working/done/idle 四色信号，侧边栏按 workspace 汇总）；workspace/tab/pane 三层组织；detach/reattach 持久化（关掉笔记本 Agent 继续跑，可从手机/SSH 重连）；Socket API + CLI 让 Agent 也能编排 Agent；跨平台（macOS/Linux/Windows）；~10MB 单二进制无 Electron。
 - **场景**：多 Agent 并行开发、SSH 远程跑 Agent、需要会话持久化和跨设备重连、偏好纯终端工作流的开发者。
 
+### [qm](https://github.com/yc-software/qm)
+- **简介**：面向团队/公司的 multiplayer agent harness，在 Slack 和 Web 上运行。每个员工有独立隔离的工作区，又能在频道、群消息、项目里与 agent 协作，定位是创业公司的共享 AI 工作助手。
+- **亮点**：个人与共享双层 scope（每人/每房间独立 memory、文件、keychain、权限、crons、web apps、沙箱）；Slack 与 Web 同一身份贯通；管理员可控 org 级配置和安全策略；支持 Pi/OpenCode/Codex/Claude Code 多种 harness 与模型切换，不绑单一厂商；Skills 按作用域拥有、可授权共享、支持从 git 仓库导入 skill packs；三档安全策略（Strict/Auto/Dangerous）+ 预声明命令策略防破坏性操作；部署在自己云账户，核心与定制分离便于上游同步。
+- **场景**：想给整个团队部署共享 AI 助手、希望员工既独立又协作使用 agent、需要 org 级安全管控和审计、想用 Slack 作为 agent 入口的创业公司或团队。
+
 ## 学习资源
 
 *（暂无记录，待收录）*
