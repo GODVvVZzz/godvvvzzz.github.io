@@ -31,3 +31,6 @@ jsconfig.json
 # Hugo 模块缓存
 go.sum
 go.mod
+
+# 本地工具二进制（Hugo 等持久备份，避免重复下载）
+.tools/
