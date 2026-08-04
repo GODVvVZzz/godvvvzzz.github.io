@@ -42,7 +42,10 @@ tags:
 
 ## AI 与大模型
 
-*（暂无记录，待收录）*
+### [Yoda](https://github.com/lovstudio/yoda)
+- **简介**：把 Claude Code、Codex、Gemini 等 31 种编码 agent 客户端收进同一个工作区的桌面应用，本质是 agent 与真实世界之间的"harness"层（进程、会话、Skills、Hooks、Memory、上下文）。
+- **亮点**：统一编排多客户端，按任务挑选、并行开工、互相 review；Linear/GitHub/Jira 工单直接进会话，CI/CD 状态挨着 diff；支持主分支直跑（快）和 worktree 隔离（稳）两种模式；把 Skills/Hooks/Memory/上下文完整摊开可查可覆写，agent 不再是黑盒。
+- **场景**：同时用多个 AI coding agent、想做对比或互相 review、需要管理 agent 的 Skills/Memory 行为、希望工单与代码改动联动的开发者。
 
 ## 学习资源
 
@@ -56,4 +59,4 @@ tags:
 
 > **收录标准**：实际用过觉得好用，或设计思路值得学习的开源项目。
 >
-> 最后更新：2026-07-30
+> 最后更新：2026-07-31
