@@ -34,7 +34,10 @@ tags:
 
 ## 工具与效率
 
-*（暂无记录，待收录）*
+### [Kaneo](https://github.com/usekaneo/kaneo)
+- **简介**：开源、自托管的极简项目管理平台（MIT License），slogan 是 "All you need. Nothing you don't."——只保留真正有用的功能，砍掉花哨的「dashboard theater」，定位是 Jira/Trello/Linear 的极简开源替代品。
+- **亮点**：看板 + 列表双视图同一数据源（状态/优先级/标签同步）；原生 GitHub Issues 集成；Docker/drim CLI/Helm Chart 多种自托管部署方式，数据完全自有；内置 MCP Server（`/api/mcp` 端点 + npm `@kaneo/mcp` 包），Claude/Cursor 等 AI 工具可直接管理任务、项目、标签；隐私优先，极简分析透明架构；同时提供 Cloud 托管版。
+- **场景**：受不了 Jira/Linear 臃肿、想要「极简但够用」项目管理工具的团队；需要自托管、数据完全自控；想用 AI 直接管理项目任务（通过 MCP）；个人或小团队做轻量任务追踪。
 
 ## DevOps 与部署
 
