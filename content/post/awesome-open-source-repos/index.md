@@ -62,6 +62,11 @@ tags:
 - **亮点**：个人与共享双层 scope（每人/每房间独立 memory、文件、keychain、权限、crons、web apps、沙箱）；Slack 与 Web 同一身份贯通；管理员可控 org 级配置和安全策略；支持 Pi/OpenCode/Codex/Claude Code 多种 harness 与模型切换，不绑单一厂商；Skills 按作用域拥有、可授权共享、支持从 git 仓库导入 skill packs；三档安全策略（Strict/Auto/Dangerous）+ 预声明命令策略防破坏性操作；部署在自己云账户，核心与定制分离便于上游同步。
 - **场景**：想给整个团队部署共享 AI 助手、希望员工既独立又协作使用 agent、需要 org 级安全管控和审计、想用 Slack 作为 agent 入口的创业公司或团队。
 
+### [AionUi](https://github.com/iOfficeAI/AionUi)
+- **简介**：免费开源的 AI Agent 协作桌面应用（Apache-2.0），把散落在终端里的命令行 AI 工具（CLI Agent）统一收纳到一个图形界面里，定位是「AI Cowork 协同办公平台」。
+- **亮点**：内置 Agent 引擎零配置开箱即用（粘贴任意 API Key 即可干活）；自动检测本机 Claude Code/Codex/Qwen Code/Gemini CLI 等 18+ CLI Agent 并统一界面并行协作；21 个专业助手（PPT/Word/Excel/论文/UI/数据看板）即点即用；Team Mode 多 Agent 分工；支持 30+ 模型平台；WebUI + Telegram/飞书/钉钉/微信 远程访问；Cron 定时任务 7×24 无人值守；10+ 格式即时预览编辑；数据本地 SQLite 存储安全可控。
+- **场景**：重度使用多个 Code Agent 想统一管理、想让多个 AI 协作而非轮流问、需要定时自动化和远程访问、偏好图形界面而非终端的用户。
+
 ## AI 自驱开发
 
 > 这类工具能独立走完「软件开发闭环」：接收 Issue → 理解代码库 → 改代码 → 跑测试 → 开 PR → 处理反馈。区别于 Copilot/Cursor 这类「人主导、AI 辅助」的编程助手，自驱机器人是「AI 主导、人类兜底」。
@@ -123,4 +128,4 @@ tags:
 
 > **收录标准**：实际用过觉得好用，或设计思路值得学习的开源项目。
 >
-> 最后更新：2026-08-04
+> 最后更新：2026-08-07
