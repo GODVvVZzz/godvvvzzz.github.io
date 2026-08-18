@@ -1,7 +1,7 @@
 ---
 title: "OpenClaw 使用技巧大全 - 持续更新"
 date: 2026-03-10T02:35:00+08:00
-draft: false
+draft: true
 tags: ["OpenClaw", "AI助手", "使用技巧", "教程", "配置"]
 categories: ["工具"]
 description: "持续收集 OpenClaw 各种使用技巧、配置方法、实战场景，一站式手册"

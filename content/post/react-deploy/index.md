@@ -2,6 +2,7 @@
 title: "React Deploy"
 description: 
 date: 2025-02-23T00:54:07+08:00
+draft: true
 image: 
 math: 
 license: 

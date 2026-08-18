@@ -4,6 +4,7 @@ description: "用 AI 写文章、自动发布到 GitHub Pages，零运维的博�
 slug: openclaw-hugo-blog-workflow
 date: 2026-03-11T15:50:00+08:00
 lastmod: 2026-03-11T16:39:00+08:00
+draft: true
 comments: true
 categories:
     - 技术笔记

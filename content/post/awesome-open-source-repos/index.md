@@ -3,6 +3,7 @@ title: "开源仓库收藏夹"
 description: "持续更新的开源仓库收藏，按分类记录好用的开源项目：简介、亮点、使用场景"
 slug: awesome-open-source-repos
 date: 2026-07-30T00:00:00+08:00
+draft: true
 comments: true
 categories:
     - 资源收藏

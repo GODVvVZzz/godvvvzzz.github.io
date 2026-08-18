@@ -19,7 +19,7 @@ SortBy              = "default"
 
 [sidebar]
     emoji    = "🍥"
-    subtitle = "悟已往之不谏，知来者之可追。"
+    subtitle = "后端系统、可靠性与 Agent 基础设施"
     avatar   = "img/avatar.jpeg"
 
 [article]

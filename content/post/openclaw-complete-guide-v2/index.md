@@ -1,7 +1,7 @@
 ---
 title: "OpenClaw 完全指南：满权限配置与浏览器自动化"
 date: 2026-03-08T02:00:00+08:00
-draft: false
+draft: true
 tags: ["OpenClaw", "AI工具", "浏览器自动化", "权限配置", "教程"]
 categories: ["技术"]
 description: "详细介绍 OpenClaw 的满权限配置和浏览器自动化操作，包含安装步骤、权限放开、Chrome扩展配置等完整教程"

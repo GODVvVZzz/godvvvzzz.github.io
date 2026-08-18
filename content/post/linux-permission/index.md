@@ -2,6 +2,7 @@
 title: "Linux Permission"
 description: 从一次部署react项目中学习Linux权限设置
 date: 2025-02-24T19:14:51+08:00
+draft: true
 image: 
 math: 
 license:

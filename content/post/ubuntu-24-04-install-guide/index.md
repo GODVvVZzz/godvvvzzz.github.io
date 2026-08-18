@@ -3,6 +3,7 @@ title: "Ubuntu 24.04 安装完整指南（HP 暗影精灵3）"
 description: "从下载镜像到安装完成的完整记录，下次照着装就行"
 slug: ubuntu-24-04-install-guide
 date: 2026-03-11T02:35:00+08:00
+draft: true
 comments: true
 categories:
     - 技术笔记

@@ -3,6 +3,7 @@ title: "Go Study Plan"
 description: 
 slug: go-study-plan
 date: 2025-06-27T15:01:17+08:00
+draft: true
 comments: true
 categories:
     - 计划
@@ -122,4 +123,3 @@ build:
 [Go语言圣经](https://gopl-zh.github.io/)
 
 ### 低代码
-
