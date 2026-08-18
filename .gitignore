@@ -1,36 +1,23 @@
-# Hugo 缓存目录
-.cache/
-hugo_stats.json
-resources/
-
-# 构建输出目录
+# Hugo build output and generated metadata
 public/
+resources/
+.hugo_build.lock
+assets/jsconfig.json
+hugo_stats.json
 
-# Node.js 和前端工具生成的文件（如适用）
+# Local caches and dependencies
+.cache/
+.tools/
 node_modules/
-dist/
 
-# 临时文件和日志
-*.log
-*.lock
+# Editor and operating-system files
+.idea/
 .DS_Store
 Thumbs.db
-*.tmp
-*.bak
-
-# TypeScript 或编辑器相关配置文件
-tsconfig.json
-jsconfig.json
-
-# 操作系统或编辑器生成的文件
-.idea/
-.vscode/
 *.swp
 *~
 
-# Hugo 模块缓存
-go.sum
-go.mod
-
-# 本地工具二进制（Hugo 等持久备份，避免重复下载）
-.tools/
+# Temporary files and logs
+*.log
+*.tmp
+*.bak

@@ -18,6 +18,7 @@ SortBy              = "default"
     lastUpdated = ":date_full"
 
 [sidebar]
+    compact  = false
     emoji    = "🍥"
     subtitle = "悟已往之不谏，知来者之可追。"
     avatar   = "img/avatar.jpeg"
@@ -25,7 +26,11 @@ SortBy              = "default"
 [article]
     headingAnchor = false
     math          = false
+    toc           = true
     readingTime   = true
+
+    [article.list]
+        showTags = true
 
     [article.license]
         enabled = true
