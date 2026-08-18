@@ -1,7 +1,7 @@
 ---
 title: "简要记 - 链接速记与摘要"
 date: 2026-03-10T02:18:00+08:00
-draft: false
+draft: true
 tags: ["简要记", "速记", "摘要", "链接收藏"]
 categories: ["工具"]
 description: "统一收集各类链接和文章摘要，按主题分类整理，方便快速查阅"

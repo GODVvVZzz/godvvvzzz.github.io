@@ -1,6 +1,7 @@
 ---
 title: "前后端域名使用探讨"
 description: 关于什么时候使用内网域名和外网域名
+draft: true
 date: 2025-02-27T00:49:52+08:00
 image: 
 math: 
