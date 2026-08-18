@@ -2,6 +2,7 @@
 title: "OpenClaw + Hugo + GitHub Actions：一套全自动的博客工作流"
 description: "用 AI 写文章、自动发布到 GitHub Pages，零运维的博客搭建全流程"
 slug: openclaw-hugo-blog-workflow
+draft: true
 date: 2026-03-11T15:50:00+08:00
 lastmod: 2026-03-11T16:39:00+08:00
 comments: true

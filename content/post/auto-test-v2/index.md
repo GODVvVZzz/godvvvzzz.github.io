@@ -1,7 +1,7 @@
 ---
 title: "自动化博客测试 V2"
 date: 2026-03-07T20:45:00+08:00
-draft: false
+draft: true
 tags: ["自动化", "测试", "hugo"]
 categories: ["技术"]
 description: "这是一篇由 OpenClaw 自动生成的测试文章 V2"

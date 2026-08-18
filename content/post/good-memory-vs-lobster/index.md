@@ -2,6 +2,7 @@
 title: "好记性不如养龙虾：AI 时代的笔记进化论"
 description: "从'好记性不如烂笔头'到'好记性不如养龙虾'——AI 时代，笔记方式需要进化"
 slug: good-memory-vs-lobster
+draft: true
 date: 2026-03-11T18:46:00+08:00
 comments: true
 categories:
