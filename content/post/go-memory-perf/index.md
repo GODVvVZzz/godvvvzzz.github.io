@@ -215,6 +215,17 @@ export GODEBUG=madvdontneed=1
 | 优化前 | 100MB        | 3.2GB        | Go 未归还空闲内存   |
 | 优化后 | 100MB        | 500MB        | Go 主动释放空闲内存 |
 
+把表格数据画成图后，`pprof` 堆占用基本不变，而 RSS 的差距会更加直观。柱形表示 `pprof` 堆占用，折线表示 `top` 观察到的 RSS：
+
+```mermaid
+xychart-beta
+    title "优化前后内存对比（MB）"
+    x-axis ["优化前", "优化后"]
+    y-axis "内存 / MB" 0 --> 3500
+    bar [100, 100]
+    line [3200, 500]
+```
+
 效果立竿见影。
 
 ------

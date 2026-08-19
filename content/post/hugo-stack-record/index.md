@@ -18,6 +18,20 @@ https://github.com/CaiJimmy/hugo-theme-stack-starter
 
 这是一个为 **Hugo Stack** 主题设计的快速上手模板，使用了 **Hugo 模块** 来加载主题。它提供了基础的主题结构和配置，同时配置了 **GitHub Actions**，可以自动将网站部署到 GitHub Pages。还包含一个每天自动更新主题的定时任务（cron job）。
 
+从仓库初始化到自动发布，大致会经历下面这条 Git 历史：
+
+```mermaid
+gitGraph LR:
+    commit id: "初始化 Hugo"
+    commit id: "配置 Stack"
+    commit id: "撰写 Markdown"
+    commit id: "本地预览"
+    commit id: "推送 master" tag: "Actions"
+    branch gh-pages
+    checkout gh-pages
+    commit id: "发布静态站点" tag: "Pages"
+```
+
 ### 创建 GitHub 仓库
 
 1. 点击 GitHub 上的 **Use this template** 按钮。

@@ -56,6 +56,25 @@ flowchart TD
     LOG -. "注册文件输出" .-> STATE
 ```
 
+把两个 `init` 放到同一条执行时间线上，可以更直观看到“后执行者覆盖前执行者”的过程：
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant Schedule as 初始化调度表
+    participant Logger as logger 包
+    participant Web as web 包
+    participant Logs as 全局日志对象
+
+    Schedule->>Logger: 执行 logger.init()
+    Logger->>Logs: SetLogger(file)
+    Note over Logs: 文件输出已注册
+    Schedule->>Web: 执行 web.init()
+    Web->>Logs: Reset()
+    Web->>Logs: SetLogger(console)
+    Note over Logs: 最终只保留控制台输出
+```
+
 旧版本里，日志包碰巧后执行，文件输出得以保留；升级以后，框架包后执行，把文件输出覆盖了。
 
 ## 为什么改 Go 版本会影响 `init` 顺序
