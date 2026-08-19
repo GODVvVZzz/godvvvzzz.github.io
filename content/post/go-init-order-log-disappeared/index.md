@@ -4,6 +4,7 @@ description: "一次由包初始化顺序变化触发的日志故障：为什么
 slug: go-init-order-log-disappeared
 date: 2026-08-18T00:00:00+08:00
 image: cover.webp
+weight: 1
 categories:
     - 问题排查
 tags:
