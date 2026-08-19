@@ -1,3 +1,13 @@
 /*
     You can add your own custom styles here.
 */
+
+/*
+ * Mermaid xychart-beta positions four-digit Y-axis labels slightly outside
+ * its SVG viewBox. Keep that overflow visible so the leading digit is not
+ * clipped by the SVG viewport.
+ */
+.mermaid svg[aria-roledescription="xychart"],
+.mermaid-modal svg[aria-roledescription="xychart"] {
+    overflow: visible;
+}
