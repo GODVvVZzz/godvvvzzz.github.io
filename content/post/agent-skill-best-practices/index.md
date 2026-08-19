@@ -3,6 +3,7 @@ title: "从 skill-creator 看 Agent Skill 的 7 个设计原则"
 description: "从渐进式加载、触发描述、测试方法到脚本与参考资料拆分，整理一套更容易触发、复用和维护的 Agent Skill 设计方法。"
 slug: agent-skill-best-practices
 date: 2026-08-18T00:00:00+08:00
+lastmod: 2026-08-19T12:00:00+08:00
 image: cover.webp
 categories:
     - 技术笔记
@@ -107,7 +108,7 @@ Skill 需要约束，但不能只有 `MUST` 和 `NEVER`。当规则背后没有�
 - `with_skill`：加载 Skill 后执行；
 - `without_skill`：不加载 Skill，作为基线。
 
-![Skill 测试与迭代闭环](testing-loop.png)
+![Skill 测试与迭代闭环](testing-loop.png "同一任务分别运行 with_skill 和 without_skill，并持续比较结果")
 
 比较时可以同时使用两类检查：
 
@@ -137,7 +138,7 @@ Skill 需要约束，但不能只有 `MUST` 和 `NEVER`。当规则背后没有�
 
 测试发现问题后，最直接的反应是再加一条特殊规则。但如果每个失败案例都对应一条补丁，Skill 很快会变成长而脆弱的条件列表。
 
-![过拟合规则与泛化原则的区别](generalization.png)
+![过拟合规则与泛化原则的区别](generalization.png "从失败案例中提炼可泛化原则，而不是堆叠特殊规则")
 
 假设一个图表生成 Skill 在测试中遇到折线重叠。过拟合的修复可能是：
 

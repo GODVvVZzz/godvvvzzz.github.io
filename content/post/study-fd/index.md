@@ -3,6 +3,7 @@ title: FD泄露排查
 description: 记一次线上服务fd泄露排查
 slug: fd-leak-investigation
 date: 2024-12-10 00:00:00+0000
+lastmod: 2026-08-19T12:00:00+08:00
 image: cover-v4.webp
 categories:
     - 问题排查

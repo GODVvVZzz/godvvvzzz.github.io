@@ -3,6 +3,7 @@ title: "Ubuntu 24.04 安装完整指南（HP 暗影精灵3）"
 description: "从下载镜像到安装完成的完整记录，下次照着装就行"
 slug: ubuntu-24-04-install-guide
 date: 2026-03-11T02:35:00+08:00
+lastmod: 2026-08-19T12:00:00+08:00
 image: cover.webp
 comments: true
 categories:
@@ -21,6 +22,14 @@ tags:
 ---
 
 ## 准备工作
+
+### 安装前检查清单
+
+- [ ] 已备份系统盘和机械盘中的重要数据
+- [ ] 已确认固态盘与机械盘的设备名称和容量
+- [ ] 已下载 Ubuntu ISO 并校验 SHA256
+- [ ] 已准备至少 8GB 的 U 盘
+- [ ] 已准备另一台可联网设备，以便安装失败时查阅资料
 
 ### 下载镜像
 
@@ -41,7 +50,7 @@ Get-FileHash "C:\Users\用户名\Downloads\ubuntu-24.04.4-desktop-amd64.iso" -Al
 3a4c9877b483ab46d7c3fbe165a0db275e1ae3cfe56a5657e5a47c2f99a99d1e
 ```
 
-> [!IMPORTANT]
+> [!IMPORTANT] 校验镜像完整性
 > SHA256 必须完全匹配；如果不一致，请重新下载镜像后再次校验。
 
 ### 准备 U 盘
@@ -61,7 +70,7 @@ assign
 exit
 ```
 
-> [!WARNING]
+> [!WARNING] 执行 `clean` 前确认磁盘
 > `select disk` 选错磁盘会清空硬盘数据。执行 `clean` 前，务必根据容量确认目标是 U 盘。
 
 ---
@@ -134,7 +143,7 @@ balenaEtcher 对 Ubuntu 24.04 支持有问题，容易报"源镜像已损坏"。
    - `nvme0n1` — 固态硬盘（SSD，ROTA=0），128GB
    - `sda` — 机械硬盘（HDD，ROTA=1），1TB
 
-   > [!IMPORTANT]
+   > [!IMPORTANT] 系统安装到固态硬盘
    > 本机应将系统安装到固态盘 `nvme0n1`。机械盘 `sda` 留作数据盘，避免系统性能受到影响。
 
    **如何识别哪个是固态：**
@@ -229,7 +238,7 @@ uname -a
 
 系统装到固态后，机械硬盘（sda，1TB）可以当数据盘用：
 
-> [!WARNING]
+> [!WARNING] 格式化会清空分区
 > 下方 `mkfs.ext4` 命令会清空目标分区。执行前请再次通过 `lsblk` 确认 `/dev/sda1` 中没有需要保留的数据。
 
 ```bash

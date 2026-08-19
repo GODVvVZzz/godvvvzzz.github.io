@@ -2,6 +2,7 @@
 title: "记一次go服务内存占用高报警排查记录"
 description: "从 RSS 与 pprof 数据不一致入手，分析 Go runtime、操作系统内存回收策略以及 GODEBUG 调优方法。"
 date: 2025-11-04T00:00:28+08:00
+lastmod: 2026-08-19T12:00:00+08:00
 image: cover.webp
 math: 
 license:
@@ -60,7 +61,7 @@ Go 为了提升性能，会从系统申请一大块内存，然后自己在用�
 
 这就导致了：
 
-> [!NOTE]
+> [!NOTE] RSS 与堆内存不是同一指标
 > Go 服务的堆内存使用量下降，不代表进程 RSS 会同步减少；两者观察的是不同层面的内存状态。
 
 
@@ -70,7 +71,7 @@ Go 为了提升性能，会从系统申请一大块内存，然后自己在用�
 
 ### 查看 runtime.MemStats
 
-```go
+```go {linenos=table,hl_lines=["2-6"]}
 var m runtime.MemStats
 runtime.ReadMemStats(&m)
 fmt.Printf("Alloc = %v MiB", m.Alloc/1024/1024)
@@ -88,7 +89,7 @@ Sys = 2048 MiB
 HeapReleased = 128 MiB
 ```
 
-其中几个关键字段含义如下：
+其中几个关键字段含义如下。字段的精确定义以 `runtime.MemStats` 文档为准：[^memstats]
 
 | 字段                    | 含义                                            |
 | ----------------------- | ----------------------------------------------- |
@@ -162,7 +163,7 @@ Go 的内存回收机制其实有两层：
 Go 默认通过 `MADV_FREE`（Linux 内核特性）标记这些内存区域为“可重用”，但并不真正清除或释放它们。
  操作系统在内存紧张时会自动回收这些区域，但在内存宽裕时，它们依然算作 RSS。
 
-> [!IMPORTANT]
+> [!IMPORTANT] `pprof` 与 `top` 观察层级不同
 > 从 `top` 的角度看，这块内存仍由进程驻留；但从 `pprof` 的角度看，它已经处于可复用状态。
 
 ------
@@ -248,7 +249,9 @@ export GODEBUG=madvdontneed=1
 
 如果用一句话总结：
 
-> pprof 看到的只是“Go 眼中的世界”，而 top 看到的才是“操作系统眼中的世界”。两者的差异，往往藏着性能优化的关键。
+{{< quote author="本文总结" >}}
+`pprof` 看到的是 Go runtime 眼中的内存，`top` 看到的是操作系统眼中的驻留内存；两者的差异，往往藏着性能优化的关键。
+{{< /quote >}}
 
 ------
 
@@ -258,3 +261,5 @@ export GODEBUG=madvdontneed=1
 
 [Golang内存问题排查](https://qingwave.github.io/golang_memory_stats/)
 [踩坑记：go服务内存暴涨](https://segmentfault.com/a/1190000022472459)
+
+[^memstats]: [`runtime.MemStats`](https://pkg.go.dev/runtime#MemStats) 给出了 `Alloc`、`Sys`、`HeapIdle`、`HeapReleased` 等字段的官方定义。

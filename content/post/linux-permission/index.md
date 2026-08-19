@@ -2,6 +2,7 @@
 title: "Linux Permission"
 description: 从一次部署react项目中学习Linux权限设置
 date: 2025-02-24T19:14:51+08:00
+lastmod: 2026-08-19T12:00:00+08:00
 image: cover.webp
 math: 
 license:
@@ -39,7 +40,7 @@ Owner  Group  Others
 
   - `777 = rwxrwxrwx`
 
-> [!WARNING]
+> [!WARNING] `chmod 777` 不是通用解法
 > 不要把 `chmod 777` 当作通用解法。它会向所有用户开放读、写和执行权限，应先定位权限链，再只授予 Nginx 实际需要的权限。
 
 ## Nginx 权限需求分析

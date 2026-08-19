@@ -3,6 +3,7 @@ title: "升级 Go 1.24 后，我的日志凭空消失了"
 description: "一次由包初始化顺序变化触发的日志故障：为什么升级工具链后，一行业务代码没改，文件日志却不再写入。"
 slug: go-init-order-log-disappeared
 date: 2026-08-18T00:00:00+08:00
+lastmod: 2026-08-19T12:00:00+08:00
 image: cover.webp
 weight: 1
 categories:
@@ -19,14 +20,14 @@ comments: true
 
 业务代码一行没改，配置文件没有变化，日志目录权限也正常。最后发现，真正改变的不是日志组件，而是两个包的 `init` 谁先执行。
 
-> [!IMPORTANT]
+> [!IMPORTANT] 不要依赖隐式初始化顺序
 > 依赖不同包之间的隐式初始化先后关系，本质上是在依赖实现细节。它可能长期表现稳定，却不属于业务代码可以依赖的契约。
 
 ## 现象：升级以后文件日志不再生成
 
 服务使用 Beego 的全局日志对象。内部的日志封装包在 `init` 中注册文件输出：
 
-```go
+```go {linenos=table,hl_lines=[4]}
 package logger
 
 func init() {
@@ -36,7 +37,7 @@ func init() {
 
 另一个 Web 框架包也会在自己的 `init` 中重置同一个全局日志对象：
 
-```go
+```go {linenos=table,hl_lines=["4-5"]}
 package web
 
 func init() {
@@ -68,7 +69,7 @@ flowchart TD
 
 在这次故障使用的旧工具链中，我们观察到 `main.go` 里的 import 书写顺序会影响最后结果。但这并不是 Go 语言规范承诺的行为，只是当时实现产生的可观察结果。
 
-Go 1.21 对初始化顺序的定义更精确：当多个包同时满足初始化条件时，按导入路径的词法顺序选择。升级到新工具链后，原来碰巧成立的顺序随之改变。
+Go 1.21 对初始化顺序的定义更精确：当多个包同时满足初始化条件时，按导入路径的词法顺序选择。升级到新工具链后，原来碰巧成立的顺序随之改变。[^go-init-order]
 
 例如下面两个路径：
 
@@ -79,7 +80,7 @@ github.com/example/framework/web
 
 按词法顺序，`corp...` 先于 `github...`。于是日志包先注册文件输出，框架包随后重置日志，最终只剩控制台输出。
 
-> [!NOTE]
+> [!NOTE] 工具链暴露了隐藏依赖
 > 这里不是 Go “随机”执行了 `init`，而是程序曾经依赖一个没有被语言契约保证的顺序。工具链升级只是把这个隐藏依赖暴露了出来。
 
 ## 从源码看：初始化顺序是如何生成的
@@ -126,7 +127,7 @@ relocation 通常用于告诉链接器“某个位置引用了另一个符号”
 
 Go 1.20 的 [`runtime.doInit`](https://github.com/golang/go/blob/go1.20/src/runtime/proc.go#L6471) 接收一棵 task 依赖树。它的核心逻辑可以概括为：
 
-```go
+```go {linenos=table,hl_lines=["2-6"]}
 func doInit(task *initTask) {
     for _, dependency := range task.dependencies {
         doInit(dependency)
@@ -191,7 +192,7 @@ ready:
 
 Go 1.24 的 [`initTask`](https://github.com/golang/go/blob/go1.24.0/src/runtime/proc.go#L7296) 已经没有 `ndeps` 和依赖指针，只保留状态、函数数量及函数入口。运行时拿到的是链接器排好的 task 切片：
 
-```go
+```go {linenos=table,hl_lines=["2-4"]}
 func doInit(tasks []*initTask) {
     for _, task := range tasks {
         doInit1(task)
@@ -209,7 +210,7 @@ func doInit(tasks []*initTask) {
 
 **如何在自己的程序里验证**
 
-可以用 `inittrace` 查看二进制实际执行的包初始化顺序：
+可以用 `inittrace` 查看二进制实际执行的包初始化顺序。该调试开关由 Go runtime 的 `GODEBUG` 机制提供：[^inittrace]
 
 ```bash
 GODEBUG=inittrace=1 ./your-program 2>&1 | less
@@ -243,7 +244,7 @@ GODEBUG=inittrace=1 ./your-program 2>&1 | less
 
 在 `main` 启动流程中，等所有包初始化完成后再次设置日志：
 
-```go
+```go {linenos=table,hl_lines=[2]}
 func main() {
     logger.Init()
     run()
@@ -262,7 +263,7 @@ func main() {
 
 日志包提供显式的 `Init`：
 
-```go
+```go {linenos=table,hl_lines=["6-10"]}
 package logger
 
 import "github.com/beego/beego/v2/core/logs"
@@ -278,7 +279,7 @@ func Init() error {
 
 入口函数在框架初始化完成后调用它，并处理错误：
 
-```go
+```go {linenos=table,hl_lines=["2-4"]}
 func main() {
     if err := logger.Init(); err != nil {
         panic(err)
@@ -343,3 +344,6 @@ import _ "github.com/example/framework/web"
 - [Go 1.24 链接器生成初始化调度表的实现](https://github.com/golang/go/blob/go1.24.0/src/cmd/link/internal/ld/inittask.go)
 - [Go 1.24 `lexHeap` 实现](https://github.com/golang/go/blob/go1.24.0/src/cmd/link/internal/ld/heap.go#L59)
 - [Go 1.24 运行时执行初始化任务的实现](https://github.com/golang/go/blob/go1.24.0/src/runtime/proc.go#L7296)
+
+[^go-init-order]: Go 1.21 的 [Release Notes](https://go.dev/doc/go1.21) 记录了初始化顺序定义的调整；完整规则见 [Go 语言规范的 Package initialization](https://go.dev/ref/spec#Package_initialization)，相关讨论见 [issue #57411](https://github.com/golang/go/issues/57411)。
+[^inittrace]: `inittrace` 的输出字段和使用方式见 Go runtime 的 [环境变量文档](https://pkg.go.dev/runtime#hdr-Environment_Variables)。

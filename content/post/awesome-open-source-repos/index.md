@@ -3,6 +3,7 @@ title: "开源仓库收藏夹"
 description: "持续更新的开源仓库收藏，按分类记录好用的开源项目：简介、亮点、使用场景"
 slug: awesome-open-source-repos
 date: 2026-07-30T00:00:00+08:00
+lastmod: 2026-08-19T12:00:00+08:00
 image: cover.webp
 comments: true
 categories:
@@ -148,4 +149,4 @@ tags:
 
 > **收录标准**：实际用过觉得好用，或设计思路值得学习的开源项目。
 >
-> 最后更新：2026-08-07
+> 最后更新：2026-08-19
