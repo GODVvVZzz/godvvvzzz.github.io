@@ -2,7 +2,7 @@
 title: "Linux Permission"
 description: 从一次部署react项目中学习Linux权限设置
 date: 2025-02-24T19:14:51+08:00
-image: 
+image: cover.webp
 math: 
 license:
 comments: true
@@ -13,7 +13,7 @@ tags:
     - linux
 ---
 
-## Linux 文件权限基础 
+## Linux 文件权限基础
 
 1. **权限三元组** 
 
@@ -37,9 +37,12 @@ Owner  Group  Others
 
   - `644 = rw-r--r--`
 
-  - `777 = rwxrwxrwx（危险！）`
+  - `777 = rwxrwxrwx`
 
-## Nginx 权限需求分析 
+> [!WARNING]
+> 不要把 `chmod 777` 当作通用解法。它会向所有用户开放读、写和执行权限，应先定位权限链，再只授予 Nginx 实际需要的权限。
+
+## Nginx 权限需求分析
 
 1. **Nginx 运行身份** 
 默认以 `www-data` 用户和组运行（可通过 `ps aux | grep nginx` 确认）。
@@ -55,9 +58,9 @@ Owner  Group  Others
 /home/ubuntu/work/react-todo-demo/dist/
 ```
 
-## 分步权限配置指南 
+## 分步权限配置指南
 
-### 步骤 1：检查当前权限 
+### 检查当前权限
 
 - 查看完整路径权限链（关键！）
 
@@ -80,7 +83,7 @@ drwxrwxrwx www-data www-data dist
 -rwxrwxrwx www-data www-data index.html
 ```
 
-### 步骤 2：设置父目录权限 
+### 设置父目录权限
 
 - 开放父目录的 `x` 权限（允许进入目录）
 
@@ -104,7 +107,7 @@ namei -l /home/ubuntu/work/react-todo-demo/dist/index.html | grep ubuntu
 drwx--x--x
 ```
 
-### 步骤 3：设置项目目录权限 
+### 设置项目目录权限
 
 - 进入项目目录
 
@@ -140,7 +143,7 @@ drwxr-xr-x 目录
 -rw-r--r-- 文件
 ```
 
-### 步骤 4：设置所有权（推荐方案） 
+### 设置所有权（推荐方案）
 
 - 将目录组改为 `www-data`
 
@@ -161,9 +164,9 @@ sudo chmod -R g+w dist/
 
   - `-rw-rw-r-- 文件（owner:ubuntu, group:www-data）`
 
-## 安全增强配置 
+## 安全增强配置
 
-### 方案 A：严格模式（推荐） 
+### 严格模式（推荐）
 
 - 父目录权限（仅允许 ubuntu 用户和组访问）
 
@@ -188,7 +191,7 @@ sudo chmod -R 750 /home/ubuntu/work/react-todo-demo/dist
 sudo chown -R ubuntu:ubuntu /home/ubuntu/work/react-todo-demo/dist
 ```
 
-### 方案 B：宽松模式（快速修复） 
+### 宽松模式（快速修复）
 
 - 宽松权限配置
 
@@ -198,7 +201,7 @@ sudo chmod -R 755 /home/ubuntu/work/react-todo-demo
 sudo chown -R ubuntu:www-data /home/ubuntu/work/react-todo-demo
 ```
 
-## SELinux/AppArmor 处理 
+## SELinux/AppArmor 处理
 
 如果系统启用了强制访问控制：
 
@@ -218,9 +221,9 @@ sudo semanage fcontext -a -t httpd_sys_content_t "/home/ubuntu/work/react-todo-d
 sudo restorecon -Rv /home/ubuntu/work/react-todo-demo/dist
 ```
 
-## 验证配置 
+## 验证配置
 
-### 模拟 Nginx 访问 
+### 模拟 Nginx 访问
 
 - 切换到 `www-data` 用户
 
@@ -236,14 +239,14 @@ cat /home/ubuntu/work/react-todo-demo/dist/index.html
 exit
 ```
 
-### 检查 Nginx 错误日志 
+### 检查 Nginx 错误日志
 
 
 ```bash
 sudo tail -f /var/log/nginx/error.log
 ```
 
-### 最佳实践总结 
+## 最佳实践总结
 | 对象              | 推荐权限 | 所有权          | 说明                    |
 | ----------------- | -------- | --------------- | ----------------------- |
 | 项目父目录        | 755      | ubuntu:ubuntu   | 确保 www-data 有 x 权限 |

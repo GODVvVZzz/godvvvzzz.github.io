@@ -1,8 +1,9 @@
 ---
 title: "Notebook Record"
-description: 
+description: "整理 Git、Linux、Vim、Nginx、Go 部署和 MySQL 等日常开发命令与排障片段。"
 slug: notebook-record
 date: 2025-02-24T15:01:17+08:00
+image: cover.webp
 comments: true
 categories:
     - 随记
@@ -175,4 +176,3 @@ WHERE
 ```bash
 
 ```
-

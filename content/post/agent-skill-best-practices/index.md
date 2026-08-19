@@ -3,6 +3,7 @@ title: "从 skill-creator 看 Agent Skill 的 7 个设计原则"
 description: "从渐进式加载、触发描述、测试方法到脚本与参考资料拆分，整理一套更容易触发、复用和维护的 Agent Skill 设计方法。"
 slug: agent-skill-best-practices
 date: 2026-08-18T00:00:00+08:00
+image: cover.webp
 categories:
     - 技术笔记
 tags:

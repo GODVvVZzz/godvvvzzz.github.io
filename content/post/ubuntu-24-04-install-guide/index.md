@@ -3,6 +3,7 @@ title: "Ubuntu 24.04 安装完整指南（HP 暗影精灵3）"
 description: "从下载镜像到安装完成的完整记录，下次照着装就行"
 slug: ubuntu-24-04-install-guide
 date: 2026-03-11T02:35:00+08:00
+image: cover.webp
 comments: true
 categories:
     - 技术笔记
@@ -19,15 +20,15 @@ tags:
 
 ---
 
-## 一、准备工作
+## 准备工作
 
-### 1. 下载镜像
+### 下载镜像
 
 - 官网：https://ubuntu.com/download/desktop
 - 版本：Ubuntu 24.04.4 LTS (Noble Numbat)
 - 文件：`ubuntu-24.04.4-desktop-amd64.iso`（约 5.7GB）
 
-### 2. 验证镜像完整性
+### 验证镜像完整性
 
 下载后务必校验 SHA256，确保文件没损坏：
 
@@ -40,9 +41,10 @@ Get-FileHash "C:\Users\用户名\Downloads\ubuntu-24.04.4-desktop-amd64.iso" -Al
 3a4c9877b483ab46d7c3fbe165a0db275e1ae3cfe56a5657e5a47c2f99a99d1e
 ```
 
-**必须完全匹配，否则重新下载。**
+> [!IMPORTANT]
+> SHA256 必须完全匹配；如果不一致，请重新下载镜像后再次校验。
 
-### 3. 准备 U 盘
+### 准备 U 盘
 
 - 容量：至少 8GB（推荐 16GB+）
 - 先清空 U 盘（用 diskpart）
@@ -59,11 +61,12 @@ assign
 exit
 ```
 
-**⚠️ 选错磁盘会清掉硬盘数据，务必确认好。**
+> [!WARNING]
+> `select disk` 选错磁盘会清空硬盘数据。执行 `clean` 前，务必根据容量确认目标是 U 盘。
 
 ---
 
-## 二、烧录镜像
+## 烧录镜像
 
 ### 推荐工具：Rufus
 
@@ -82,7 +85,7 @@ balenaEtcher 对 Ubuntu 24.04 支持有问题，容易报"源镜像已损坏"。
 
 ---
 
-## 三、BIOS 设置
+## BIOS 设置
 
 ### 进入 BIOS（HP 暗影精灵3）
 
@@ -102,7 +105,7 @@ balenaEtcher 对 Ubuntu 24.04 支持有问题，容易报"源镜像已损坏"。
 
 ---
 
-## 四、安装 Ubuntu
+## 安装 Ubuntu
 
 ### 启动到安装界面
 
@@ -125,13 +128,14 @@ balenaEtcher 对 Ubuntu 24.04 支持有问题，容易报"源镜像已损坏"。
    - 如果是全新安装：选择"擦除磁盘并安装 Ubuntu"
    - 如果要双系统：选择"其他选项"，手动分区
 
-6. **⚠️ 重要：选择安装到固态硬盘（SSD）**
+6. **选择安装到固态硬盘（SSD）**
 
    HP 暗影精灵3 有两个硬盘：
    - `nvme0n1` — 固态硬盘（SSD，ROTA=0），128GB
    - `sda` — 机械硬盘（HDD，ROTA=1），1TB
 
-   **必须把系统装到固态盘（`nvme0n1`）上！** 性能差距巨大，开机快、响应快。
+   > [!IMPORTANT]
+   > 本机应将系统安装到固态盘 `nvme0n1`。机械盘 `sda` 留作数据盘，避免系统性能受到影响。
 
    **如何识别哪个是固态：**
    - 在终端运行：`lsblk -d -o NAME,ROTA`
@@ -166,7 +170,7 @@ balenaEtcher 对 Ubuntu 24.04 支持有问题，容易报"源镜像已损坏"。
 
 ---
 
-## 五、重启后
+## 重启后
 
 ### 拔 U 盘
 
@@ -191,39 +195,42 @@ uname -a
 
 ---
 
-## 六、常见问题
+## 常见问题
 
-### 问题 1：balenaEtcher 报"源镜像已损坏"
+### balenaEtcher 报“源镜像已损坏”
 
 - 原因：balenaEtcher 对大文件支持有问题
 - 解决：换 Rufus
 
-### 问题 2：ISO 校验值不匹配
+### ISO 校验值不匹配
 
 - 原因：下载不完整或传输出错
 - 解决：重新下载
 
-### 问题 3：U 盘烧录后容量变小（只剩 6GB）
+### U 盘烧录后容量变小（只剩 6GB）
 
 - 原因：分区表损坏
 - 解决：用 diskpart clean 清理，再重新格式化
 
-### 问题 4：安装后拔掉 U 盘又进安装界面
+### 安装后拔掉 U 盘又进安装界面
 
 - 原因：GRUB 菜单里选了 Try or Install
 - 解决：选 Ubuntu 或直接拔 U 盘
 
-### 问题 5：进不去 BIOS
+### 进不去 BIOS
 
 - HP 暗影精灵3：反复按 F10，或 ESC + F10
 
 ---
 
-## 七、后续配置
+## 后续配置
 
 ### 配置机械硬盘为数据盘
 
 系统装到固态后，机械硬盘（sda，1TB）可以当数据盘用：
+
+> [!WARNING]
+> 下方 `mkfs.ext4` 命令会清空目标分区。执行前请再次通过 `lsblk` 确认 `/dev/sda1` 中没有需要保留的数据。
 
 ```bash
 # 查看磁盘信息

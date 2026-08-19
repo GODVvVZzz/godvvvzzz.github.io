@@ -3,6 +3,7 @@ title: "升级 Go 1.24 后，我的日志凭空消失了"
 description: "一次由包初始化顺序变化触发的日志故障：为什么升级工具链后，一行业务代码没改，文件日志却不再写入。"
 slug: go-init-order-log-disappeared
 date: 2026-08-18T00:00:00+08:00
+image: cover.webp
 categories:
     - 问题排查
 tags:

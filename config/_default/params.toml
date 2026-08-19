@@ -24,7 +24,7 @@ SortBy              = "default"
     avatar   = "img/avatar.jpeg"
 
 [article]
-    headingAnchor = false
+    headingAnchor = true
     math          = false
     toc           = true
     readingTime   = true
@@ -52,6 +52,17 @@ SortBy              = "default"
 [colorScheme]
     toggle  = true
     default = "auto"
+
+[imageProcessing]
+    autoOrient = true
+
+[cookies]
+    enabled      = true
+    showSettings = true
+
+    [cookies.categories]
+        analytics  = true
+        functional = true
 
 ## Comments
 [comments]

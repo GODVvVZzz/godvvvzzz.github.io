@@ -1,9 +1,9 @@
 ---
 title: "记录本博客搭建过程"
-description: 
+description: "记录 Hugo Stack 博客从仓库创建、本地写作到 GitHub Pages 自动部署的搭建与配置过程。"
 slug: hugo-stack-study
 date: 2024-12-11T09:44:53+08:00
-# image: cover.png
+image: cover-v4.webp
 categories:
     - 建站
 tags:
