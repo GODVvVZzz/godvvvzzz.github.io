@@ -6,6 +6,7 @@ image:
 math: 
 license:
 comments: true
+weight: 30
 categories:
     - 随记
 tags:

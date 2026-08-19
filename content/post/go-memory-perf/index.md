@@ -6,6 +6,7 @@ image:
 math: 
 license:
 comments: true
+weight: 10
 ---
 
 ------
@@ -261,4 +262,3 @@ export GODEBUG=madvdontneed=1
 
 [Golang内存问题排查](https://qingwave.github.io/golang_memory_stats/)
 [踩坑记：go服务内存暴涨](https://segmentfault.com/a/1190000022472459)
-

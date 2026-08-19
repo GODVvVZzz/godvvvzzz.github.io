@@ -9,7 +9,6 @@ categories:
 tags:
     - Stack
 comments: true
-weight: 1
 ---
 
 ## Hugo Stack Starter
@@ -180,4 +179,3 @@ jsconfig.json
 go.sum
 go.mod
 ```
-

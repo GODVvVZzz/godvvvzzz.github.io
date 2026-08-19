@@ -9,7 +9,7 @@ categories:
 tags:
     - FD
 comments: true
-weight: 1       # You can add weight to some posts to override the default sorting (date descending)
+weight: 20
 ---
 
 ### 文件描述符（FD）概述
