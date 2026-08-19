@@ -4,6 +4,7 @@ description: "基于 Multica 的公开代码、PR 与评审记录，分析 Go �
 slug: multica-go-backend-invariants
 date: 2026-08-19T22:00:00+08:00
 lastmod: 2026-08-19T22:00:00+08:00
+draft: true
 image: cover.webp
 categories:
     - 技术笔记
