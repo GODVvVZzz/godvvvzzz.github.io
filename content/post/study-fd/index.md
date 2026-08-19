@@ -46,6 +46,6 @@ weight: 20
 xychart-beta
     title "FD 泄漏与修复趋势（示意）"
     x-axis ["启动", "流量上升", "持续调用", "触发告警", "修复后"]
-    y-axis "相对 FD 数量" 0 --> 10
+    y-axis 0 --> 10
     line [1, 3, 6, 10, 2]
 ```

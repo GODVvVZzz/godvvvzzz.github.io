@@ -221,7 +221,7 @@ export GODEBUG=madvdontneed=1
 xychart-beta
     title "优化前后内存对比（MB）"
     x-axis ["优化前", "优化后"]
-    y-axis "内存 / MB" 0 --> 3500
+    y-axis 0 --> 3500
     bar [100, 100]
     line [3200, 500]
 ```
