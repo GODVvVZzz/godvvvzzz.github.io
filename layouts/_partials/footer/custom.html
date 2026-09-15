@@ -1,0 +1,22 @@
+{{- /*
+  Page mascot (vanilla port of nilbuild/page-mascot).
+  Lives only in this override so hugo-theme-stack updates stay conflict-free.
+*/ -}}
+{{- $dirs := resources.Get "mascot/fox-directions.webp" -}}
+{{- $reacts := resources.Get "mascot/fox-reactions.webp" -}}
+{{- $js := resources.Get "mascot/mascot.js" -}}
+{{- if and $dirs $reacts $js -}}
+{{- $dirs = $dirs | resources.Fingerprint "sha256" -}}
+{{- $reacts = $reacts | resources.Fingerprint "sha256" -}}
+{{- $js = $js | resources.Fingerprint "sha256" -}}
+<button
+  type="button"
+  class="page-mascot"
+  data-page-mascot
+  data-directions="{{ $dirs.RelPermalink }}"
+  data-reactions="{{ $reacts.RelPermalink }}"
+  aria-label="戳一下吉祥物"
+>
+</button>
+<script src="{{ $js.RelPermalink }}" defer></script>
+{{- end -}}
