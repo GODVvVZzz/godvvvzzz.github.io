@@ -1,9 +1,9 @@
 ---
 title: "开源仓库收藏夹"
-description: "持续更新的开源仓库导航：当前聚焦 AI Coding Agent 生态——运行时、宿主、评审、协作与上下文记忆。每项一篇详解。"
+description: "持续更新的开源仓库导航：AI Coding Agent 生态（运行时、宿主、评审、协作、记忆）与 Agent Skills。每项一篇详解。"
 slug: awesome-open-source-repos
 date: 2026-07-30T00:00:00+08:00
-lastmod: 2026-09-09T20:15:00+08:00
+lastmod: 2026-09-09T20:20:00+08:00
 image: cover.webp
 comments: true
 categories:
@@ -20,7 +20,7 @@ tags:
 >
 > 详解文统一分类：[开源仓库](/categories/开源仓库/)
 
-当前收录集中在 **AI Coding Agent 生态**：从编码 Agent 本体、终端运行时、桌面宿主，到计划评审、团队协作与上下文记忆。
+当前收录两条线：**AI Coding Agent 生态**（本体、终端运行时、桌面宿主、评审、协作、记忆），以及 **Agent Skills**（让 Agent 产出结构化办公文档等）。
 
 ```mermaid
 flowchart LR
@@ -28,6 +28,7 @@ flowchart LR
     A --> C["怎么审<br/>Plannotator"]
     A --> D["怎么派活<br/>Multica"]
     A --> E["记得什么<br/>OpenViking"]
+    A --> F["怎么做 PPT<br/>pptx-generator"]
 ```
 
 ## 编码 Agent
@@ -65,6 +66,12 @@ flowchart LR
 **[OpenViking](/p/openviking/)** — [volcengine/OpenViking](https://github.com/volcengine/OpenViking)
 
 面向 AI Agent 的上下文数据库。记忆 / 资源 / Skills 统一成 `viking://` 虚拟文件系统；L0/L1/L2 三层按需加载；检索轨迹可观察。火山引擎开源。
+
+## Agent Skills
+
+**[pptx-generator](/p/pptx-generator/)** — [MiniMax-AI/skills · pptx-generator](https://github.com/MiniMax-AI/skills/tree/main/skills/pptx-generator)
+
+给编码 Agent 用的 PPT 技能：PptxGenJS 从零生成、XML 编辑模板、markitdown 读回分析。五类页面 + 强制 theme 契约 + 一页一文件可并行，设计系统写进 references。属 [MiniMax-AI/skills](https://github.com/MiniMax-AI/skills) 官方技能集。
 
 ---
 
