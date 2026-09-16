@@ -1,5 +1,5 @@
 /**
- * Vanilla port of nilbuild/page-mascot (MIT).
+ * Vanilla port of nilbuild/page-mascot (MIT), plus drag-to-reposition.
  * Two 3x3 sheets: pointer angle picks a direction cell; click flashes a reaction.
  */
 (function () {
@@ -34,6 +34,8 @@
   const DIZZY_AFTER = 4
   const DIZZY_WINDOW = 1600
   const DIZZY_END = 1100
+  const DRAG_THRESHOLD = 6
+  const STORAGE_KEY = 'page-mascot-pos'
   const SQUASH = [
     { transform: 'scale(1, 1)', easing: 'ease-in' },
     { transform: 'scale(1.10, 0.86)', offset: 0.18, easing: 'ease-out' },
@@ -54,6 +56,50 @@
 
   function setCell(el, index) {
     el.style.backgroundPosition = cellStyle(index)
+  }
+
+  function clamp(n, min, max) {
+    return Math.min(max, Math.max(min, n))
+  }
+
+  function readPos() {
+    try {
+      const raw = window.localStorage.getItem(STORAGE_KEY)
+      if (!raw) return null
+      const parsed = JSON.parse(raw)
+      if (typeof parsed.left !== 'number' || typeof parsed.top !== 'number') return null
+      return parsed
+    } catch (e) {
+      return null
+    }
+  }
+
+  function writePos(left, top) {
+    try {
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify({ left: left, top: top }))
+    } catch (e) {
+      /* private mode / quota — ignore */
+    }
+  }
+
+  function applyPos(root, left, top) {
+    const w = root.offsetWidth || 140
+    const h = root.offsetHeight || 140
+    const maxL = Math.max(0, window.innerWidth - w)
+    const maxT = Math.max(0, window.innerHeight - h)
+    const l = clamp(left, 0, maxL)
+    const t = clamp(top, 0, maxT)
+    root.style.right = 'auto'
+    root.style.bottom = 'auto'
+    root.style.left = l + 'px'
+    root.style.top = t + 'px'
+    return { left: l, top: t }
+  }
+
+  function restorePos(root) {
+    const saved = readPos()
+    if (!saved) return
+    applyPos(root, saved.left, saved.top)
   }
 
   function mount(root) {
@@ -78,6 +124,7 @@
     squash.appendChild(dirs)
     squash.appendChild(reacts)
     root.appendChild(squash)
+    restorePos(root)
 
     let direction = 'center'
     let reaction = null
@@ -134,12 +181,85 @@
       }
     }
 
-    root.addEventListener('click', boop)
+    // --- drag ---
+    let drag = null
+    let suppressClick = false
 
-    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-      render()
-      return
+    function onPointerDown(event) {
+      if (event.button != null && event.button !== 0) return
+      const box = root.getBoundingClientRect()
+      drag = {
+        id: event.pointerId,
+        startX: event.clientX,
+        startY: event.clientY,
+        originLeft: box.left,
+        originTop: box.top,
+        active: false,
+      }
+      root.setPointerCapture(event.pointerId)
     }
+
+    function onPointerMoveDrag(event) {
+      if (!drag || event.pointerId !== drag.id) return
+      const dx = event.clientX - drag.startX
+      const dy = event.clientY - drag.startY
+      if (!drag.active) {
+        if (Math.hypot(dx, dy) < DRAG_THRESHOLD) return
+        drag.active = true
+        root.classList.add('page-mascot--dragging')
+      }
+      const next = applyPos(root, drag.originLeft + dx, drag.originTop + dy)
+      drag.lastLeft = next.left
+      drag.lastTop = next.top
+      pointer = { x: event.clientX, y: event.clientY }
+      aim()
+    }
+
+    function onPointerUp(event) {
+      if (!drag || event.pointerId !== drag.id) return
+      if (drag.active) {
+        suppressClick = true
+        const left = drag.lastLeft != null ? drag.lastLeft : drag.originLeft
+        const top = drag.lastTop != null ? drag.lastTop : drag.originTop
+        const placed = applyPos(root, left, top)
+        writePos(placed.left, placed.top)
+      }
+      try {
+        root.releasePointerCapture(event.pointerId)
+      } catch (e) {
+        /* already released */
+      }
+      root.classList.remove('page-mascot--dragging')
+      drag = null
+      window.setTimeout(function () {
+        suppressClick = false
+      }, 0)
+    }
+
+    root.addEventListener('pointerdown', onPointerDown)
+    root.addEventListener('pointermove', onPointerMoveDrag)
+    root.addEventListener('pointerup', onPointerUp)
+    root.addEventListener('pointercancel', onPointerUp)
+
+    root.addEventListener('click', function (event) {
+      if (suppressClick) {
+        event.preventDefault()
+        event.stopPropagation()
+        return
+      }
+      boop()
+    })
+
+    window.addEventListener(
+      'resize',
+      function () {
+        const box = root.getBoundingClientRect()
+        if (box.width && box.height) {
+          applyPos(root, box.left, box.top)
+        }
+      },
+      { passive: true },
+    )
 
     let sector = -1
     let pointer = null
@@ -167,12 +287,12 @@
       render()
     }
 
-    function onPointerMove(event) {
+    function onPointerMoveAim(event) {
       pointer = { x: event.clientX, y: event.clientY }
       aim()
     }
 
-    window.addEventListener('pointermove', onPointerMove, { passive: true })
+    window.addEventListener('pointermove', onPointerMoveAim, { passive: true })
     window.addEventListener('scroll', aim, { passive: true })
     render()
   }

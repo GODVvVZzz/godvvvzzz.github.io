@@ -26,9 +26,15 @@
     border: 0;
     background: transparent;
     appearance: none;
-    cursor: pointer;
+    cursor: grab;
     user-select: none;
+    touch-action: none;
     -webkit-tap-highlight-color: transparent;
+}
+
+.page-mascot--dragging {
+    cursor: grabbing;
+    z-index: 60;
 }
 
 .page-mascot__squash {
