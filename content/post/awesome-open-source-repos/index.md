@@ -3,7 +3,7 @@ title: "开源仓库收藏夹"
 description: "持续更新的开源仓库导航：AI Coding Agent 生态（运行时、宿主、评审、协作、记忆）与 Agent Skills。每项一篇详解。"
 slug: awesome-open-source-repos
 date: 2026-07-30T00:00:00+08:00
-lastmod: 2026-09-09T20:20:00+08:00
+lastmod: 2026-09-09T20:30:00+08:00
 image: cover.webp
 comments: true
 categories:
@@ -29,6 +29,7 @@ flowchart LR
     A --> D["怎么派活<br/>Multica"]
     A --> E["记得什么<br/>OpenViking"]
     A --> F["怎么做 PPT<br/>pptx-generator"]
+    A --> G["怎么写现代 Go<br/>go-modern-guidelines"]
 ```
 
 ## 编码 Agent
@@ -72,6 +73,10 @@ flowchart LR
 **[pptx-generator](/p/pptx-generator/)** — [MiniMax-AI/skills · pptx-generator](https://github.com/MiniMax-AI/skills/tree/main/skills/pptx-generator)
 
 给编码 Agent 用的 PPT 技能：PptxGenJS 从零生成、XML 编辑模板、markitdown 读回分析。五类页面 + 强制 theme 契约 + 一页一文件可并行，设计系统写进 references。属 [MiniMax-AI/skills](https://github.com/MiniMax-AI/skills) 官方技能集。
+
+**[go-modern-guidelines](/p/go-modern-guidelines/)** — [JetBrains/go-modern-guidelines](https://github.com/JetBrains/go-modern-guidelines)
+
+JetBrains 官方指南，教编码 Agent 写现代 Go：显式覆盖 Go 1.0–1.27 惯用法，对抗训练滞后与频率偏置；按 `go.mod` 探测版本。Junie / Claude Code / Codex / Cursor / skills.sh 均可装。
 
 ---
 
